@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Email_Automation" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="907,6115" sap2010:WorkflowViewState.IdRef="Email_Automation_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:uas="clr-namespace:UiPath.Activities.System;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:umabh="clr-namespace:UiPath.Mail.Activities.Business.HtmlEditor;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Email_Automation" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1929,7388" sap2010:WorkflowViewState.IdRef="Email_Automation_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:uas="clr-namespace:UiPath.Activities.System;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:umabh="clr-namespace:UiPath.Mail.Activities.Business.HtmlEditor;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="43">
       <x:String>System.Activities</x:String>
@@ -85,7 +85,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Getting the attachments from the mails and calculating the experience in the employee excel sheet" DisplayName="Email Automation" sap:VirtualizedContainerService.HintSize="1939,7182" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Getting the attachments from the mails and calculating the experience in the employee excel sheet" DisplayName="Email Automation" sap:VirtualizedContainerService.HintSize="1939,7323" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:PasswordCredentials" Name="LoginKey" />
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="MailDetails" />
@@ -148,7 +148,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Getting the mail messages from the 30 mail in the inbox folder" DeleteMessages="False" DisplayName="Reading The Mails" Email="[LoginKey.Username]" EnableSSL="True" FilterExpression="From hari.karthik@e5.ai" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="1897,89" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" MailFolder="Inbox" MarkAsRead="True" Messages="[MailDetails]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Port="993" SecureConnection="Auto" SecurePassword="[SecurePassKey]" Server="imap.gmail.com" Top="[MailRead]">
+    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="Getting the mail messages from the 30 mail in the inbox folder" DeleteMessages="False" DisplayName="Reading The Mails" Email="[LoginKey.Username]" EnableSSL="True" FilterExpression="From hari.karthik@e5.ai" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="1897,89" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="Inbox" MarkAsRead="True" Messages="[MailDetails]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Port="993" SecureConnection="Auto" SecurePassword="[SecurePassKey]" Server="imap.gmail.com" Top="[MailRead]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -216,6 +216,7 @@
         <InArgument x:TypeArguments="x:String">Empolyee Details</InArgument>
       </Assign.Value>
     </Assign>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1897,101" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;Checking The File In The Directory&quot;]" />
     <If Condition="[StoredFiles.Length&gt;0]" sap:VirtualizedContainerService.HintSize="1897,1419" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="1452,1251" sap2010:WorkflowViewState.IdRef="Sequence_9">
@@ -465,7 +466,7 @@
         <InArgument x:TypeArguments="s:String[]">[{"mdkaleelahamed@gmail","mohammed.kaleelahamed@gmail.com"}]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Sendind the mail to all recipients " Body="[MailHtmlOutput]" DisplayName="Sending The Mail " Email="[LoginKey.Username]" EnableSSL="True" From="[LoginKey.Username]" sap:VirtualizedContainerService.HintSize="1897,189" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="True" Port="465" SecureConnection="Auto" SecurePassword="[SecurePassKey]" Server="smtp.gmail.com" Subject="Employee Experience Details" To="[String.Join(&quot;;&quot;,MailRecipient)]">
+    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="Sendind the mail to all recipients " Body="[MailHtmlOutput]" DisplayName="Sending The Mail " Email="[LoginKey.Username]" EnableSSL="True" From="[LoginKey.Username]" sap:VirtualizedContainerService.HintSize="1897,189" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="True" Port="465" SecureConnection="Auto" SecurePassword="[SecurePassKey]" Server="smtp.gmail.com" Subject="Employee Experience Details" To="[String.Join(&quot;;&quot;,MailRecipient)]">
       <ui:SendMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
           <InArgument x:TypeArguments="x:String">[FilePath]</InArgument>
