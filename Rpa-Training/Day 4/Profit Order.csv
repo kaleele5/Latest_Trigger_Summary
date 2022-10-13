@@ -1,0 +1,22 @@
+﻿Segment,Country, Product ,Units Sold, Manufacturing Price , Sale Price ,Date,Profit,Profit Percentage
+Small Business,Mexico, Montana ,958,$5.00 ,$300.00 ,1/8/2014,282610,98.33
+Small Business,Mexico, Paseo ,788,$10.00 ,$300.00 ,1/9/2013,228520,96.67
+Enterprise,Canada, Montana ,345,$5.00 ,$125.00 ,1/10/2013,41400,96
+Enterprise,Canada, Montana ,2665.5,$5.00 ,$125.00 ,1/7/2014,319920,96
+Midmarket,Germany, Carretera ,888,$3.00 ,$15.00 ,1/6/2014,10656,80
+Midmarket,France, Carretera ,2178,$3.00 ,$15.00 ,1/6/2014,26136,80
+Midmarket,Mexico, Carretera ,2470,$3.00 ,$15.00 ,1/6/2014,29640,80
+Midmarket,United States of America, Montana ,615,$5.00 ,$15.00 ,1/12/2014,6150,66.67
+Midmarket,Germany, Montana ,921,$5.00 ,$15.00 ,1/3/2014,9210,66.67
+Midmarket,Mexico, Montana ,2470,$5.00 ,$15.00 ,1/6/2014,24700,66.67
+Channel Partners,Germany, Montana ,1545,$5.00 ,$12.00 ,1/6/2014,10815,58.33
+Channel Partners,Canada, Montana ,2518,$5.00 ,$12.00 ,1/6/2014,17626,58.33
+Midmarket,France, Paseo ,549,$10.00 ,$15.00 ,1/9/2013,2745,33.33
+Midmarket,Mexico, Paseo ,974,$10.00 ,$15.00 ,1/2/2014,4870,33.33
+Midmarket,Canada, Paseo ,2152,$10.00 ,$15.00 ,1/12/2013,10760,33.33
+Midmarket,Mexico, Paseo ,2472,$10.00 ,$15.00 ,1/9/2014,12360,33.33
+Channel Partners,Canada, Paseo ,2518,$10.00 ,$12.00 ,1/6/2014,5036,16.67
+Small Business,Canada, VTT ,2001,$250.00 ,$300.00 ,1/2/2014,100050,16.67
+Small Business,France, VTT ,2151,$250.00 ,$300.00 ,1/9/2014,107550,16.67
+Enterprise,France, Velo ,1804,$120.00 ,$125.00 ,1/2/2014,9020,4
+Enterprise,United States of America, Velo ,2821,$120.00 ,$125.00 ,1/8/2014,14105,4
