@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Email_Automation" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1929,7388" sap2010:WorkflowViewState.IdRef="Email_Automation_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:uas="clr-namespace:UiPath.Activities.System;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:umabh="clr-namespace:UiPath.Mail.Activities.Business.HtmlEditor;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Email_Automation" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1154,7533" sap2010:WorkflowViewState.IdRef="Email_Automation_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:uas="clr-namespace:UiPath.Activities.System;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:umabh="clr-namespace:UiPath.Mail.Activities.Business.HtmlEditor;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="43">
       <x:String>System.Activities</x:String>
@@ -47,7 +47,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="35">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -82,10 +82,9 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.Activities.Contracts</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Getting the attachments from the mails and calculating the experience in the employee excel sheet" DisplayName="Email Automation" sap:VirtualizedContainerService.HintSize="1939,7323" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Getting the attachments from the mails and calculating the experience in the employee excel sheet" DisplayName="Email Automation" sap:VirtualizedContainerService.HintSize="1103,7468" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:PasswordCredentials" Name="LoginKey" />
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="MailDetails" />
@@ -106,6 +105,10 @@
       <Variable x:TypeArguments="x:String" Name="MailHtmlOutput" />
       <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="AttachmentsFiles" />
       <Variable x:TypeArguments="s:String[]" Name="StoredFiles" />
+      <Variable x:TypeArguments="x:String" Name="MailSubject" />
+      <Variable x:TypeArguments="x:String" Name="FilterRole" />
+      <Variable x:TypeArguments="sd:DataTable" Name="OutputHtmlBody" />
+      <Variable x:TypeArguments="x:String" Name="HtmlBody" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -113,15 +116,15 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1897,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Getting Excel File From The Mail Process Started&quot;+Environment.NewLine+&quot;Getting The Username And Password From The Credential Manager&quot;]" />
-    <uas:GetUsernamePasswordX OrchestratorCredentialName="{x:Null}" TimeoutInSeconds="{x:Null}" sap2010:Annotation.AnnotationText="Getting the username and password from the credential manager" AutosubmitTimeoutSeconds="0" Credential="[LoginKey]" CredentialName="UiPath: Gmail.com" CredentialsSource="CredentialsManager" DisplayName="Get Username/Password From The Credential Manager" sap:VirtualizedContainerService.HintSize="1897,211" sap2010:WorkflowViewState.IdRef="GetUsernamePasswordX_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1061,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Getting Excel File From The Mail Process Started&quot;+Environment.NewLine+&quot;Getting The Username And Password From The Credential Manager&quot;]" />
+    <uas:GetUsernamePasswordX OrchestratorCredentialName="{x:Null}" TimeoutInSeconds="{x:Null}" sap2010:Annotation.AnnotationText="Getting the username and password from the credential manager" AutosubmitTimeoutSeconds="0" Credential="[LoginKey]" CredentialName="UiPath: Gmail.com" CredentialsSource="CredentialsManager" DisplayName="Get Username/Password From The Credential Manager" sap:VirtualizedContainerService.HintSize="1061,211" sap2010:WorkflowViewState.IdRef="GetUsernamePasswordX_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uas:GetUsernamePasswordX>
-    <Assign sap2010:Annotation.AnnotationText="Converting the string to secure string" sap:VirtualizedContainerService.HintSize="1897,101" sap2010:WorkflowViewState.IdRef="Assign_14">
+    <Assign sap2010:Annotation.AnnotationText="Converting the string to secure string" sap:VirtualizedContainerService.HintSize="1061,101" sap2010:WorkflowViewState.IdRef="Assign_14">
       <Assign.To>
         <OutArgument x:TypeArguments="ss:SecureString">[SecurePassKey]</OutArgument>
       </Assign.To>
@@ -134,8 +137,8 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1897,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Reading The Mails In The Given Mail ID &quot;]" />
-    <Assign sap2010:Annotation.AnnotationText="Number of mail to read " sap:VirtualizedContainerService.HintSize="1897,101" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1061,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Reading The Mails In The Given Mail ID &quot;]" />
+    <Assign sap2010:Annotation.AnnotationText="Number of mail to read " sap:VirtualizedContainerService.HintSize="1061,101" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[MailRead]</OutArgument>
       </Assign.To>
@@ -148,15 +151,15 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="Getting the mail messages from the 30 mail in the inbox folder" DeleteMessages="False" DisplayName="Reading The Mails" Email="[LoginKey.Username]" EnableSSL="True" FilterExpression="From hari.karthik@e5.ai" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="1897,89" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="Inbox" MarkAsRead="True" Messages="[MailDetails]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Port="993" SecureConnection="Auto" SecurePassword="[SecurePassKey]" Server="imap.gmail.com" Top="[MailRead]">
+    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" Password="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="Getting the mail messages from the 30 mail in the inbox folder" DeleteMessages="False" DisplayName="Reading The Mails" Email="[LoginKey.Username]" EnableSSL="True" FilterExpression="From hari.karthik@e5.ai" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="1061,89" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="Inbox" MarkAsRead="True" Messages="[MailDetails]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Port="993" SecureConnection="Auto" SecurePassword="[SecurePassKey]" Server="imap.gmail.com" Top="[MailRead]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetIMAPMailMessages>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1897,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Path Where The Attachment From The Mail&quot;]" />
-    <Assign sap2010:Annotation.AnnotationText="Setting the file path for the mail attachments" sap:VirtualizedContainerService.HintSize="1897,112" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1061,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Path Where The Attachment From The Mail&quot;]" />
+    <Assign sap2010:Annotation.AnnotationText="Setting the file path for the mail attachments" sap:VirtualizedContainerService.HintSize="1061,112" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[AttachmentPath]</OutArgument>
       </Assign.To>
@@ -169,8 +172,8 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1897,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Looping The Mail Message To Get Mail Attachment &quot;]" />
-    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Looping the messages to save the attachment to the folder" DisplayName="For Each- Looping The Mail Messages" sap:VirtualizedContainerService.HintSize="1897,526" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[MailDetails]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1061,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Looping The Mail Message To Get Mail Attachment &quot;]" />
+    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Looping the messages to save the attachment to the folder" DisplayName="For Each- Looping The Mail Messages" sap:VirtualizedContainerService.HintSize="1061,526" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[MailDetails]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="snm:MailMessage">
           <ActivityAction.Argument>
@@ -184,7 +187,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,101" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Getting The Attached Files&quot;]" />
-            <ui:SaveMailAttachments sap2010:Annotation.AnnotationText="Saving the attachment  from the mail" Attachments="[AttachmentsFiles]" DisplayName="Save Attachments From The Mail" ExcludeInlineAttachments="False" Filter=".*(.xlsx)" FolderPath="[AttachmentPath]" sap:VirtualizedContainerService.HintSize="358,130" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_2" Message="[Mail]" OverwriteExisting="True">
+            <ui:SaveMailAttachments sap2010:Annotation.AnnotationText="Saving the attachment  from the mail" Attachments="[AttachmentsFiles]" DisplayName="Save Attachments From The Mail" ExcludeInlineAttachments="False" FolderPath="[AttachmentPath]" sap:VirtualizedContainerService.HintSize="358,130" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_2" Message="[Mail]" OverwriteExisting="True">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -200,7 +203,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <Assign sap:VirtualizedContainerService.HintSize="1897,70" sap2010:WorkflowViewState.IdRef="Assign_17">
+    <Assign sap:VirtualizedContainerService.HintSize="1061,70" sap2010:WorkflowViewState.IdRef="Assign_17">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[StoredFiles]</OutArgument>
       </Assign.To>
@@ -208,111 +211,23 @@
         <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(AttachmentPath)]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="1897,70" sap2010:WorkflowViewState.IdRef="Assign_18">
+    <Assign sap:VirtualizedContainerService.HintSize="1061,70" sap2010:WorkflowViewState.IdRef="Assign_18">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[SheetName]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">Empolyee Details</InArgument>
+        <InArgument x:TypeArguments="x:String">Employee Details</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1897,101" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;Checking The File In The Directory&quot;]" />
-    <If Condition="[StoredFiles.Length&gt;0]" sap:VirtualizedContainerService.HintSize="1897,1419" sap2010:WorkflowViewState.IdRef="If_2">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1061,101" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;Checking The File In The Directory&quot;]" />
+    <If sap2010:Annotation.AnnotationText="Checking the directory Is empty pr not" Condition="[StoredFiles.Length=0]" DisplayName="If-Checking The Directory" sap:VirtualizedContainerService.HintSize="1061,1427" sap2010:WorkflowViewState.IdRef="If_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="1452,1251" sap2010:WorkflowViewState.IdRef="Sequence_9">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1410,1161" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[StoredFiles]">
-            <ui:ForEach.Body>
-              <ActivityAction x:TypeArguments="x:String">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="x:String" Name="File" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1374,1027" sap2010:WorkflowViewState.IdRef="Sequence_8">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <If Condition="[File.Contains(&quot;.xlsx&quot;)]" sap:VirtualizedContainerService.HintSize="1332,937" sap2010:WorkflowViewState.IdRef="If_1">
-                    <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="887,769" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <If Condition="[File.Contains(SheetName)]" sap:VirtualizedContainerService.HintSize="845,679" sap2010:WorkflowViewState.IdRef="If_3">
-                          <If.Then>
-                            <Sequence sap:VirtualizedContainerService.HintSize="400,511" sap2010:WorkflowViewState.IdRef="Sequence_11">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <Assign sap2010:Annotation.AnnotationText="Getting the file path" sap:VirtualizedContainerService.HintSize="358,101" sap2010:WorkflowViewState.IdRef="Assign_4">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="x:String">[FilePath]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String">[Io.Directory.GetCurrentDirectory+"\Attachment\Employee Details.xlsx"]</InArgument>
-                                </Assign.Value>
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                              </Assign>
-                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,101" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Reading The Excel Sheet&quot;]" />
-                              <ui:ReadRange AddHeaders="True" sap2010:Annotation.AnnotationText="Reading the employee excel sheet got from the save attachment" DataTable="[EmpolyeeDetailsTable]" DisplayName="Reading The Ecxel Sheet" sap:VirtualizedContainerService.HintSize="358,139" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[SheetName]" WorkbookPath="[FilePath]">
-                                <ui:ReadRange.Range>
-                                  <InArgument x:TypeArguments="x:String">
-                                    <Literal x:TypeArguments="x:String" Value="" />
-                                  </InArgument>
-                                </ui:ReadRange.Range>
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                              </ui:ReadRange>
-                            </Sequence>
-                          </If.Then>
-                          <If.Else>
-                            <Sequence sap:VirtualizedContainerService.HintSize="400,191" sap2010:WorkflowViewState.IdRef="Sequence_12">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,101" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Error" Message="[&quot;Ther Is No File&quot;]" />
-                            </Sequence>
-                          </If.Else>
-                        </If>
-                      </Sequence>
-                    </If.Then>
-                    <If.Else>
-                      <Sequence sap:VirtualizedContainerService.HintSize="400,191" sap2010:WorkflowViewState.IdRef="Sequence_7">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,101" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Error" Message="[&quot;There Is No Excell File&quot;]" />
-                      </Sequence>
-                    </If.Else>
-                  </If>
-                </Sequence>
-              </ActivityAction>
-            </ui:ForEach.Body>
-          </ui:ForEach>
-        </Sequence>
-      </If.Then>
-      <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="400,191" sap2010:WorkflowViewState.IdRef="Sequence_10">
+        <Sequence sap:VirtualizedContainerService.HintSize="400,191" sap2010:WorkflowViewState.IdRef="Sequence_9">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -320,10 +235,88 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,101" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Error" Message="[&quot;There Is No Attachments From The Mail&quot;]" />
         </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="616,1228" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Checking the files in the directory " DisplayName="For Each-Looping The Directory To Check The File" sap:VirtualizedContainerService.HintSize="574,1138" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[StoredFiles]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="x:String">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:String" Name="File" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="538,973" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="FileExtension" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496,101" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="Info" Message="[&quot;Checking The File In Loop&quot;]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="496,70" sap2010:WorkflowViewState.IdRef="Assign_22">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[FileExtension]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[File.Substring(File.LastIndexOf(".") + 1).ToString]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[FileExtension]" sap:VirtualizedContainerService.HintSize="496,632" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                    <Switch.Default>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[&quot;There Is No Excell File&quot;]" />
+                    </Switch.Default>
+                    <Sequence x:Key="xlsx" sap:VirtualizedContainerService.HintSize="400,438" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,101" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;Reading The Excell Sheet&quot;]" />
+                      <Assign sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_23">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[FilePath]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[Io.Directory.GetCurrentDirectory+"\Attachment\Employee Details.xlsx"]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:ReadRange AddHeaders="True" DataTable="[EmpolyeeDetailsTable]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="[SheetName]" WorkbookPath="[FilePath]">
+                        <ui:ReadRange.Range>
+                          <InArgument x:TypeArguments="x:String">
+                            <Literal x:TypeArguments="x:String" Value="" />
+                          </InArgument>
+                        </ui:ReadRange.Range>
+                      </ui:ReadRange>
+                    </Sequence>
+                  </Switch>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ForEach>
+        </Sequence>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1897,101" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Filtering The Table&quot;]" />
-    <Assign sap:VirtualizedContainerService.HintSize="1897,70" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1061,101" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Filtering The Table&quot;]" />
+    <Assign sap:VirtualizedContainerService.HintSize="1061,70" sap2010:WorkflowViewState.IdRef="Assign_21">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[FilterRole]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">Developer</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="1061,70" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="sd:DataTable">[EmpolyeeDetailsTable]</OutArgument>
       </Assign.To>
@@ -331,15 +324,15 @@
         <InArgument x:TypeArguments="sd:DataTable">[EmpolyeeDetailsTable.Select("[Role]='Developer'").CopyToDataTable]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1897,101" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Adding The Column In The Table&quot;]" />
-    <ui:AddDataColumn x:TypeArguments="x:String" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" Unique="{x:Null}" sap2010:Annotation.AnnotationText="Adding the column experience in the table" ColumnName="Experience" DataTable="[EmpolyeeDetailsTable]" DisplayName="Adding The Column Experience" sap:VirtualizedContainerService.HintSize="1897,226" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" MaxLength="-1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1061,101" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Adding The Column In The Table&quot;]" />
+    <ui:AddDataColumn x:TypeArguments="x:String" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" Unique="{x:Null}" sap2010:Annotation.AnnotationText="Adding the column experience in the table" ColumnName="Experience" DataTable="[EmpolyeeDetailsTable]" DisplayName="Adding The Column Experience" sap:VirtualizedContainerService.HintSize="1061,226" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" MaxLength="-1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:AddDataColumn>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="looping the table to get the values the column doj to joining date" DataTable="[EmpolyeeDetailsTable]" DisplayName="Looping The Table Get The Values" sap:VirtualizedContainerService.HintSize="1897,1100" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="looping the table to get the values the column doj to joining date" DataTable="[EmpolyeeDetailsTable]" DisplayName="Looping The Table Get The Values" sap:VirtualizedContainerService.HintSize="1061,1100" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
@@ -349,7 +342,7 @@
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="JoinDate" />
               <Variable x:TypeArguments="x:String" Name="CurrentDate" />
-              <Variable x:TypeArguments="x:String" Name="Experience" />
+              <Variable x:TypeArguments="x:Double" Name="Experience" />
               <Variable x:TypeArguments="x:Double" Name="Years" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
@@ -386,20 +379,20 @@
               </sap:WorkflowViewStateService.ViewState>
             </Assign>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,101" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Calculation The Experience &quot;]" />
-            <Assign sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_8">
+            <Assign sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_24">
               <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[Experience]</OutArgument>
+                <OutArgument x:TypeArguments="x:Object">[EmployeeDetails("DOJ")]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[DateDiff(DateInterval.Day,Convert.ToDateTime(JoinDate),Convert.ToDateTime(CurrentDate)).ToString]</InArgument>
+                <InArgument x:TypeArguments="x:Object">[CDATE(EmployeeDetails("DOJ"))]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_10">
+            <Assign sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_8">
               <Assign.To>
-                <OutArgument x:TypeArguments="x:Double">[Years]</OutArgument>
+                <OutArgument x:TypeArguments="x:Double">[Experience]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:Double">[Math.Round(Cint(Experience)/365)]</InArgument>
+                <InArgument x:TypeArguments="x:Double">[Math.Round(Cint(DateDiff(DateInterval.Day,Convert.ToDateTime(JoinDate),Convert.ToDateTime(CurrentDate)).ToString)/365)]</InArgument>
               </Assign.Value>
             </Assign>
             <Assign sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_9">
@@ -407,7 +400,7 @@
                 <OutArgument x:TypeArguments="x:Object">[EmployeeDetails("Experience")]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:Object">[Years.ToString]</InArgument>
+                <InArgument x:TypeArguments="x:Object">[Experience.ToString]</InArgument>
               </Assign.Value>
             </Assign>
           </Sequence>
@@ -419,46 +412,44 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
-    <ui:OutputDataTable sap2010:Annotation.AnnotationText="Converting the data table to string" DataTable="[EmpolyeeDetailsTable]" DisplayName="Getting The Data Table In String" sap:VirtualizedContainerService.HintSize="1897,120" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[FilteredEmployeeDetails]">
+    <ui:OutputDataTable sap2010:Annotation.AnnotationText="Converting the data table to string" DataTable="[EmpolyeeDetailsTable]" DisplayName="Getting The Data Table In String" sap:VirtualizedContainerService.HintSize="1061,120" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[FilteredEmployeeDetails]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:OutputDataTable>
-    <Assign sap:VirtualizedContainerService.HintSize="1897,70" sap2010:WorkflowViewState.IdRef="Assign_16">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[EmpolyeeDetailsSheet]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[EmpolyeeDetailsTable.ToHtmlTable]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <umab:CreateHtmlContent DisplayName="Create HTML Content" sap:VirtualizedContainerService.HintSize="1897,161" HtmlContent="[MailHtmlOutput]" sap2010:WorkflowViewState.IdRef="CreateHtmlContent_2">
-      <umab:CreateHtmlContent.HtmlContentArg>
-        <umabh:HtmlContentArgument FilePath=".data/HtmlContent2.html">
-          <umabh:HtmlContentArgument.RuntimeImages>
-            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-          </umabh:HtmlContentArgument.RuntimeImages>
-          <umabh:HtmlContentArgument.ValueMappings>
-            <scg:List x:TypeArguments="umabh:HtmlValueMappingBase" Capacity="4">
-              <umabh:HtmlTextValueMapping Name="Value" Value="[EmpolyeeDetailsSheet]" />
-            </scg:List>
-          </umabh:HtmlContentArgument.ValueMappings>
-        </umabh:HtmlContentArgument>
-      </umab:CreateHtmlContent.HtmlContentArg>
-    </umab:CreateHtmlContent>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1897,101" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[FilteredEmployeeDetails]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1897,101" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Writing The Table In The Excel Sheet&quot;]" />
-    <ui:WriteRange AddHeaders="True" sap2010:Annotation.AnnotationText="Adding The table in the employee details sheet" DataTable="[EmpolyeeDetailsTable]" DisplayName="Writing The Table In The Sheet" sap:VirtualizedContainerService.HintSize="1897,156" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Employee Details" StartingCell="A1" WorkbookPath="[FilePath]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1061,101" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[FilteredEmployeeDetails]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1061,101" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Writing The Table In The Excel Sheet&quot;]" />
+    <ui:WriteRange AddHeaders="True" DataTable="[EmpolyeeDetailsTable]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="1061,125" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[SheetName]" StartingCell="A1:D3" WorkbookPath="[FilePath]" />
+    <ui:ReadRange AddHeaders="False" sap2010:Annotation.AnnotationText="Reading the excell files savedin the directory" DataTable="[OutputHtmlBody]" DisplayName="Reading The Excell In The Directory" sap:VirtualizedContainerService.HintSize="1061,128" sap2010:WorkflowViewState.IdRef="ReadRange_3" Range="A1:E4" SheetName="[SheetName]" WorkbookPath="[FilePath]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-    </ui:WriteRange>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1897,101" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;Sending The Attachment In The Mail&quot;]" />
-    <Assign sap:VirtualizedContainerService.HintSize="1897,70" sap2010:WorkflowViewState.IdRef="Assign_15">
+    </ui:ReadRange>
+    <umab:CreateHtmlContent sap2010:Annotation.AnnotationText="Adding the table in the mail body for the mail" DisplayName="Creating The Html In Mail Body" sap:VirtualizedContainerService.HintSize="1061,192" HtmlContent="[HtmlBody]" sap2010:WorkflowViewState.IdRef="CreateHtmlContent_3">
+      <umab:CreateHtmlContent.HtmlContentArg>
+        <umabh:HtmlContentArgument FilePath=".data/HtmlContent0.html">
+          <umabh:HtmlContentArgument.RuntimeImages>
+            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+          </umabh:HtmlContentArgument.RuntimeImages>
+          <umabh:HtmlContentArgument.ValueMappings>
+            <scg:List x:TypeArguments="umabh:HtmlValueMappingBase" Capacity="4">
+              <umabh:HtmlTableValueMapping Name="Table" Value="[OutputHtmlBody]" />
+            </scg:List>
+          </umabh:HtmlContentArgument.ValueMappings>
+        </umabh:HtmlContentArgument>
+      </umab:CreateHtmlContent.HtmlContentArg>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </umab:CreateHtmlContent>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1061,101" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;Sending The Attachment In The Mail&quot;]" />
+    <Assign sap:VirtualizedContainerService.HintSize="1061,70" sap2010:WorkflowViewState.IdRef="Assign_15">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[MailRecipient]</OutArgument>
       </Assign.To>
@@ -466,7 +457,15 @@
         <InArgument x:TypeArguments="s:String[]">[{"mdkaleelahamed@gmail","mohammed.kaleelahamed@gmail.com"}]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="Sendind the mail to all recipients " Body="[MailHtmlOutput]" DisplayName="Sending The Mail " Email="[LoginKey.Username]" EnableSSL="True" From="[LoginKey.Username]" sap:VirtualizedContainerService.HintSize="1897,189" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="True" Port="465" SecureConnection="Auto" SecurePassword="[SecurePassKey]" Server="smtp.gmail.com" Subject="Employee Experience Details" To="[String.Join(&quot;;&quot;,MailRecipient)]">
+    <Assign sap:VirtualizedContainerService.HintSize="1061,70" sap2010:WorkflowViewState.IdRef="Assign_20">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[MailSubject]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">Employee Experience Details</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="Sendind the mail to all recipients " Body="[HtmlBody]" DisplayName="Sending The Mail " Email="[LoginKey.Username]" EnableSSL="True" From="[LoginKey.Username]" sap:VirtualizedContainerService.HintSize="1061,189" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="True" Port="465" SecureConnection="Auto" SecurePassword="[SecurePassKey]" Server="smtp.gmail.com" Subject="[MailSubject]" To="[String.Join(&quot;;&quot;,MailRecipient)]">
       <ui:SendMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
           <InArgument x:TypeArguments="x:String">[FilePath]</InArgument>
@@ -478,7 +477,6 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:SendMail>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1897,101" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;Deleting The Files In the Folder&quot;]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1897,101" sap2010:WorkflowViewState.IdRef="LogMessage_16" Message="[&quot;Getting Excel File From The Mail Process Ended&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1061,101" sap2010:WorkflowViewState.IdRef="LogMessage_16" Message="[&quot;Getting Excel File From The Mail Process Ended&quot;]" />
   </Sequence>
 </Activity>
