@@ -84,7 +84,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="583,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Adding The Data In The Website Process Started&quot;+Environment.NewLine+&quot;Reading The Excell Sheet&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="583,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Rpa Challenge In The Website Process Started&quot;+Environment.NewLine+&quot;Reading The Excell Sheet&quot;]" />
     <Assign sap:VirtualizedContainerService.HintSize="583,70" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[PathFile]</OutArgument>
@@ -464,7 +464,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:CloseTab>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="507,101" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;Adding The Data In Website Process Ended&quot;]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="507,101" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;Rpa Challenge In Website Process Ended&quot;]" />
           </Sequence>
         </ActivityAction>
       </ui:BrowserScope.Body>
