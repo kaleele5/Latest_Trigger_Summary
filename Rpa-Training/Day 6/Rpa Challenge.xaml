@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Ui_Automation" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="907,6023" sap2010:WorkflowViewState.IdRef="Ui_Automation_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Ui_Automation" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1154,5863" sap2010:WorkflowViewState.IdRef="Ui_Automation_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
       <x:String>System.Activities</x:String>
@@ -282,7 +282,7 @@
                     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431,101" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Writing The  First Name In Web Page&quot;]" />
                     <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Typing the input into first name column in the web page" DisplayName="Type Into First Name Column" EmptyField="True" sap:VirtualizedContainerService.HintSize="431,166" sap2010:WorkflowViewState.IdRef="TypeInto_3" SimulateType="True" Text="[FirstName]">
                       <ui:TypeInto.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b6f03fae-9694-463c-ad70-4650716747bf" Selector="&lt;webctrl innertext='First Name' /&gt;&lt;webctrl tag='LABEL' /&gt;&lt;webctrl tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b6f03fae-9694-463c-ad70-4650716747bf" Selector="&lt;webctrl innertext='First Name' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                           <ui:Target.TimeoutMS>
                             <InArgument x:TypeArguments="x:Int32" />
                           </ui:Target.TimeoutMS>
@@ -297,7 +297,7 @@
                     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431,101" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Writing The Last Name In Web Page&quot;]" />
                     <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Typing in the last name column " DisplayName="Type Into Last Name Column" EmptyField="True" sap:VirtualizedContainerService.HintSize="431,155" sap2010:WorkflowViewState.IdRef="TypeInto_6" SimulateType="True" Text="[LastName]">
                       <ui:TypeInto.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a4657258-912b-407b-9976-fcb6355aeda1" Selector="&lt;webctrl innertext='Last Name' /&gt;&lt;webctrl tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a4657258-912b-407b-9976-fcb6355aeda1" Selector="&lt;webctrl innertext='Last Name' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                           <ui:Target.TimeoutMS>
                             <InArgument x:TypeArguments="x:Int32" />
                           </ui:Target.TimeoutMS>
@@ -312,7 +312,7 @@
                     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431,101" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Writing In The Company Name Column&quot;]" />
                     <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Typing into company column in web page" DisplayName="Type Into Company Name Column" EmptyField="True" sap:VirtualizedContainerService.HintSize="431,155" sap2010:WorkflowViewState.IdRef="TypeInto_5" SimulateType="True" Text="[CompanyName]">
                       <ui:TypeInto.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f8dd7d48-3960-418b-b6ae-4cfda6ea37b0" Selector="&lt;webctrl innertext='Company Name' /&gt;&lt;webctrl tag='INPUT' /&gt;">
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f8dd7d48-3960-418b-b6ae-4cfda6ea37b0" Selector="&lt;webctrl innertext='Company Name' tag='INPUT' /&gt;">
                           <ui:Target.TimeoutMS>
                             <InArgument x:TypeArguments="x:Int32" />
                           </ui:Target.TimeoutMS>
@@ -330,7 +330,7 @@
                     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431,101" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Writing In The Role Column&quot;]" />
                     <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Typing in the role column in web page" DisplayName="Type Into Role Column " EmptyField="True" sap:VirtualizedContainerService.HintSize="431,155" sap2010:WorkflowViewState.IdRef="TypeInto_10" SimulateType="True" Text="[Role]">
                       <ui:TypeInto.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2f7a790a-c945-4731-a0d6-9ffa502aa7b7" Selector="&lt;webctrl innertext='Role in Company' /&gt;&lt;webctrl tag='INPUT' /&gt;">
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2f7a790a-c945-4731-a0d6-9ffa502aa7b7" Selector="&lt;webctrl innertext='Role in Company' tag='INPUT' /&gt;">
                           <ui:Target.TimeoutMS>
                             <InArgument x:TypeArguments="x:Int32" />
                           </ui:Target.TimeoutMS>
@@ -348,7 +348,7 @@
                     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431,101" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Writing In The Adress Column &quot;]" />
                     <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="typing into address column in web page" DisplayName="Type Into Address Column In Web Page" EmptyField="True" sap:VirtualizedContainerService.HintSize="431,155" sap2010:WorkflowViewState.IdRef="TypeInto_7" SimulateType="True" Text="[Address]">
                       <ui:TypeInto.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6c5a125a-edf6-4433-a9fa-c4ff2b0b600f" Selector="&lt;webctrl innertext='Address' /&gt;&lt;webctrl tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6c5a125a-edf6-4433-a9fa-c4ff2b0b600f" Selector="&lt;webctrl innertext='Address' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                           <ui:Target.TimeoutMS>
                             <InArgument x:TypeArguments="x:Int32" />
                           </ui:Target.TimeoutMS>
@@ -363,7 +363,7 @@
                     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431,101" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Writing In Mail Column&quot;]" />
                     <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Typing in the mail column in the web page" DisplayName="Type Into Mail Column In The Page" EmptyField="True" sap:VirtualizedContainerService.HintSize="431,155" sap2010:WorkflowViewState.IdRef="TypeInto_8" SimulateType="True" Text="[Mail]">
                       <ui:TypeInto.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7dc02cf0-3dc8-4926-83c3-6ef989b652ac" Selector="&lt;webctrl innertext='Email' /&gt;&lt;webctrl tag='INPUT' /&gt;">
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7dc02cf0-3dc8-4926-83c3-6ef989b652ac" Selector="&lt;webctrl innertext='Email' tag='INPUT' /&gt;">
                           <ui:Target.TimeoutMS>
                             <InArgument x:TypeArguments="x:Int32" />
                           </ui:Target.TimeoutMS>
@@ -381,7 +381,7 @@
                     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431,101" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Writing Into Phone Number Column&quot;]" />
                     <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Type into phone column in the web page" DisplayName="Type Into Phone Number Column " EmptyField="True" sap:VirtualizedContainerService.HintSize="431,155" sap2010:WorkflowViewState.IdRef="TypeInto_9" SimulateType="True" Text="[MobileNumber]">
                       <ui:TypeInto.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="26103540-100c-46af-bd93-91959a9fd154" Selector="&lt;webctrl innertext='Phone Number' /&gt;&lt;webctrl tag='INPUT' /&gt;">
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="26103540-100c-46af-bd93-91959a9fd154" Selector="&lt;webctrl innertext='Phone Number' tag='INPUT' /&gt;">
                           <ui:Target.TimeoutMS>
                             <InArgument x:TypeArguments="x:Int32" />
                           </ui:Target.TimeoutMS>
@@ -435,7 +435,7 @@
             </ui:ForEachRow>
             <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Getting the text from the web page" DisplayName="Get Text From The Page" sap:VirtualizedContainerService.HintSize="507,127" sap2010:WorkflowViewState.IdRef="GetValue_5">
               <ui:GetValue.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ad6f79d0-9a84-437e-8b77-af6e8efdaf0b" Selector="&lt;html app='chrome.exe' title='Rpa Challenge' /&gt;&lt;webctrl innertext='Congratulations!Your success rate is *% ( * out of * fields) in * milliseconds' /&gt;&lt;webctrl aaname='Congratulations!' tag='DIV' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ad6f79d0-9a84-437e-8b77-af6e8efdaf0b" Selector="&lt;webctrl innertext='Congratulations!Your success rate is *% ( * out of * fields) in * milliseconds' /&gt;&lt;webctrl aaname='Congratulations!' tag='DIV' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
