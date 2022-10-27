@@ -130,14 +130,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1167,11896" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1167,13430" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="Reading emaill and downloading the attachment and sending replies" DisplayName="Email Automation" sap:VirtualizedContainerService.HintSize="1129,10827" sap2010:WorkflowViewState.IdRef="Sequence_19">
+        <Sequence sap2010:Annotation.AnnotationText="Reading emaill and downloading the attachment and sending replies" DisplayName="Email Automation" sap:VirtualizedContainerService.HintSize="1129,12246" sap2010:WorkflowViewState.IdRef="Sequence_19">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -321,7 +321,7 @@
             </Assign.Value>
           </Assign>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1087,101" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;Checking The File In The Directory&quot;]" />
-          <If sap2010:Annotation.AnnotationText="Checking the directory Is empty pr not" Condition="[StoredFiles.Length=0]" DisplayName="If-Checking The Directory" sap:VirtualizedContainerService.HintSize="1087,7185" sap2010:WorkflowViewState.IdRef="If_2">
+          <If sap2010:Annotation.AnnotationText="Checking the directory Is empty pr not" Condition="[StoredFiles.Length=0]" DisplayName="If-Checking The Directory" sap:VirtualizedContainerService.HintSize="1087,8604" sap2010:WorkflowViewState.IdRef="If_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -345,19 +345,19 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="642,6986" sap2010:WorkflowViewState.IdRef="Sequence_10">
+              <Sequence sap:VirtualizedContainerService.HintSize="642,8405" sap2010:WorkflowViewState.IdRef="Sequence_10">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Checking the files in the directory " DisplayName="For Each-Looping The Directory To Check The File" sap:VirtualizedContainerService.HintSize="600,6896" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[StoredFiles]">
+                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Checking the files in the directory " DisplayName="For Each-Looping The Directory To Check The File" sap:VirtualizedContainerService.HintSize="600,8315" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[StoredFiles]">
                   <ui:ForEach.Body>
                     <ActivityAction x:TypeArguments="x:String">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="x:String" Name="File" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="564,6731" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="564,8150" sap2010:WorkflowViewState.IdRef="Sequence_17">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="FileExtension" />
                         </Sequence.Variables>
@@ -413,7 +413,7 @@
                                 <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,332" sap2010:WorkflowViewState.IdRef="Catch`1_4">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
@@ -552,7 +552,7 @@
                                     <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,332" sap2010:WorkflowViewState.IdRef="Catch`1_5">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
@@ -593,7 +593,41 @@
                         </ui:OutputDataTable>
                         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="522,101" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[FilteredEmployeeDetails]" />
                         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="522,101" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Writing The Table In The Excel Sheet&quot;]" />
-                        <ui:WriteRange AddHeaders="True" DataTable="[EmpolyeeDetailsTable]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="522,125" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[SheetName]" StartingCell="A1:D3" WorkbookPath="[FilePath]" />
+                        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="522,819" sap2010:WorkflowViewState.IdRef="TryCatch_7">
+                          <TryCatch.Try>
+                            <ui:WriteRange AddHeaders="True" DataTable="[EmpolyeeDetailsTable]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="334,125" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[SheetName]" StartingCell="A1:D3" WorkbookPath="[FilePath]" />
+                          </TryCatch.Try>
+                          <TryCatch.Catches>
+                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,374" sap2010:WorkflowViewState.IdRef="Catch`1_9">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ActivityAction x:TypeArguments="s:Exception">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                </ActivityAction.Argument>
+                                <Sequence sap:VirtualizedContainerService.HintSize="400,305" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,101" sap2010:WorkflowViewState.IdRef="LogMessage_39" Level="Error" Message="[exception.Message]" />
+                                  <Throw sap2010:Annotation.AnnotationText="Thowing excption when wriing excel sheet is failed" Exception="[New BusinessRuleException(exception.Message)]" sap:VirtualizedContainerService.HintSize="358,74" sap2010:WorkflowViewState.IdRef="Throw_5">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </Throw>
+                                </Sequence>
+                              </ActivityAction>
+                            </Catch>
+                          </TryCatch.Catches>
+                        </TryCatch>
                         <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="522,780" sap2010:WorkflowViewState.IdRef="TryCatch_6">
                           <TryCatch.Try>
                             <ui:ReadRange AddHeaders="False" sap2010:Annotation.AnnotationText="Reading the excell files savedin the directory" DataTable="[OutputHtmlBody]" DisplayName="Reading The Excell In The Directory" sap:VirtualizedContainerService.HintSize="334,128" sap2010:WorkflowViewState.IdRef="ReadRange_3" Range="A1:E4" SheetName="[SheetName]" WorkbookPath="[FilePath]">
@@ -608,7 +642,7 @@
                             <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,332" sap2010:WorkflowViewState.IdRef="Catch`1_6">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
@@ -665,18 +699,57 @@
                             <InArgument x:TypeArguments="x:String">Employee Experience Details</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="Sendind the mail to all recipients " Body="[HtmlBody]" DisplayName="Sending The Mail " Email="[LoginKey.Username]" EnableSSL="True" From="[LoginKey.Username]" sap:VirtualizedContainerService.HintSize="522,189" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="True" Port="465" SecureConnection="Auto" SecurePassword="[SecurePassKey]" Server="smtp.gmail.com" Subject="[MailSubject]" To="[String.Join(&quot;;&quot;,MailRecipient)]">
-                          <ui:SendMail.Files>
-                            <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-                              <InArgument x:TypeArguments="x:String">[FilePath]</InArgument>
-                            </scg:List>
-                          </ui:SendMail.Files>
+                        <TryCatch sap2010:Annotation.AnnotationText="Sending mail to the recipients" DisplayName="Try Catch-Sending Mail" sap:VirtualizedContainerService.HintSize="522,914" sap2010:WorkflowViewState.IdRef="TryCatch_8">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                        </ui:SendMail>
+                          <TryCatch.Try>
+                            <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" sap2010:Annotation.AnnotationText="Sendind the mail to all recipients " Body="[HtmlBody]" DisplayName="Sending The Mail " Email="[LoginKey.Username]" EnableSSL="True" From="[LoginKey.Username]" sap:VirtualizedContainerService.HintSize="334,189" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="True" Port="465" SecureConnection="Auto" SecurePassword="[SecurePassKey]" Server="smtp.gmail.com" Subject="[MailSubject]" To="[String.Join(&quot;;&quot;,MailRecipient)]">
+                              <ui:SendMail.Files>
+                                <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                  <InArgument x:TypeArguments="x:String">[FilePath]</InArgument>
+                                </scg:List>
+                              </ui:SendMail.Files>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:SendMail>
+                          </TryCatch.Try>
+                          <TryCatch.Catches>
+                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,374" sap2010:WorkflowViewState.IdRef="Catch`1_10">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ActivityAction x:TypeArguments="s:Exception">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                </ActivityAction.Argument>
+                                <Sequence sap:VirtualizedContainerService.HintSize="400,305" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,101" sap2010:WorkflowViewState.IdRef="LogMessage_40" Level="Error" Message="[exception.Message]" />
+                                  <Throw sap2010:Annotation.AnnotationText="Throwing exception when sending mail is failed" Exception="[New BusinessRuleException(Exception.Message)]" sap:VirtualizedContainerService.HintSize="358,74" sap2010:WorkflowViewState.IdRef="Throw_6">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </Throw>
+                                </Sequence>
+                              </ActivityAction>
+                            </Catch>
+                          </TryCatch.Catches>
+                        </TryCatch>
                       </Sequence>
                     </ActivityAction>
                   </ui:ForEach.Body>
@@ -723,7 +796,7 @@
         <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="1133,374" sap2010:WorkflowViewState.IdRef="Catch`1_8">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>

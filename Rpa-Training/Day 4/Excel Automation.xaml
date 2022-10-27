@@ -76,7 +76,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Calculating the profit and profit percentage from the csv file" DisplayName="Excel Automation" sap:VirtualizedContainerService.HintSize="1196,8171" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Calculating the profit and profit percentage from the csv file" DisplayName="Excel Automation" sap:VirtualizedContainerService.HintSize="1196,8896" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="SalesDataTable" />
       <Variable x:TypeArguments="x:String" Name="SalesTable" />
@@ -92,14 +92,14 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1154,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Calculating The Profit And Profit Percentage Process Started&quot;]" />
-    <TryCatch sap2010:Annotation.AnnotationText="Reading details in the csv and writing in excell sheet" DisplayName="Try Catch-Excell Automation" sap:VirtualizedContainerService.HintSize="1154,7940" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch sap2010:Annotation.AnnotationText="Reading details in the csv and writing in excell sheet" DisplayName="Try Catch-Excell Automation" sap:VirtualizedContainerService.HintSize="1154,8665" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Excell Automation" sap:VirtualizedContainerService.HintSize="1116,6840" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence DisplayName="Excell Automation" sap:VirtualizedContainerService.HintSize="1116,7565" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -139,7 +139,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <If sap2010:Annotation.AnnotationText="If the file exists profit percentagecalculation process happens or error throws" Condition="[FileExists]" DisplayName="If- If The File Exist The Profit Calculation Process Happens" sap:VirtualizedContainerService.HintSize="1074,6164" sap2010:WorkflowViewState.IdRef="If_1">
+          <If sap2010:Annotation.AnnotationText="If the file exists profit percentagecalculation process happens or error throws" Condition="[FileExists]" DisplayName="If- If The File Exist The Profit Calculation Process Happens" sap:VirtualizedContainerService.HintSize="1074,6889" sap2010:WorkflowViewState.IdRef="If_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -147,7 +147,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence sap2010:Annotation.AnnotationText="If the file exist table manipulation is happens" DisplayName="Getting The Profit And Profit Percentage" sap:VirtualizedContainerService.HintSize="629,5965" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence sap2010:Annotation.AnnotationText="If the file exist table manipulation is happens" DisplayName="Getting The Profit And Profit Percentage" sap:VirtualizedContainerService.HintSize="629,6690" sap2010:WorkflowViewState.IdRef="Sequence_5">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="SheetName" />
                 </Sequence.Variables>
@@ -176,7 +176,7 @@
                     <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="438,374" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
@@ -384,7 +384,7 @@
                             <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="477,374" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
@@ -472,13 +472,52 @@
                     <InArgument x:TypeArguments="x:String">Porfit Order</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:WriteRange AddHeaders="False" sap2010:Annotation.AnnotationText="Writing the details in the excell sheet" DataTable="[FilteredSalesTable]" DisplayName="Writing Excell Sheet" sap:VirtualizedContainerService.HintSize="587,156" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[SheetName]" StartingCell="A1" WorkbookPath="[NewFilePath]">
+                <TryCatch sap2010:Annotation.AnnotationText="Throwing exception when writing excel sheet" DisplayName="Try Catch-Writing Excell sheet" sap:VirtualizedContainerService.HintSize="587,881" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                </ui:WriteRange>
+                  <TryCatch.Try>
+                    <ui:WriteRange AddHeaders="False" sap2010:Annotation.AnnotationText="Writing the details in the excell sheet" DataTable="[FilteredSalesTable]" DisplayName="Writing Excell Sheet" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[SheetName]" StartingCell="A1" WorkbookPath="[NewFilePath]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:WriteRange>
+                  </TryCatch.Try>
+                  <TryCatch.Catches>
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,374" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="s:Exception">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                        </ActivityAction.Argument>
+                        <Sequence sap:VirtualizedContainerService.HintSize="400,305" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,101" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Error" Message="[exception.Message]" />
+                          <Throw sap2010:Annotation.AnnotationText="Throwing exception when writing excell file" Exception="[New BusinessRuleException(Exception.Message)]" sap:VirtualizedContainerService.HintSize="358,74" sap2010:WorkflowViewState.IdRef="Throw_5">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Throw>
+                        </Sequence>
+                      </ActivityAction>
+                    </Catch>
+                  </TryCatch.Catches>
+                </TryCatch>
               </Sequence>
             </If.Then>
             <If.Else>
@@ -534,7 +573,7 @@
         <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="1120,374" sap2010:WorkflowViewState.IdRef="Catch`1_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>

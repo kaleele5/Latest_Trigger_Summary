@@ -93,7 +93,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap2010:Annotation.AnnotationText="Getting the data from pdf file storing it in excel sheet" DisplayName="Pdf Automation" sap:VirtualizedContainerService.HintSize="580,2705" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence sap2010:Annotation.AnnotationText="Getting the data from pdf file storing it in excel sheet" DisplayName="Pdf Automation" sap:VirtualizedContainerService.HintSize="660,3738" sap2010:WorkflowViewState.IdRef="Sequence_10">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="FilePath" />
               <Variable x:TypeArguments="s:String[]" Name="Files" />
@@ -108,8 +108,8 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518,101" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Getting The Informatioin From Pdf Process Started&quot;]" />
-            <Assign sap:VirtualizedContainerService.HintSize="518,70" sap2010:WorkflowViewState.IdRef="Assign_12">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="598,101" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Getting The Informatioin From Pdf Process Started&quot;]" />
+            <Assign sap:VirtualizedContainerService.HintSize="598,70" sap2010:WorkflowViewState.IdRef="Assign_12">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[FilePath]</OutArgument>
               </Assign.To>
@@ -117,7 +117,7 @@
                 <InArgument x:TypeArguments="x:String">[IO.Directory.GetCurrentDirectory+"\Invoice"]</InArgument>
               </Assign.Value>
             </Assign>
-            <TryCatch sap2010:Annotation.AnnotationText="Cathing the exception while getting the files from folder" DisplayName="Try Catch-Getting The Files From The Folder" sap:VirtualizedContainerService.HintSize="518,428" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+            <TryCatch sap2010:Annotation.AnnotationText="Cathing the exception while getting the files from folder" DisplayName="Try Catch-Getting The Files From The Folder" sap:VirtualizedContainerService.HintSize="598,428" sap2010:WorkflowViewState.IdRef="TryCatch_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -171,7 +171,7 @@
                 </Catch>
               </TryCatch.Catches>
             </TryCatch>
-            <Assign sap:VirtualizedContainerService.HintSize="518,70" sap2010:WorkflowViewState.IdRef="Assign_14">
+            <Assign sap:VirtualizedContainerService.HintSize="598,70" sap2010:WorkflowViewState.IdRef="Assign_14">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[SheetName]</OutArgument>
               </Assign.To>
@@ -179,21 +179,21 @@
                 <InArgument x:TypeArguments="x:String">Sheet1</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518,101" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Creating Data Table To Store Invoice Details&quot;]" />
-            <ui:BuildDataTable sap2010:Annotation.AnnotationText="Creating the data table to store the invioce details" DataTable="[InvoiceDetails]" DisplayName="Invoice Data Table" sap:VirtualizedContainerService.HintSize="518,100" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Invoice_x0020_Number&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Order_x0020_Number&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Invoice_x0020_Date_x0020_&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Due_x0020_Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Total_x0020_Due&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Sub_x0020_Total&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="598,101" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Creating Data Table To Store Invoice Details&quot;]" />
+            <ui:BuildDataTable sap2010:Annotation.AnnotationText="Creating the data table to store the invioce details" DataTable="[InvoiceDetails]" DisplayName="Invoice Data Table" sap:VirtualizedContainerService.HintSize="598,100" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Invoice_x0020_Number&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Order_x0020_Number&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Invoice_x0020_Date_x0020_&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Due_x0020_Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Total_x0020_Due&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Sub_x0020_Total&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:BuildDataTable>
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Looping the folder path to open it and access it " DisplayName="For Each-Looping The Folder To Open It" sap:VirtualizedContainerService.HintSize="518,854" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Files]">
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Looping the folder path to open it and access it " DisplayName="For Each-Looping The Folder To Open It" sap:VirtualizedContainerService.HintSize="598,1819" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Files]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:String" Name="File" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="482,689" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="562,1654" sap2010:WorkflowViewState.IdRef="Sequence_9">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="InvoicePdfText" />
                       <Variable x:TypeArguments="x:Double" Name="TotalDue" />
@@ -208,28 +208,21 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <TryCatch sap2010:Annotation.AnnotationText="Reading pdf files and taking details from it" DisplayName="Try Catch-Pdf Automation" sap:VirtualizedContainerService.HintSize="440,599" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                    <TryCatch sap2010:Annotation.AnnotationText="Reading pdf files and taking details from it" DisplayName="Try Catch-Pdf Automation" sap:VirtualizedContainerService.HintSize="520,1564" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <TryCatch.Try>
-                        <Sequence sap:VirtualizedContainerService.HintSize="480,1055" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                        <Sequence sap:VirtualizedContainerService.HintSize="482,1274" sap2010:WorkflowViewState.IdRef="Sequence_20">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Sequence sap:VirtualizedContainerService.HintSize="438,223" sap2010:WorkflowViewState.IdRef="Sequence_19">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Opening The Folder Path And Reading The Pdf Fille&quot;]" />
-                          </Sequence>
-                          <TryCatch sap2010:Annotation.AnnotationText="catching the exception while reading the pdf file " DisplayName="Try Catch-Reading The File" sap:VirtualizedContainerService.HintSize="438,368" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="440,101" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Opening The Folder Path And Reading The Pdf Fille&quot;]" />
+                          <TryCatch sap2010:Annotation.AnnotationText="catching the exception while reading the pdf file " DisplayName="Try Catch-Reading The File" sap:VirtualizedContainerService.HintSize="440,224" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -245,7 +238,7 @@
                               </ui:ReadPDFText>
                             </TryCatch.Try>
                             <TryCatch.Catches>
-                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -256,14 +249,13 @@
                                   <ActivityAction.Argument>
                                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                                   </ActivityAction.Argument>
-                                  <Sequence sap:VirtualizedContainerService.HintSize="400,263" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                  <Sequence sap:VirtualizedContainerService.HintSize="400,191" sap2010:WorkflowViewState.IdRef="Sequence_15">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,101" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Error" Message="[&quot;File Not Found&quot;]" />
-                                    <ui:Continue sap:VirtualizedContainerService.HintSize="358,32" sap2010:WorkflowViewState.IdRef="Continue_1" />
                                   </Sequence>
                                 </ActivityAction>
                               </Catch>
@@ -278,7 +270,7 @@
                               </Sequence>
                             </TryCatch.Finally>
                           </TryCatch>
-                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="438,61" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="440,61" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                             <ui:MultipleAssign.AssignOperations>
                               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
@@ -338,7 +330,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:MultipleAssign>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438,61" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Adding The Values In The Data Table&quot;]">
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="440,61" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Adding The Values In The Data Table&quot;]">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -346,19 +338,58 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:LogMessage>
-                          <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Adding the row in the data table" ArrayRow="[{InvoiceNumber,OrderNumber,InvoiceDate,DueDate,TotalDue,SubTotal}]" DataTable="[InvoiceDetails]" DisplayName="Adding The Row In The Table" sap:VirtualizedContainerService.HintSize="438,92" sap2010:WorkflowViewState.IdRef="AddDataRow_2">
+                          <TryCatch sap2010:Annotation.AnnotationText="Throwing exception when adding row in the table" DisplayName="Try Catch-Adding Row In The Table" sap:VirtualizedContainerService.HintSize="440,577" sap2010:WorkflowViewState.IdRef="TryCatch_6">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                          </ui:AddDataRow>
+                            <TryCatch.Try>
+                              <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Adding the row in the data table" ArrayRow="[{InvoiceNumber,OrderNumber,InvoiceDate,DueDate,TotalDue,SubTotal}]" DataTable="[InvoiceDetails]" DisplayName="Adding The Row In The Table" sap:VirtualizedContainerService.HintSize="334,226" sap2010:WorkflowViewState.IdRef="AddDataRow_2">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:AddDataRow>
+                            </TryCatch.Try>
+                            <TryCatch.Catches>
+                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,374" sap2010:WorkflowViewState.IdRef="Catch`1_8">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ActivityAction x:TypeArguments="s:Exception">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                  </ActivityAction.Argument>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="400,305" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,101" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Error" Message="[exception.Message]" />
+                                    <Throw sap2010:Annotation.AnnotationText="Throwing exception when adding row in table" Exception="[New BusinessRuleException(Exception.Message)]" sap:VirtualizedContainerService.HintSize="358,74" sap2010:WorkflowViewState.IdRef="Throw_6">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </Throw>
+                                  </Sequence>
+                                </ActivityAction>
+                              </Catch>
+                            </TryCatch.Catches>
+                          </TryCatch>
                         </Sequence>
                       </TryCatch.Try>
                       <TryCatch.Catches>
-                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,21" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="486,21" sap2010:WorkflowViewState.IdRef="Catch`1_5">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -369,27 +400,20 @@
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                             </ActivityAction.Argument>
-                            <Sequence sap:VirtualizedContainerService.HintSize="400,305" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                            <Sequence sap:VirtualizedContainerService.HintSize="400,191" sap2010:WorkflowViewState.IdRef="Sequence_21">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,101" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Error" Message="[exception.Message]" />
-                              <Throw sap2010:Annotation.AnnotationText="Throwing exception when system exception is caugth" Exception="[New SystemException(Exception.Message)]" sap:VirtualizedContainerService.HintSize="358,74" sap2010:WorkflowViewState.IdRef="Throw_4">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                              </Throw>
                             </Sequence>
                           </ActivityAction>
                         </Catch>
-                        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="406,374" sap2010:WorkflowViewState.IdRef="Catch`1_6">
+                        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="486,21" sap2010:WorkflowViewState.IdRef="Catch`1_6">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
@@ -425,8 +449,8 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ForEach>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518,101" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Entering The Data In The Excel Sheet&quot;]" />
-            <Assign sap:VirtualizedContainerService.HintSize="518,70" sap2010:WorkflowViewState.IdRef="Assign_15">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="598,101" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Entering The Data In The Excel Sheet&quot;]" />
+            <Assign sap:VirtualizedContainerService.HintSize="598,70" sap2010:WorkflowViewState.IdRef="Assign_15">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[SheetPath]</OutArgument>
               </Assign.To>
@@ -434,14 +458,53 @@
                 <InArgument x:TypeArguments="x:String">[Io.Directory.GetCurrentDirectory+"Invoice.xlsx"]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:WriteRange AddHeaders="True" sap2010:Annotation.AnnotationText="Witing data in excel sheet" DataTable="[InvoiceDetails]" DisplayName="Writing Data In Excel Sheet" sap:VirtualizedContainerService.HintSize="518,156" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[SheetName]" StartingCell="A1" WorkbookPath="[SheetPath]">
+            <TryCatch sap2010:Annotation.AnnotationText="Throwing exception when writing excell sheet" DisplayName="Try Catch-Writing Excel Sheet" sap:VirtualizedContainerService.HintSize="598,224" sap2010:WorkflowViewState.IdRef="TryCatch_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-            </ui:WriteRange>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518,101" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;Getting The Informatioin From Pdf Process Ended&quot;]" />
+              <TryCatch.Try>
+                <ui:WriteRange AddHeaders="True" sap2010:Annotation.AnnotationText="Witing data in excel sheet" DataTable="[InvoiceDetails]" DisplayName="Writing Data In Excel Sheet" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[SheetName]" StartingCell="A1" WorkbookPath="[SheetPath]">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:WriteRange>
+              </TryCatch.Try>
+              <TryCatch.Catches>
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,21" sap2010:WorkflowViewState.IdRef="Catch`1_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ActivityAction x:TypeArguments="s:Exception">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                    </ActivityAction.Argument>
+                    <Sequence sap:VirtualizedContainerService.HintSize="400,305" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,101" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Error" Message="[Exception.Message]" />
+                      <Throw sap2010:Annotation.AnnotationText="Throwing exception when writing excel sheet is failed" Exception="[New BusinessRuleException(Exception.Message)]" sap:VirtualizedContainerService.HintSize="358,74" sap2010:WorkflowViewState.IdRef="Throw_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Throw>
+                    </Sequence>
+                  </ActivityAction>
+                </Catch>
+              </TryCatch.Catches>
+            </TryCatch>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="598,101" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;Getting The Informatioin From Pdf Process Ended&quot;]" />
           </Sequence>
         </Sequence>
       </TryCatch.Try>
