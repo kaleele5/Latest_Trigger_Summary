@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1547,2470</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1547,2733</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Launch_Browser_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -81,20 +81,20 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Launch_Browser" sap:VirtualizedContainerService.HintSize="1043,2405" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Launch_Browser" sap:VirtualizedContainerService.HintSize="1043,2508" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch sap2010:Annotation.AnnotationText="launching Browser for the given url" DisplayName="Try Catch-Launch Browser" sap:VirtualizedContainerService.HintSize="1001,2315" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch sap2010:Annotation.AnnotationText="launching Browser for the given url" DisplayName="Try Catch-Launch Browser" sap:VirtualizedContainerService.HintSize="1001,2418" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="Launching browser with the given url" DisplayName="Launch Browser" sap:VirtualizedContainerService.HintSize="963,2025" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap2010:Annotation.AnnotationText="Launching browser with the given url" DisplayName="Launch Browser" sap:VirtualizedContainerService.HintSize="963,2128" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="ui:Browser" Name="TravelsPage" />
             <Variable x:TypeArguments="x:Boolean" Name="ValidUrl" />
@@ -149,13 +149,13 @@
               </Sequence>
             </If.Else>
           </If>
-          <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" sap2010:Annotation.AnnotationText="Opening browser with the given url" BrowserType="Chrome" DisplayName="Opening  Browser" sap:VirtualizedContainerService.HintSize="921,1084" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[BrowserTab]" Url="[PageUrl]">
+          <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" sap2010:Annotation.AnnotationText="Opening browser with the given url" BrowserType="Chrome" DisplayName="Opening  Browser" sap:VirtualizedContainerService.HintSize="921,1187" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[BrowserTab]" Url="[PageUrl]">
             <ui:OpenBrowser.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="887,942" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="887,1045" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="IsLandingPageValid" />
                   </Sequence.Variables>
@@ -165,6 +165,13 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="845,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Opening Browser&quot;]" />
+                  <ui:MaximizeWindow Window="{x:Null}" sap2010:Annotation.AnnotationText="Maximizi browr widow" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="845,63" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:MaximizeWindow>
                   <ui:UiElementExists sap2010:Annotation.AnnotationText="Checking Element exists or not " DisplayName="Checking Element Exists" Exists="[IsLandingPageValid]" sap:VirtualizedContainerService.HintSize="845,127" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
                     <ui:UiElementExists.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b3ad1b36-fe09-4a31-97c6-0eac17dfce89" Selector="&lt;webctrl tag='LI' visibleinnertext='Configuration' /&gt;">

@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Variables" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:uas="clr-namespace:UiPath.Activities.System;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Variables" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:uas="clr-namespace:UiPath.Activities.System;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="BrowserUrl" Type="OutArgument(x:String)" />
     <x:Property Name="TravelTab" Type="InArgument(ui:Browser)" />
@@ -6,10 +6,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1547,1244</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1547,3484</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Variables_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="30">
+    <scg:List x:TypeArguments="x:String" Capacity="32">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -40,10 +40,12 @@
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>System.Security</x:String>
       <x:String>System.Net</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="31">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -70,7 +72,6 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
       <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
@@ -78,19 +79,27 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Variables" sap:VirtualizedContainerService.HintSize="538,1139" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Variables" sap:VirtualizedContainerService.HintSize="538,3179" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Pbtravel web page is launched and ticket is booked" DisplayName="Itegration Sequence" sap:VirtualizedContainerService.HintSize="496,1049" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence sap2010:Annotation.AnnotationText="Pbtravel web page is launched and ticket is booked" DisplayName="Itegration Sequence" sap:VirtualizedContainerService.HintSize="496,3089" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="BrowserUrl" />
         <Variable x:TypeArguments="ui:PasswordCredentials" Name="TravelPageCredentials" />
         <Variable x:TypeArguments="ss:SecureString" Name="PagePassword" />
         <Variable x:TypeArguments="x:String" Name="LoginTab" />
         <Variable x:TypeArguments="ui:Browser" Name="LoginPageTab" />
+        <Variable x:TypeArguments="x:String" Name="DashboardOption" />
+        <Variable x:TypeArguments="x:String" Name="SheetPath" />
+        <Variable x:TypeArguments="x:String" Name="SheetName" />
+        <Variable x:TypeArguments="sd:DataTable" Name="BookingTable" />
+        <Variable x:TypeArguments="sd:DataTable" Name="BookingTicketTable" />
+        <Variable x:TypeArguments="ui:PasswordCredentials" Name="GmailCredentials" />
+        <Variable x:TypeArguments="ss:SecureString" Name="GmailPassword" />
+        <Variable x:TypeArguments="x:String" Name="MailRecipeint" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -106,13 +115,28 @@
           <InArgument x:TypeArguments="x:String">http://bptravel.blueprism.com/login.html</InArgument>
         </Assign.Value>
       </Assign>
-      <uas:GetUsernamePasswordX OrchestratorCredentialName="{x:Null}" TimeoutInSeconds="{x:Null}" sap2010:Annotation.AnnotationText="Getting username and password for the web page" AutosubmitTimeoutSeconds="10" Credential="[TravelPageCredentials]" CredentialName="UiPath: http://bptravel.blueprism.com" CredentialsSource="CredentialsManager" DisplayName="Username And Password For Web Page" sap:VirtualizedContainerService.HintSize="434,211" sap2010:WorkflowViewState.IdRef="GetUsernamePasswordX_1">
+      <uas:GetUsernamePasswordX OrchestratorCredentialName="{x:Null}" TimeoutInSeconds="{x:Null}" sap2010:Annotation.AnnotationText="Getting username and password for the web page" AutosubmitTimeoutSeconds="0" Credential="[TravelPageCredentials]" CredentialName="UiPath: http://bptravel.blueprism.com" CredentialsSource="CredentialsManager" DisplayName="Username And Password For Web Page" sap:VirtualizedContainerService.HintSize="434,211" sap2010:WorkflowViewState.IdRef="GetUsernamePasswordX_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </uas:GetUsernamePasswordX>
+      <uas:GetUsernamePasswordX OrchestratorCredentialName="{x:Null}" TimeoutInSeconds="{x:Null}" sap2010:Annotation.AnnotationText="Geting username and password for gmail login" AutosubmitTimeoutSeconds="10" Credential="[GmailCredentials]" CredentialName="UiPath: Gmail.com" CredentialsSource="CredentialsManager" DisplayName="Getting Username And Password For Gmail" sap:VirtualizedContainerService.HintSize="434,211" sap2010:WorkflowViewState.IdRef="GetUsernamePasswordX_2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </uas:GetUsernamePasswordX>
+      <Assign sap:VirtualizedContainerService.HintSize="434,70" sap2010:WorkflowViewState.IdRef="Assign_6">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[MailRecipeint]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">mdkaleelahamed@gmail.com</InArgument>
+        </Assign.Value>
+      </Assign>
       <Assign sap:VirtualizedContainerService.HintSize="434,70" sap2010:WorkflowViewState.IdRef="Assign_2">
         <Assign.To>
           <OutArgument x:TypeArguments="ss:SecureString">[PagePassword]</OutArgument>
@@ -121,21 +145,106 @@
           <InArgument x:TypeArguments="ss:SecureString">[(new System.Net.NetworkCredential("",TravelPageCredentials.Password)).SecurePassword]</InArgument>
         </Assign.Value>
       </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="434,70" sap2010:WorkflowViewState.IdRef="Assign_7">
+        <Assign.To>
+          <OutArgument x:TypeArguments="ss:SecureString">[GmailPassword]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="ss:SecureString">[(new System.Net.NetworkCredential("",GmailCredentials.Password)).SecurePassword]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="434,70" sap2010:WorkflowViewState.IdRef="Assign_3">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[DashboardOption]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">Create Quote</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="434,70" sap2010:WorkflowViewState.IdRef="Assign_4">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[SheetPath]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[IO.Directory.GetCurrentDirectory+"\Day9\BPTravel.xlsx"]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="434,70" sap2010:WorkflowViewState.IdRef="Assign_5">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[SheetName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">Sheet1</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:ReadRange AddHeaders="True" sap2010:Annotation.AnnotationText="Reading Excel sheet" DataTable="[BookingTable]" DisplayName="Reading Excel Sheet" sap:VirtualizedContainerService.HintSize="434,128" sap2010:WorkflowViewState.IdRef="ReadRange_1" PreserveFormat="True" SheetName="[SheetName]" WorkbookPath="[SheetPath]">
+        <ui:ReadRange.Range>
+          <InArgument x:TypeArguments="x:String">
+            <Literal x:TypeArguments="x:String" Value="" />
+          </InArgument>
+        </ui:ReadRange.Range>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ReadRange>
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Invoking Launch Browser&quot;]" />
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Launch Browser workflow" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Day9\Launch Browser.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <OutArgument x:TypeArguments="ui:Browser" x:Key="BrowserTab">
-            <mva:VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="TravelTab" />
+          <OutArgument x:TypeArguments="ui:Browser" x:Key="BrowserTab">[TravelTab]</OutArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="PageUrl">[BrowserUrl]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Invoking Login Flow&quot;]" />
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Login workflow" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Day9\Login.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="ui:Browser" x:Key="LoginTab">[TravelTab]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="Username">[TravelPageCredentials.Username]</InArgument>
+          <InArgument x:TypeArguments="ss:SecureString" x:Key="Password">[PagePassword]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Invoking Dashboard Navigation&quot;]" />
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke DashBoard Navigation workflow" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Day9\DashBoard Navigation.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="ui:Browser" x:Key="BrowserTab">[TravelTab]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="DashBoardClickingOption">[DashboardOption]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Invoking Booking Ticket Flow&quot;]" />
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Booking Ticket workflow" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Day9\Booking Ticket.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="ui:Browser" x:Key="BrowserTab">
+            <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="TravelTab" />
+          </InArgument>
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="BookingDetails">
+            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="BookingTable" />
+          </InArgument>
+          <OutArgument x:TypeArguments="sd:DataTable" x:Key="BookingReferenceTable">
+            <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="BookingTicketTable" />
           </OutArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="PageUrl">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="BrowserUrl" />
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke LogOut workflow" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Day9\LogOut.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="ui:Browser" x:Key="BrowserTab">
+            <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="TravelTab" />
           </InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Login workflow" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Day9\Login.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Sending Mail workflow" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Day9\Sending Mail.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="ui:Browser" x:Key="LoginPageTab">
-            <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="TravelTab" />
+          <InArgument x:TypeArguments="x:String" x:Key="MailUsername">
+            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="GmailCredentials.Username" />
+          </InArgument>
+          <InArgument x:TypeArguments="ss:SecureString" x:Key="MailPassword">
+            <mva:VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="GmailPassword" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="MailRecipients">
+            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="MailRecipeint" />
+          </InArgument>
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="BookingDetailsTable">
+            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="BookingTicketTable" />
           </InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
