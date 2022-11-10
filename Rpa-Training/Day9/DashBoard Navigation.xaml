@@ -14,7 +14,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1547,1117</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1547,5090</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DashBoard_Navigation_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="52">
@@ -81,14 +81,14 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DashBoard_Navigation" sap:VirtualizedContainerService.HintSize="482,1012" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DashBoard_Navigation" sap:VirtualizedContainerService.HintSize="1187,4825" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="440,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Clicking Dashboard Options Module Started&quot;]" />
-    <TryCatch sap2010:Annotation.AnnotationText="Selecting  Options in the dashboard&#xD;&#xA;System.catch-Dashboard naviagtion is failed due to unknown error&#xD;&#xA;business.exception-Rethrows the exception" DisplayName="Try Catch-Dashboard Navigation" sap:VirtualizedContainerService.HintSize="440,640" sap2010:WorkflowViewState.IdRef="TryCatch_6">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1145,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Clicking Dashboard Options Module Started&quot;]" />
+    <TryCatch sap2010:Annotation.AnnotationText="Selecting  Options in the dashboard&#xA;System.catch-Dashboard naviagtion is failed due to unknown error&#xA;business.exception-Rethrows the exception" DisplayName="Try Catch-Dashboard Navigation" sap:VirtualizedContainerService.HintSize="1145,4453" sap2010:WorkflowViewState.IdRef="TryCatch_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -97,7 +97,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="Navigatin dashboard to click" DisplayName="Dashboard Navigation" sap:VirtualizedContainerService.HintSize="1107,4319" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap2010:Annotation.AnnotationText="Navigatin dashboard to click" DisplayName="Dashboard Navigation" sap:VirtualizedContainerService.HintSize="1107,4137" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -112,7 +112,7 @@
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If sap2010:Annotation.AnnotationText="Then-Throw exception input parameters are not valid&#xD;&#xA;else-valid input parameters" Condition="[String.IsNullOrWhiteSpace(DashBoardClickingOption) and String.IsNullOrEmpty(BrowserTab.ToString)]" DisplayName="If-Checking Input Parameters" sap:VirtualizedContainerService.HintSize="845,515" sap2010:WorkflowViewState.IdRef="If_7">
+            <If sap2010:Annotation.AnnotationText="Then-Throw exception input parameters are not valid&#xA;else-valid input parameters" Condition="[IsNothing(DashBoardClickingOption) and IsNothing(BrowserTab)]" DisplayName="If-Checking Input Parameters" sap:VirtualizedContainerService.HintSize="845,515" sap2010:WorkflowViewState.IdRef="If_7">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -147,15 +147,15 @@
               </If.Else>
             </If>
           </Sequence>
-          <ui:BrowserScope BrowserType="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" sap2010:Annotation.AnnotationText="Ataching the  Pbtravel  web page tab" Browser="[BrowserTab]" DisplayName="Attaching Browser" sap:VirtualizedContainerService.HintSize="1065,3380" sap2010:WorkflowViewState.IdRef="BrowserScope_1">
+          <ui:BrowserScope BrowserType="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" sap2010:Annotation.AnnotationText="Ataching the  Pbtravel  web page tab" Browser="[BrowserTab]" DisplayName="Attaching Browser" sap:VirtualizedContainerService.HintSize="1065,3198" sap2010:WorkflowViewState.IdRef="BrowserScope_1">
             <ui:BrowserScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1031,3231" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1031,3049" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <Sequence.Variables>
-                    <Variable x:TypeArguments="x:Boolean" Name="IsResultPageValid" />
+                    <Variable x:TypeArguments="x:Boolean" Name="IsLandingPageValid" />
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -163,9 +163,9 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="989,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Checking Valid Page&quot;]" />
-                  <ui:UiElementExists sap2010:Annotation.AnnotationText="Checing element exist or not" DisplayName="Checking Element Exists" Exists="[IsResultPageValid]" sap:VirtualizedContainerService.HintSize="989,127" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                  <ui:UiElementExists sap2010:Annotation.AnnotationText="Checing element exist or not" DisplayName="Checking Element Exists" Exists="[IsLandingPageValid]" sap:VirtualizedContainerService.HintSize="989,127" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
                     <ui:UiElementExists.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6f5b26bf-4ae6-4a59-a671-0e40c0343b86" Selector="&lt;webctrl tag='SPAN' aaname='Search' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6f5b26bf-4ae6-4a59-a671-0e40c0343b86" Selector="&lt;webctrl aaname='Log Out' tag='A' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
@@ -177,7 +177,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:UiElementExists>
-                  <If sap2010:Annotation.AnnotationText="Checking valid page or not&#xA;true-Valid login page&#xA;false -Throw exception &quot;Invalid Landing page in dashboard navigation&quot;" Condition="[IsResultPageValid]" DisplayName="If-Checking Valid Page " sap:VirtualizedContainerService.HintSize="989,529" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If sap2010:Annotation.AnnotationText="Checking valid page or not&#xA;true-Valid login page&#xA;false -Throw exception &quot;Invalid Landing page in dashboard navigation&quot;" Condition="[IsLandingPageValid]" DisplayName="If-Checking Valid Page " sap:VirtualizedContainerService.HintSize="989,529" sap2010:WorkflowViewState.IdRef="If_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -212,7 +212,7 @@
                     </If.Else>
                   </If>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="989,101" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;Clicking Dashboard options&quot;]" />
-                  <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[DashBoardClickingOption]" sap:VirtualizedContainerService.HintSize="989,2123" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                  <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[DashBoardClickingOption]" sap:VirtualizedContainerService.HintSize="989,1941" sap2010:WorkflowViewState.IdRef="Switch`1_2">
                     <Switch.Default>
                       <Sequence sap:VirtualizedContainerService.HintSize="400,305" sap2010:WorkflowViewState.IdRef="Sequence_17">
                         <sap:WorkflowViewStateService.ViewState>
@@ -230,14 +230,14 @@
                         </Throw>
                       </Sequence>
                     </Switch.Default>
-                    <Sequence x:Key="Create Quote" sap2010:Annotation.AnnotationText="" sap:VirtualizedContainerService.HintSize="949,1864" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                    <Sequence x:Key="Create Quote" sap2010:Annotation.AnnotationText="" sap:VirtualizedContainerService.HintSize="949,1682" sap2010:WorkflowViewState.IdRef="Sequence_7">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence sap2010:Annotation.AnnotationText="Clicking create quote option in dashboard " DisplayName="Clicking Create Quote Option" sap:VirtualizedContainerService.HintSize="907,1774" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                      <Sequence sap2010:Annotation.AnnotationText="Clicking create quote option in dashboard " DisplayName="Clicking Create Quote Option" sap:VirtualizedContainerService.HintSize="907,1592" sap2010:WorkflowViewState.IdRef="Sequence_6">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -245,7 +245,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:LogMessage sap:VirtualizedContainerService.HintSize="845,101" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;Clicking Create Quote Option&quot;]" />
-                        <TryCatch sap2010:Annotation.AnnotationText="Clicking Create quote&#xD;&#xA;System.exception-Failed to click Create Quote" DisplayName="Try Catch-Clicking  Create quote" sap:VirtualizedContainerService.HintSize="845,588" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                        <TryCatch sap2010:Annotation.AnnotationText="Clicking Create quote&#xA;System.exception-Failed to click Create Quote" DisplayName="Try Catch-Clicking  Create quote" sap:VirtualizedContainerService.HintSize="845,406" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -274,10 +274,10 @@
                             </ui:Click>
                           </TryCatch.Try>
                           <TryCatch.Catches>
-                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,374" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
@@ -305,7 +305,7 @@
                           </TryCatch.Catches>
                         </TryCatch>
                         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="845,101" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Trace" Message="[&quot;Checking Result Page&quot;]" />
-                        <ui:UiElementExists sap2010:Annotation.AnnotationText="Checking Element exist or not" DisplayName="Checking Element Exists" Exists="[IsResultPageValid]" sap:VirtualizedContainerService.HintSize="845,127" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                        <ui:UiElementExists sap2010:Annotation.AnnotationText="Checking Element exist or not" DisplayName="Checking Element Exists" Exists="[IsLandingPageValid]" sap:VirtualizedContainerService.HintSize="845,127" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
                           <ui:UiElementExists.Target>
                             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4eb03b61-0454-4bdb-877b-5e2a3761e3b8" Selector="&lt;webctrl tag='TD' aaname='From' /&gt;" WaitForReady="COMPLETE">
                               <ui:Target.TimeoutMS>
@@ -319,7 +319,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:UiElementExists>
-                        <If sap2010:Annotation.AnnotationText="Checking valid page is opened or not&#xD;&#xA;true- valid Result page &#xA;False -throw exception &quot;invalid Result page&quot;" Condition="[IsResultPageValid]" DisplayName="If-Checking Landing Page" sap:VirtualizedContainerService.HintSize="845,544" sap2010:WorkflowViewState.IdRef="If_2">
+                        <If sap2010:Annotation.AnnotationText="Checking valid page is opened or not&#xA;true- valid Result page &#xA;False -throw exception &quot;invalid Result page&quot;" Condition="[IsLandingPageValid]" DisplayName="If-Checking Landing Page" sap:VirtualizedContainerService.HintSize="845,544" sap2010:WorkflowViewState.IdRef="If_2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -355,7 +355,7 @@
                         </If>
                       </Sequence>
                     </Sequence>
-                    <Sequence x:Key="Search" sap2010:Annotation.AnnotationText="Clicking create quote option in dashboard " DisplayName="Clicking Create quote option" sap:VirtualizedContainerService.HintSize="887,1696" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                    <Sequence x:Key="Search" sap2010:Annotation.AnnotationText="Clicking create quote option in dashboard " DisplayName="Clicking Create quote option" sap:VirtualizedContainerService.HintSize="887,1514" sap2010:WorkflowViewState.IdRef="Sequence_10">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -363,7 +363,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <ui:LogMessage sap:VirtualizedContainerService.HintSize="845,101" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Trace" Message="[&quot;Clicking Search Option&quot;]" />
-                      <TryCatch sap2010:Annotation.AnnotationText="Clicking search option&#xD;&#xA;System.exception-Failed to click Search" DisplayName="Try Catch-Clicking  Search Option" sap:VirtualizedContainerService.HintSize="845,588" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                      <TryCatch sap2010:Annotation.AnnotationText="Clicking search option&#xA;System.exception-Failed to click Search" DisplayName="Try Catch-Clicking  Search Option" sap:VirtualizedContainerService.HintSize="845,406" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -392,10 +392,10 @@
                           </ui:Click>
                         </TryCatch.Try>
                         <TryCatch.Catches>
-                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,374" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
@@ -423,7 +423,7 @@
                         </TryCatch.Catches>
                       </TryCatch>
                       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="845,101" sap2010:WorkflowViewState.IdRef="LogMessage_32" Level="Trace" Message="[&quot;Checking Result Page&quot;]" />
-                      <ui:UiElementExists sap2010:Annotation.AnnotationText="Cheking Result page  opened or not" DisplayName="Checking Element Exist" Exists="[IsResultPageValid]" sap:VirtualizedContainerService.HintSize="845,127" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+                      <ui:UiElementExists sap2010:Annotation.AnnotationText="Cheking Result page  opened or not" DisplayName="Checking Element Exist" Exists="[IsLandingPageValid]" sap:VirtualizedContainerService.HintSize="845,127" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
                         <ui:UiElementExists.Target>
                           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ac8854d5-21b2-4cdf-965d-c8ddba03ed90" Selector="&lt;webctrl tag='SPAN' aaname='Search' /&gt;" WaitForReady="COMPLETE">
                             <ui:Target.TimeoutMS>
@@ -437,7 +437,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:UiElementExists>
-                      <If sap2010:Annotation.AnnotationText="Checking valid page is opened or not&#xD;&#xA;true -valid result page&#xA;False-throw exception &quot;invalid Result page&quot;" Condition="[IsResultPageValid]" DisplayName="If-Checking Result Page" sap:VirtualizedContainerService.HintSize="845,529" sap2010:WorkflowViewState.IdRef="If_3">
+                      <If sap2010:Annotation.AnnotationText="Checking valid page is opened or not&#xA;true -valid result page&#xA;False-throw exception &quot;invalid Result page&quot;" Condition="[IsLandingPageValid]" DisplayName="If-Checking Result Page" sap:VirtualizedContainerService.HintSize="845,529" sap2010:WorkflowViewState.IdRef="If_3">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -472,7 +472,7 @@
                         </If.Else>
                       </If>
                     </Sequence>
-                    <Sequence x:Key="View Quote" sap2010:Annotation.AnnotationText="Clicking create quote option in dashboard " DisplayName="Clicking Create quote option" sap:VirtualizedContainerService.HintSize="887,1555" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                    <Sequence x:Key="View Quote" sap2010:Annotation.AnnotationText="Clicking create quote option in dashboard " DisplayName="Clicking Create quote option" sap:VirtualizedContainerService.HintSize="887,1373" sap2010:WorkflowViewState.IdRef="Sequence_12">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -480,7 +480,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <ui:LogMessage sap:VirtualizedContainerService.HintSize="845,101" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Trace" Message="[&quot;Clicking View Quote Option&quot;]" />
-                      <TryCatch sap2010:Annotation.AnnotationText="Clicking view quote option&#xD;&#xA;system.exception-Failed To Click View Quote" DisplayName="Try Catch-Clicking View Quote" sap:VirtualizedContainerService.HintSize="845,588" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                      <TryCatch sap2010:Annotation.AnnotationText="Clicking view quote option&#xA;system.exception-Failed To Click View Quote" DisplayName="Try Catch-Clicking View Quote" sap:VirtualizedContainerService.HintSize="845,406" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -509,10 +509,10 @@
                           </ui:Click>
                         </TryCatch.Try>
                         <TryCatch.Catches>
-                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,374" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
@@ -539,7 +539,7 @@
                           </Catch>
                         </TryCatch.Catches>
                       </TryCatch>
-                      <ui:UiElementExists sap2010:Annotation.AnnotationText="Checking Result opened Or not" DisplayName="Checking Result Page" Exists="[IsResultPageValid]" sap:VirtualizedContainerService.HintSize="845,127" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
+                      <ui:UiElementExists sap2010:Annotation.AnnotationText="Checking Result opened Or not" DisplayName="Checking Result Page" Exists="[IsLandingPageValid]" sap:VirtualizedContainerService.HintSize="845,127" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
                         <ui:UiElementExists.Target>
                           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1c1368aa-fb07-439c-9137-213f2568364d" Selector="&lt;webctrl tag='TD' aaname='Quote Reference' /&gt;" WaitForReady="COMPLETE">
                             <ui:Target.TimeoutMS>
@@ -553,7 +553,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:UiElementExists>
-                      <If sap2010:Annotation.AnnotationText="Checking valid page is opened or not&#xA;true-valid result page &#xA;False -throw exception &quot;invalid Result page &quot;" Condition="[IsResultPageValid]" DisplayName="If-Checking Landing Page" sap:VirtualizedContainerService.HintSize="845,529" sap2010:WorkflowViewState.IdRef="If_4">
+                      <If sap2010:Annotation.AnnotationText="Checking valid page is opened or not&#xA;true-valid result page &#xA;False -throw exception &quot;invalid Result page &quot;" Condition="[IsLandingPageValid]" DisplayName="If-Checking Landing Page" sap:VirtualizedContainerService.HintSize="845,529" sap2010:WorkflowViewState.IdRef="If_4">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -588,7 +588,7 @@
                         </If.Else>
                       </If>
                     </Sequence>
-                    <Sequence x:Key="View Booking" sap2010:Annotation.AnnotationText="Clicking create quote option in dashboard " DisplayName="Clicking Create quote option" sap:VirtualizedContainerService.HintSize="887,1696" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                    <Sequence x:Key="View Booking" sap2010:Annotation.AnnotationText="Clicking create quote option in dashboard " DisplayName="Clicking Create quote option" sap:VirtualizedContainerService.HintSize="887,1514" sap2010:WorkflowViewState.IdRef="Sequence_14">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -596,7 +596,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <ui:LogMessage sap:VirtualizedContainerService.HintSize="845,101" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Trace" Message="[&quot;Clicking View Booking Option&quot;]" />
-                      <TryCatch sap2010:Annotation.AnnotationText="Clicking View Booking option&#xD;&#xA;system.exception-Failed to click View Booking" DisplayName="Try Catch-Clicking View Booking" sap:VirtualizedContainerService.HintSize="845,588" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                      <TryCatch sap2010:Annotation.AnnotationText="Clicking View Booking option&#xA;system.exception-Failed to click View Booking" DisplayName="Try Catch-Clicking View Booking" sap:VirtualizedContainerService.HintSize="845,406" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -625,10 +625,10 @@
                           </ui:Click>
                         </TryCatch.Try>
                         <TryCatch.Catches>
-                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,374" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_4">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
@@ -656,7 +656,7 @@
                         </TryCatch.Catches>
                       </TryCatch>
                       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="845,101" sap2010:WorkflowViewState.IdRef="LogMessage_33" Level="Trace" Message="[&quot;Checking Result Page&quot;]" />
-                      <ui:UiElementExists sap2010:Annotation.AnnotationText="Checking Result Page is opened or not" DisplayName="Checking Element Exist" Exists="[IsResultPageValid]" sap:VirtualizedContainerService.HintSize="845,127" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
+                      <ui:UiElementExists sap2010:Annotation.AnnotationText="Checking Result Page is opened or not" DisplayName="Checking Element Exist" Exists="[IsLandingPageValid]" sap:VirtualizedContainerService.HintSize="845,127" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
                         <ui:UiElementExists.Target>
                           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="246fffb5-35c7-4ee7-9a26-d520bac6bcfa" Selector="&lt;webctrl tag='TD' aaname='Booking Reference' /&gt;" WaitForReady="COMPLETE">
                             <ui:Target.TimeoutMS>
@@ -670,7 +670,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:UiElementExists>
-                      <If sap2010:Annotation.AnnotationText="Checking valid page is opened or not&#xA;true -valid landing page opened&#xA;False -throw exception &quot;invalid Result page &quot;" Condition="[IsResultPageValid]" DisplayName="If-Checking Landing Page" sap:VirtualizedContainerService.HintSize="845,529" sap2010:WorkflowViewState.IdRef="If_5">
+                      <If sap2010:Annotation.AnnotationText="Checking valid page is opened or not&#xA;true -valid landing page opened&#xA;False -throw exception &quot;invalid Result page &quot;" Condition="[IsLandingPageValid]" DisplayName="If-Checking Landing Page" sap:VirtualizedContainerService.HintSize="845,529" sap2010:WorkflowViewState.IdRef="If_5">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -718,10 +718,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,389" sap2010:WorkflowViewState.IdRef="Catch`1_6">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1111,21" sap2010:WorkflowViewState.IdRef="Catch`1_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -746,7 +746,7 @@
             </Sequence>
           </ActivityAction>
         </Catch>
-        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="406,21" sap2010:WorkflowViewState.IdRef="Catch`1_7">
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="1111,21" sap2010:WorkflowViewState.IdRef="Catch`1_7">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -768,6 +768,6 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="440,101" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="Info" Message="[&quot;DashBoard Navigation Module Ended&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1145,101" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="Info" Message="[&quot;DashBoard Navigation Module Ended&quot;]" />
   </Sequence>
 </Activity>
