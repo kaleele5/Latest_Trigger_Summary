@@ -3,11 +3,14 @@
   "description": "rpa training tasks ",
   "main": "Main.xaml",
   "dependencies": {
+    "Acme.Library": "[1.0.5]",
+    "Element5.Core": "[1.2.49]",
     "UiPath.Excel.Activities": "[2.16.0]",
     "UiPath.Mail.Activities": "[1.18.0]",
     "UiPath.PDF.Activities": "[3.10.1]",
     "UiPath.System.Activities": "[22.4.4]",
-    "UiPath.UIAutomation.Activities": "[22.10.1]"
+    "UiPath.UIAutomation.Activities": "[22.10.1]",
+    "UiPath.WebAPI.Activities": "[1.13.2]"
   },
   "webServices": [],
   "entitiesStores": [],
