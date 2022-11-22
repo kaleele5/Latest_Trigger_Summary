@@ -1,0 +1,6 @@
+Settings:
+  Namespace: "E5.ACME-Intergration" #The root namespace which would be used
+Constants:
+  MaxRetryCount: "0" # Max number of retries
+ReturnCodes:
+  LOGOUT_FAILED : "E0001 ## Failed To Logout From Website"
