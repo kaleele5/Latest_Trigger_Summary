@@ -67,3 +67,4 @@ ReturnCodes:
   PROCESS_EXECUTION_FAILED : "E00068 ## failed to execute the Process"
   BUCKEYE_REPORT_DOWNLOAD_FAILED : "E00069 ## Buckeye Report Download Module Failed"
   LOGOUT_FAILED : "E00070 ## Failed To Logout From Website"
+  FAILED_TO_GET_CREDENTIALS : "E00081 ## failed to get credentials from the orchestrator"
