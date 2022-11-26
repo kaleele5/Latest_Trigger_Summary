@@ -6,20 +6,12 @@
         <RequiredArgumentAttribute />
       </x:Property.Attributes>
     </x:Property>
-    <x:Property sap2010:Annotation.AnnotationText="Flowconfig Jobject to get the required inputs " Name="AcmeFlowConfig" Type="InArgument(njl:JObject)">
-      <x:Property.Attributes>
-        <RequiredArgumentAttribute />
-      </x:Property.Attributes>
-    </x:Property>
     <x:Property sap2010:Annotation.AnnotationText="Summary field name from the automation hub" Name="SummaryName" Type="InArgument(scg:List(x:String))">
       <x:Property.Attributes>
         <RequiredArgumentAttribute />
       </x:Property.Attributes>
     </x:Property>
   </x:Members>
-  <this:ProcessTransaction.AcmeFlowConfig>
-    <InArgument x:TypeArguments="njl:JObject" />
-  </this:ProcessTransaction.AcmeFlowConfig>
   <this:ProcessTransaction.SummaryName>
     <InArgument x:TypeArguments="scg:List(x:String)" />
   </this:ProcessTransaction.SummaryName>
@@ -131,7 +123,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <If sap2010:Annotation.AnnotationText="Check whether the mandatory arguments are provided" Condition="[If(IsNothing(FlowConfig(&quot;Automation Hub&quot;)(&quot;WorkFlowToExecute&quot;)), True,  (String.IsNullOrEmpty(FlowConfig(&quot;Automation Hub&quot;)(&quot;WorkFlowToExecute&quot;).ToString))) AndAlso IsNothing(AcmeFlowConfig)]" DisplayName="Validate WorkFlowExecute in FlowConfig" sap:VirtualizedContainerService.HintSize="698,341" sap2010:WorkflowViewState.IdRef="If_2">
+      <If sap2010:Annotation.AnnotationText="Check whether the mandatory arguments are provided" Condition="[not IsNothing(FlowConfig) AndAlso not IsNothing(FlowConfig(&quot;Automation Hub&quot;)(&quot;FlowToExecute&quot;)) AndAlso not String.IsNullOrWhiteSpace(FlowConfig(&quot;Automation Hub&quot;)(&quot;WorkFlowToExecute&quot;).ToString)]" DisplayName="Validate WorkFlowExecute in FlowConfig" sap:VirtualizedContainerService.HintSize="698,341" sap2010:WorkflowViewState.IdRef="If_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -177,7 +169,7 @@
             <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="BrowserTab" />
           </InArgument>
           <InArgument x:TypeArguments="njl:JObject" x:Key="FlowConfig">
-            <mva:VisualBasicValue x:TypeArguments="njl:JObject" ExpressionText="AcmeFlowConfig" />
+            <mva:VisualBasicValue x:TypeArguments="njl:JObject" ExpressionText="FlowConfig" />
           </InArgument>
           <InArgument x:TypeArguments="scg:List(x:String)" x:Key="FieldName">
             <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="SummaryName" />
