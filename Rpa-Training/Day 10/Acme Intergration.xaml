@@ -28,7 +28,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,1601</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,1401</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Acme_Intergration_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="70">
@@ -166,7 +166,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Downloading The Monthly reportly and generating yearly report" DisplayName="Acme_Intergration" sap:VirtualizedContainerService.HintSize="656,1536" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Downloading The Monthly reportly and generating yearly report" DisplayName="Acme_Intergration" sap:VirtualizedContainerService.HintSize="656,1336" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="ValidPage" />
       <Variable x:TypeArguments="sd:DataTable" Name="MonthReport" />
@@ -198,22 +198,15 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="594,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Acme Execution Started&quot;]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Dispatcher workflow" sap:VirtualizedContainerService.HintSize="594,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Day 10\Dispatcher.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="njl:JObject" x:Key="FlowConfig">[FlowConfig]</InArgument>
-        <InArgument x:TypeArguments="ui:Browser" x:Key="AcmeBrowsertab">[AcmeBrowserTab]</InArgument>
-        <InArgument x:TypeArguments="scg:List(x:String)" x:Key="FieldName">[FieldName]</InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="594,777" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="594,901" sap2010:WorkflowViewState.IdRef="CommentOut_1">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="558,689" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="558,813" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[FlowConfig(&quot;AcmeIntergration&quot;).ToString.ToLower]" sap:VirtualizedContainerService.HintSize="496,567" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[FlowConfig(&quot;AcmeIntergration&quot;).ToString.ToLower]" sap:VirtualizedContainerService.HintSize="496,691" sap2010:WorkflowViewState.IdRef="Switch`1_1">
             <Switch.Default>
               <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="284,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_48" MessageCode="INVALID_OPTION" __Prefix="[IO.Directory.GetCurrentDirectory]">
                 <eue:Throw_Business_Exception.ExtraMessage>
@@ -223,25 +216,24 @@
                 </eue:Throw_Business_Exception.ExtraMessage>
               </eue:Throw_Business_Exception>
             </Switch.Default>
-            <x:Null x:Key="dispatcher" />
-            <x:Null x:Key="performer" />
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="dispatcher" DisplayName="Invoke Dispatcher workflow" sap:VirtualizedContainerService.HintSize="334,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Day 10\Dispatcher.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="njl:JObject" x:Key="FlowConfig">[FlowConfig]</InArgument>
+                <InArgument x:TypeArguments="ui:Browser" x:Key="AcmeBrowsertab">[AcmeBrowserTab]</InArgument>
+                <InArgument x:TypeArguments="scg:List(x:String)" x:Key="FieldName">[FieldName]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="performer" DisplayName="Invoke Performer workflow" sap:VirtualizedContainerService.HintSize="334,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Day 10\Performer.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="njl:JObject" x:Key="FlowConfig">[FlowConfig]</InArgument>
+                <InArgument x:TypeArguments="ui:Browser" x:Key="AcmeBrowserTab">[AcmeBrowserTab]</InArgument>
+                <InArgument x:TypeArguments="scg:List(x:String)" x:Key="FieldName">[FieldName]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
           </Switch>
         </Sequence>
       </ui:CommentOut.Body>
     </ui:CommentOut>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Performer workflow" sap:VirtualizedContainerService.HintSize="594,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Day 10\Performer.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="njl:JObject" x:Key="FlowConfig">
-          <mva:VisualBasicValue x:TypeArguments="njl:JObject" ExpressionText="FlowConfig" />
-        </InArgument>
-        <InArgument x:TypeArguments="ui:Browser" x:Key="AcmeBrowserTab">
-          <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="AcmeBrowserTab" />
-        </InArgument>
-        <InArgument x:TypeArguments="scg:List(x:String)" x:Key="FieldName">
-          <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="FieldName" />
-        </InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="594,101" sap2010:WorkflowViewState.IdRef="LogMessage_43" Level="Info" Message="[&quot;Acme Intergration Ended&quot;]" />
   </Sequence>
 </Activity>
