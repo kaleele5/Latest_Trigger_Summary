@@ -3,8 +3,7 @@
   "description": "rpa training tasks ",
   "main": "Main.xaml",
   "dependencies": {
-    "Acme.Library": "[1.0.5]",
-    "Element5.Core": "[1.2.49]",
+    "Acme.Library": "[1.0.6]",
     "UiPath.Excel.Activities": "[2.16.0]",
     "UiPath.Mail.Activities": "[1.18.0]",
     "UiPath.PDF.Activities": "[3.10.1]",
