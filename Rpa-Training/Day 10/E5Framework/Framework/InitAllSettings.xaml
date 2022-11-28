@@ -35,10 +35,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,10421</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,9533</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="90">
+    <scg:List x:TypeArguments="x:String" Capacity="52">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -94,7 +94,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="68">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="74">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -141,7 +141,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="This module initialize the Errorconfig, Workflow config, Email channels,E5Hook" DisplayName="Initialize Workflow" sap:VirtualizedContainerService.HintSize="903,10356" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence sap2010:Annotation.AnnotationText="This module initialize the Errorconfig, Workflow config, Email channels,E5Hook" DisplayName="Initialize Workflow" sap:VirtualizedContainerService.HintSize="903,9388" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ConfigText" />
     </Sequence.Variables>
@@ -368,7 +368,7 @@
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:GetRobotCredential TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Getting the credentials from the assets in the orchestrator" AssetName="[FlowConfig(&quot;Login&quot;)(&quot;Login Asset Name&quot;).ToString]" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="338,232" sap2010:WorkflowViewState.IdRef="GetRobotCredential_4" Password="[AcmePassword]" Username="[AcmeUsername]">
+            <ui:GetRobotCredential TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Getting the credentials from the assets in the orchestrator" AssetName="[FlowConfig(&quot;Login&quot;)(&quot;LoginAssetName&quot;).ToString]" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="338,232" sap2010:WorkflowViewState.IdRef="GetRobotCredential_4" Password="[AcmePassword]" Username="[AcmeUsername]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -409,13 +409,14 @@
         </TryCatch.Catches>
       </TryCatch>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="Validating inputs,Being task initialization" DisplayName="Initialize E5 Hooks" sap:VirtualizedContainerService.HintSize="841,3412" sap2010:WorkflowViewState.IdRef="Sequence_14">
+    <Sequence sap2010:Annotation.AnnotationText="Validating inputs,Being task initialization" DisplayName="Initialize E5 Hooks" sap:VirtualizedContainerService.HintSize="841,2444" sap2010:WorkflowViewState.IdRef="Sequence_14">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="HookUserName" />
         <Variable x:TypeArguments="ss:SecureString" Name="HookPassword" />
         <Variable x:TypeArguments="x:String" Name="TaskRunID" />
         <Variable x:TypeArguments="x:String" Name="ProcessIdentifier" />
         <Variable x:TypeArguments="njl:JObject" Name="Config" />
+        <Variable x:TypeArguments="scg:List(x:String)" Name="SummaryFieldName" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -496,28 +497,13 @@
           <InArgument x:TypeArguments="x:String">[FlowConfig("Automation Hub")("Process Name").ToString]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="779,299" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-        <ui:CommentOut.Body>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,211" sap2010:WorkflowViewState.IdRef="Sequence_37">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <euhe:GetTaskRunID DeepLink="{x:Null}" ExpiryTime="{x:Null}" IsCreateNewTask="{x:Null}" IsNotificationSent="{x:Null}" ModuleJson="{x:Null}" SummaryFieldNames="{x:Null}" TaskRunID="{x:Null}" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="GetTaskRunID_1" />
-          </Sequence>
-        </ui:CommentOut.Body>
-      </ui:CommentOut>
-      <euhe:Begin_Task_Execution ClientName="{x:Null}" DeepLink="{x:Null}" DisplayName="Begin Task Execution" FlowConfig="[Config]" sap:VirtualizedContainerService.HintSize="779,354" HookPassword="[HookPassword]" HookURL="[FlowConfig(&quot;Automation Hub&quot;)(&quot;Hook Url&quot;).ToString]" HookUserName="[HookUserName]" sap2010:WorkflowViewState.IdRef="Begin_Task_Execution_1" ProcessIdentifier="[ProcessIdentifier]" ProcessName="[ProcessName]" SummaryFieldNames="[SummaryFieldNames]" TaskName="[FlowConfig(&quot;Automation Hub&quot;)(&quot;Task&quot;).ToString]" TaskRunIdentifier="[TaskRunID]" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+      <euhe:GetTaskRunID DeepLink="{x:Null}" ExpiryTime="{x:Null}" IsNotificationSent="{x:Null}" sap:VirtualizedContainerService.HintSize="779,89" sap2010:WorkflowViewState.IdRef="GetTaskRunID_2" IsCreateNewTask="[Convert.ToBoolean(FlowConfig(&quot;Automation Hub&quot;)(&quot;CreateNewTask&quot;))]" ModuleJson="[JObject.parse(&quot;{'ProcessName':'&quot;+FlowConfig(&quot;Automation Hub&quot;)(&quot;Process Name&quot;).ToString+&quot;','TaskName':'&quot;+FlowConfig(&quot;Automation Hub&quot;)(&quot;Task&quot;).ToString+&quot;','E5HookCredentialAsset':'&quot;+FlowConfig(&quot;Automation Hub&quot;)(&quot;Asset Name&quot;).ToString+&quot;','E5HookURL':'&quot;+FlowConfig(&quot;Automation Hub&quot;)(&quot;Hook Url&quot;).ToString+&quot;','IsScratchpadUpdate':'&quot;+FlowConfig(&quot;Automation Hub&quot;)(&quot;Scratchpadupdate&quot;).ToString+&quot;','ProcessReference':'&quot;+FlowConfig(&quot;Automatoin Hub&quot;)(&quot;ProcessReference&quot;).ToString+&quot;','ExpiryTimeDifference':'&quot;+FlowConfig(&quot;Launch&quot;)(&quot;Time&quot;).ToString+&quot;','NumberOfRetries':'&quot;+FlowConfig(&quot;Automation Hub&quot;)(&quot;Retries&quot;).ToString+&quot;','NotifyTaskRunCompletion':'&quot;+FlowConfig(&quot;Launch&quot;)(&quot;TaskRunCompletion&quot;).ToString+&quot;'}&quot;)]" SummaryFieldNames="[SummaryFieldName]" TaskRunID="[TaskRunID]" />
       <eus:Set_Generic_Value DisplayName="Store TaskRunID" sap:VirtualizedContainerService.HintSize="779,142" sap2010:WorkflowViewState.IdRef="Set_Generic_Value_1" Key="TaskRunID" Value="[TaskRunID]" __Prefix="[IO.Directory.GetCurrentDirectory]" />
-      <eus:Set_Generic_Value DisplayName="Store ProcessIdentifier" sap:VirtualizedContainerService.HintSize="779,142" sap2010:WorkflowViewState.IdRef="Set_Generic_Value_6" Key="ProcessIdentifier" Value="[ProcessIdentifier]" __Prefix="[IO.Directory.GetCurrentDirectory]" />
-      <eus:Set_Generic_Value DisplayName="Store Process Name" sap:VirtualizedContainerService.HintSize="779,142" sap2010:WorkflowViewState.IdRef="Set_Generic_Value_7" Key="ProcessName" Value="[ProcessName]" __Prefix="[IO.Directory.GetCurrentDirectory]" />
       <ui:AddLogFields DisplayName="Add Log Fields" sap:VirtualizedContainerService.HintSize="779,32" sap2010:WorkflowViewState.IdRef="AddLogFields_1">
         <ui:AddLogFields.Fields>
-          <InArgument x:TypeArguments="x:String" x:Key="ProcessName">[ProcessName]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="ProcessName">[FlowConfig("Automation Hub")("Process Name").ToString]</InArgument>
           <InArgument x:TypeArguments="x:String" x:Key="TaskName">[FlowConfig("Automation Hub")("Task").ToString]</InArgument>
           <InArgument x:TypeArguments="x:String" x:Key="TaskRunID">[TaskRunID]</InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="ProcessIdentifier">[ProcessIdentifier]</InArgument>
         </ui:AddLogFields.Fields>
       </ui:AddLogFields>
       <eus:Set_Generic_Value sap2010:Annotation.AnnotationText="Set the E5 Hooks Initialized flag" DisplayName="Set flag" sap:VirtualizedContainerService.HintSize="779,173" sap2010:WorkflowViewState.IdRef="Set_Generic_Value_5" Key="E5HooksInitialized" Value="[True]" __Prefix="[IO.Directory.GetCurrentDirectory]">

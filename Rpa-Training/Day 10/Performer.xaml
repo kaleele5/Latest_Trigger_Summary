@@ -1,15 +1,27 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Performer" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:a="clr-namespace:Acme_Library;assembly=Acme Library" xmlns:eue="clr-namespace:Element5_Core.Utils.Exception;assembly=Element5.Core" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Performer" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:a="clr-namespace:Acme_Library;assembly=Acme Library" xmlns:eue="clr-namespace:Element5_Core.Utils.Exception;assembly=Element5.Core" xmlns:euheo="clr-namespace:Element5_Core.Utils.Hooks.Execution_Hooks.Optimization;assembly=Element5.Core" xmlns:eus="clr-namespace:Element5_Core.Utils.Store;assembly=Element5.Core" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="FlowConfig" Type="InArgument(njl:JObject)" />
-    <x:Property Name="AcmeBrowserTab" Type="InArgument(ui:Browser)" />
+    <x:Property sap2010:Annotation.AnnotationText="The input values stored in jobject" Name="FlowConfig" Type="InArgument(njl:JObject)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property sap2010:Annotation.AnnotationText="The browser tab" Name="AcmeBrowserTab" Type="InArgument(ui:Browser)" />
+    <x:Property sap2010:Annotation.AnnotationText="Summry Status like failed,successful and completed" Name="FieldName" Type="InArgument(scg:List(x:String))">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
   </x:Members>
+  <this:Performer.FieldName>
+    <InArgument x:TypeArguments="scg:List(x:String)" />
+  </this:Performer.FieldName>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,4286</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,2997</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Performer_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="68">
+    <scg:List x:TypeArguments="x:String" Capacity="52">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -50,10 +62,22 @@
       <x:String>UiPath.Excel</x:String>
       <x:String>UiPath.CSV.Activities</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.Activities.System.Properties</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>Element5_Core.Utils.Store</x:String>
+      <x:String>Element5_Core.Utils.Hooks.Execution_Hooks.Optimization</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <sco:Collection x:TypeArguments="AssemblyReference">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="43">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -84,246 +108,294 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
-    </sco:Collection>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.AmazonWebServices.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Box.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+    </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Performer" sap:VirtualizedContainerService.HintSize="1073,4141" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Processing each work item &#xD;&#xA;- downloading monthly report &#xD;&#xA;- Generating yearly report and uploading it&#xD;&#xA;- update the status of work item" DisplayName="Acme Performer" sap:VirtualizedContainerService.HintSize="855,2892" sap2010:WorkflowViewState.IdRef="Sequence_39">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1011,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Performer Process Started&quot;]" />
-    <TryCatch sap2010:Annotation.AnnotationText="try - getting credentials from orchestrator&#xA;System.exception - failed to get credentials" DisplayName="Try Catch - Creddntials" sap:VirtualizedContainerService.HintSize="1011,133" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="793,101" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Acme Performer Process Started&quot;]" />
+    <TryCatch sap2010:Annotation.AnnotationText="Try - Acme Performer&#xA;system - &quot;PERFORMER_FAILED&quot;&#xA;Business - Rethrow" DisplayName="Try Catch - Performer" sap:VirtualizedContainerService.HintSize="793,2416" sap2010:WorkflowViewState.IdRef="TryCatch_16">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="credentials for acme login and gmail" DisplayName="Credentials" sap:VirtualizedContainerService.HintSize="400,484" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap2010:Annotation.AnnotationText="Getting The Queue item to process and update the status" DisplayName="Performer" sap:VirtualizedContainerService.HintSize="755,2100" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
-            <Variable x:TypeArguments="x:String" Name="AcmeUsername" />
-            <Variable x:TypeArguments="ss:SecureString" Name="AcmePassword" />
+            <Variable x:TypeArguments="ui:QueueItem" Name="WorkItemInfo" />
+            <Variable x:TypeArguments="x:Int32" Name="PageNumber" />
+            <Variable x:TypeArguments="x:Int32" Name="RowNumber" />
+            <Variable x:TypeArguments="x:String" Name="WIID" />
+            <Variable x:TypeArguments="x:String" Name="Description" />
+            <Variable x:TypeArguments="x:String" Name="Tyoe" />
+            <Variable x:TypeArguments="x:String" Name="WorkItemDate" />
+            <Variable x:TypeArguments="x:String" Name="TaxID" />
+            <Variable x:TypeArguments="s:String[]" Name="Monnths" />
+            <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="WorkItemQueue" />
+            <Variable x:TypeArguments="x:String" Name="UniqueId" />
+            <Variable x:TypeArguments="ui:GenericValue" Name="TaskRunID" />
+            <Variable x:TypeArguments="njl:JObject" Name="ReportJson" />
+            <Variable x:TypeArguments="x:String" Name="Report" />
+            <Variable x:TypeArguments="scg:List(x:String)" Name="FieldName" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Acme Login Credentials&quot;]" />
-          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[FlowConfig(&quot;Login&quot;)(&quot;LoginAssetName&quot;).ToString]" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="338,190" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[AcmePassword]" Username="[AcmeUsername]" />
-        </Sequence>
-      </TryCatch.Try>
-      <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ActivityAction x:TypeArguments="s:Exception">
-            <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-            </ActivityAction.Argument>
-            <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_3">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_1" __Prefix="[IO.Directory.GetCurrentDirectory]" />
-              <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_1" MessageCode="FAILED_TO_GET_CREDENTIALS" __Prefix="[IO.Directory.GetCurrentDirectory]">
-                <eue:Throw_Business_Exception.ExtraMessage>
-                  <InArgument x:TypeArguments="x:String">
-                    <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
-                  </InArgument>
-                </eue:Throw_Business_Exception.ExtraMessage>
-              </eue:Throw_Business_Exception>
-            </Sequence>
-          </ActivityAction>
-        </Catch>
-      </TryCatch.Catches>
-    </TryCatch>
-    <TryCatch sap2010:Annotation.AnnotationText="Try - login into acme website&#xA;System.exception - throw exception&#xA;Business.exception - rethrow" DisplayName="Try Catch  - Login " sap:VirtualizedContainerService.HintSize="1011,133" sap2010:WorkflowViewState.IdRef="TryCatch_2">
-      <TryCatch.Variables>
-        <Variable x:TypeArguments="ss:SecureString" Name="AcmePassword" />
-        <Variable x:TypeArguments="x:String" Name="AcmeUsername" />
-      </TryCatch.Variables>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <TryCatch.Try>
-        <a:LoginACME AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Login in the acme website with the username and password" sap:VirtualizedContainerService.HintSize="284,237" sap2010:WorkflowViewState.IdRef="LoginACME_1" Password="[AcmePassword]" UserName="[AcmeUsername]">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-        </a:LoginACME>
-      </TryCatch.Try>
-      <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ActivityAction x:TypeArguments="s:Exception">
-            <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-            </ActivityAction.Argument>
-            <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_4">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_2" __Prefix="[IO.Directory.GetCurrentDirectory]" />
-              <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_2" MessageCode="FAILED_TO_LOGIN" __Prefix="[IO.Directory.GetCurrentDirectory]">
-                <eue:Throw_Business_Exception.ExtraMessage>
-                  <InArgument x:TypeArguments="x:String">
-                    <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
-                  </InArgument>
-                </eue:Throw_Business_Exception.ExtraMessage>
-              </eue:Throw_Business_Exception>
-            </Sequence>
-          </ActivityAction>
-        </Catch>
-      </TryCatch.Catches>
-    </TryCatch>
-    <TryCatch sap2010:Annotation.AnnotationText="Try-navigating to the work item pages&#xA;system.exception-throw exception dashboard navigation failed&#xA;business.exception - rethrow" DisplayName="Try Catch-Navigating Work Item " sap:VirtualizedContainerService.HintSize="1011,133" sap2010:WorkflowViewState.IdRef="TryCatch_3">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <TryCatch.Try>
-        <a:DashBoardNavigation AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Navigatiing to the workitem page to acess the work item list" DashboardMenuItem="[FlowConfig(&quot;Dashboard Navigation&quot;)(&quot;ReportsPage&quot;).ToString]" DashboardSubMenuItem="[FlowConfig(&quot;Dashboard Navigation&quot;)(&quot;ReportsSubMenu&quot;).ToString]" ExitPageTitle="[FlowConfig(&quot;Dashboard Navigation&quot;)(&quot;ReportsExitPage&quot;).ToString]" sap:VirtualizedContainerService.HintSize="334,237" sap2010:WorkflowViewState.IdRef="DashBoardNavigation_1">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-        </a:DashBoardNavigation>
-      </TryCatch.Try>
-      <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ActivityAction x:TypeArguments="s:Exception">
-            <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-            </ActivityAction.Argument>
-            <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_5">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_3" __Prefix="[IO.Directory.GetCurrentDirectory]" />
-              <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_3" MessageCode="FAILED_TO_NAVIGATE_WORKITEMS" __Prefix="[IO.Directory.GetCurrentDirectory]">
-                <eue:Throw_Business_Exception.ExtraMessage>
-                  <InArgument x:TypeArguments="x:String">
-                    <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
-                  </InArgument>
-                </eue:Throw_Business_Exception.ExtraMessage>
-              </eue:Throw_Business_Exception>
-            </Sequence>
-          </ActivityAction>
-        </Catch>
-        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_4">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ActivityAction x:TypeArguments="ui:BusinessRuleException">
-            <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
-            </ActivityAction.Argument>
-            <Rethrow sap:VirtualizedContainerService.HintSize="200,32" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
-          </ActivityAction>
-        </Catch>
-      </TryCatch.Catches>
-    </TryCatch>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1011,330" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,242" sap2010:WorkflowViewState.IdRef="Sequence_6">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" sap2010:Annotation.AnnotationText="Creating Folder For The Month report with client id" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="338,120" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[IO.Directory.GetCurrentDirectory+&quot;\&quot;+ClientDetail(&quot;TaxID&quot;) + FlowConfig(&quot;Download File&quot;)(&quot;Year&quot;).ToString]">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="693,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Performer Process Started&quot;]" />
+          <TryCatch sap2010:Annotation.AnnotationText="try - getting credentials from orchestrator&#xA;System.exception - failed to get credentials" DisplayName="Try Catch - Credentials" sap:VirtualizedContainerService.HintSize="693,763" sap2010:WorkflowViewState.IdRef="TryCatch_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-          </ui:CreateDirectory>
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
-    <TryCatch sap2010:Annotation.AnnotationText="try - Download monthly report&#xA;System.exception- throw exception&#xA;business.exception - continuing to next row" DisplayName="Try Catch  - Downloading Each File" sap:VirtualizedContainerService.HintSize="1011,2989" sap2010:WorkflowViewState.IdRef="TryCatch_7">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <TryCatch.Try>
-        <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Looping the month to download the reports" DisplayName="For Each - Looping The Months" sap:VirtualizedContainerService.HintSize="973,2695" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[FlowConfig(&quot;Download File&quot;)(&quot;Months&quot;)]">
-          <ui:ForEach.Body>
-            <ActivityAction x:TypeArguments="x:Object">
-              <ActivityAction.Argument>
-                <DelegateInArgument x:TypeArguments="x:Object" Name="Months" />
-              </ActivityAction.Argument>
-              <Sequence sap2010:Annotation.AnnotationText="Looping each months and creating yearly report" DisplayName="Looping Months" sap:VirtualizedContainerService.HintSize="937,2530" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <TryCatch.Try>
+              <Sequence sap2010:Annotation.AnnotationText="credentials for acme login and gmail" DisplayName="Credentials" sap:VirtualizedContainerService.HintSize="400,484" sap2010:WorkflowViewState.IdRef="Sequence_2">
                 <Sequence.Variables>
-                  <Variable x:TypeArguments="x:Boolean" Name="ValidReport" />
+                  <Variable x:TypeArguments="x:String" Name="AcmeUsername" />
+                  <Variable x:TypeArguments="ss:SecureString" Name="AcmePassword" />
                 </Sequence.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <TryCatch sap2010:Annotation.AnnotationText="try - download monthly reports&#xA;system.exception - failed to download month reports&#xA;Business.exception - rethrow" DisplayName="Try Catch -Looping The Month" sap:VirtualizedContainerService.HintSize="875,564" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Acme Login Credentials&quot;]" />
+                <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[FlowConfig(&quot;Login&quot;)(&quot;LoginAssetName&quot;).ToString]" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="338,190" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[AcmePassword]" Username="[AcmeUsername]" />
+              </Sequence>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_1" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                    <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_1" MessageCode="FAILED_TO_GET_CREDENTIALS" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                      <eue:Throw_Business_Exception.ExtraMessage>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                        </InArgument>
+                      </eue:Throw_Business_Exception.ExtraMessage>
+                    </eue:Throw_Business_Exception>
+                  </Sequence>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+          <TryCatch sap2010:Annotation.AnnotationText="Try - login into acme website&#xA;System.exception - throw exception&#xA;Business.exception - rethrow" DisplayName="Try Catch  - Login " sap:VirtualizedContainerService.HintSize="693,133" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+            <TryCatch.Variables>
+              <Variable x:TypeArguments="ss:SecureString" Name="AcmePassword" />
+              <Variable x:TypeArguments="x:String" Name="AcmeUsername" />
+            </TryCatch.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <TryCatch.Try>
+              <a:LoginACME AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Login in the acme website with the username and password" sap:VirtualizedContainerService.HintSize="284,237" sap2010:WorkflowViewState.IdRef="LoginACME_1" Password="[AcmePassword]" UserName="[AcmeUsername]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </a:LoginACME>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_2" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                    <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_2" MessageCode="FAILED_TO_LOGIN" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                      <eue:Throw_Business_Exception.ExtraMessage>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                        </InArgument>
+                      </eue:Throw_Business_Exception.ExtraMessage>
+                    </eue:Throw_Business_Exception>
+                  </Sequence>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="693,101" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Getting The Queue Item&quot;]" />
+          <TryCatch sap2010:Annotation.AnnotationText="Try - processing Each queue item&#xA;System.exception - Continuing next queue item&#xA;Business - Continuing to next row" DisplayName="Try Catch - Queue Item" sap:VirtualizedContainerService.HintSize="693,531" sap2010:WorkflowViewState.IdRef="TryCatch_14">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <TryCatch.Try>
+              <Sequence sap2010:Annotation.AnnotationText="Processing each queue item to update the status" DisplayName="Processing Queue Item" sap:VirtualizedContainerService.HintSize="1073,10675" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="WorkItemDetails" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:GetQueueItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Get Transaction Item" sap:VirtualizedContainerService.HintSize="1011,32" sap2010:WorkflowViewState.IdRef="GetQueueItem_1" QueueType="[FlowConfig(&quot;QueueName&quot;).ToString]" TransactionItem="[WorkItemInfo]" />
+                <Assign sap2010:Annotation.AnnotationText="Initializing The  Array For the work item info" sap:VirtualizedContainerService.HintSize="1011,112" sap2010:WorkflowViewState.IdRef="Assign_3">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[WorkItemDetails]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[new Dictionary(of String, String)]</InArgument>
+                  </Assign.Value>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
+                </Assign>
+                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1011,296" sap2010:WorkflowViewState.IdRef="MultipleAssign_12">
+                  <ui:MultipleAssign.AssignOperations>
+                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_31">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Int32">[PageNumber]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(WorkItemInfo.SpecificContent("PageNumber"))]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_32">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Int32">[RowNumber]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(WorkItemInfo.SpecificContent("RowNumber"))]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_33">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">[WIID]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">[WorkItemInfo.SpecificContent("WIID").ToString]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_34">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">[Description]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">[WorkItemInfo.SpecificContent("Description").ToString]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_35">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">[Tyoe]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">[WorkItemInfo.SpecificContent("Type").ToString]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_36">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">[WorkItemDate]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">[WorkItemInfo.SpecificContent("Date").ToString]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_37">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">[TaxID]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">[WorkItemInfo.SpecificContent("TaxID").ToString]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                    </scg:List>
+                  </ui:MultipleAssign.AssignOperations>
+                </ui:MultipleAssign>
+                <TryCatch sap2010:Annotation.AnnotationText="Try-navigating to the work item pages&#xA;system.exception- &quot;&quot;FAILED_TO_NAVIGATE_WORKITEMS&quot;&quot;&#xA;business.exception -  Rethrow" DisplayName="Try Catch-Navigating Work Item " sap:VirtualizedContainerService.HintSize="1011,713" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                   <TryCatch.Try>
-                    <a:DownloadMonthlyReport TaxID="{x:Null}" AcmeBrowserTab="[AcmeBrowserTab]" sap:VirtualizedContainerService.HintSize="312,248" sap2010:WorkflowViewState.IdRef="DownloadMonthlyReport_1" IsDataExists="[ValidReport]" Month="[Months.ToString]" PopUpButtonAction="OK" Year="[FlowConfig(&quot;Download File&quot;)(&quot;Year&quot;).ToString]" />
-                  </TryCatch.Try>
-                  <TryCatch.Catches>
-                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+                    <Sequence DisplayName="Navigating To Work Item" sap:VirtualizedContainerService.HintSize="400,359" sap2010:WorkflowViewState.IdRef="Sequence_43">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <a:DashBoardNavigation AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Navigatiing to the workitem page to acess the work item list" DashboardMenuItem="[FlowConfig(&quot;Dashboard Navigation&quot;)(&quot;ReportsPage&quot;).ToString]" DashboardSubMenuItem="[FlowConfig(&quot;Dashboard Navigation&quot;)(&quot;ReportsSubMenu&quot;).ToString]" ExitPageTitle="[FlowConfig(&quot;Dashboard Navigation&quot;)(&quot;ReportsExitPage&quot;).ToString]" sap:VirtualizedContainerService.HintSize="338,237" sap2010:WorkflowViewState.IdRef="DashBoardNavigation_1">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </a:DashBoardNavigation>
+                    </Sequence>
+                  </TryCatch.Try>
+                  <TryCatch.Catches>
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,462" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
@@ -331,14 +403,14 @@
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_5">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_4" __Prefix="[IO.Directory.GetCurrentDirectory]" />
-                          <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_4" MessageCode="FAILED_TO_DOWNLOAD_MONTHLY_REPORT" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                          <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_3" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                          <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_3" MessageCode="FAILED_TO_NAVIGATE_WORKITEMS" __Prefix="[IO.Directory.GetCurrentDirectory]">
                             <eue:Throw_Business_Exception.ExtraMessage>
                               <InArgument x:TypeArguments="x:String">
                                 <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
@@ -348,7 +420,7 @@
                         </Sequence>
                       </ActivityAction>
                     </Catch>
-                    <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_6">
+                    <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="406,21" sap2010:WorkflowViewState.IdRef="Catch`1_25">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -359,82 +431,329 @@
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
                         </ActivityAction.Argument>
-                        <Rethrow sap:VirtualizedContainerService.HintSize="200,32" sap2010:WorkflowViewState.IdRef="Rethrow_2" />
+                        <Rethrow sap:VirtualizedContainerService.HintSize="200,32" sap2010:WorkflowViewState.IdRef="Rethrow_9" />
                       </ActivityAction>
                     </Catch>
                   </TryCatch.Catches>
                 </TryCatch>
-                <If sap2010:Annotation.AnnotationText="Checking the reports exist or not&#xA;then-download the file and read the file&#xA;else-There is no reports" Condition="[Not(ValidReport)]" DisplayName="If-Checking Csv File" sap:VirtualizedContainerService.HintSize="875,840" sap2010:WorkflowViewState.IdRef="If_1">
+                <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" sap2010:Annotation.AnnotationText="Creating Folder For The Month report with client id" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="1011,120" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[IO.Directory.GetCurrentDirectory+&quot;\&quot;+TaxID + FlowConfig(&quot;Download File&quot;)(&quot;Year&quot;).ToString]">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <If.Then>
-                    <TryCatch sap2010:Annotation.AnnotationText="Try _ downloading monthly reports&#xA;saytem.exception - failed to download file&#xA;business exception - rethrow" DisplayName="Try Catch -Download File" sap:VirtualizedContainerService.HintSize="474,615" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+                </ui:CreateDirectory>
+                <Assign sap2010:Annotation.AnnotationText="The months that required to download reports" sap:VirtualizedContainerService.HintSize="1011,112" sap2010:WorkflowViewState.IdRef="Assign_2">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="s:String[]">[Monnths]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="s:String[]">[FlowConfig("Download File")("Months").Select(Function(x) x.ToString).ToArray]</InArgument>
+                  </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Assign>
+                <TryCatch sap2010:Annotation.AnnotationText="try - Download monthly report&#xA;System.exception- throw exception&#xA;business.exception - continuing to next row" DisplayName="Try Catch  - Downloading Each File" sap:VirtualizedContainerService.HintSize="1011,2779" sap2010:WorkflowViewState.IdRef="TryCatch_13">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <TryCatch.Try>
+                    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Downloading monthly reports for every tax id" DisplayName="For Each  - Downloading Monthly Reports" sap:VirtualizedContainerService.HintSize="973,2485" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[Monnths]">
+                      <ui:ForEach.Body>
+                        <ActivityAction x:TypeArguments="x:String">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:String" Name="MonthsName" />
+                          </ActivityAction.Argument>
+                          <Sequence sap2010:Annotation.AnnotationText="Looping each months and creating yearly report" DisplayName="Looping Months" sap:VirtualizedContainerService.HintSize="937,2320" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="x:Boolean" Name="ValidReport" />
+                            </Sequence.Variables>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <TryCatch sap2010:Annotation.AnnotationText="try - download monthly reports&#xA;system.exception - failed to download month reports&#xA;Business.exception - rethrow" DisplayName="Try Catch -Looping The Month" sap:VirtualizedContainerService.HintSize="875,564" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <TryCatch.Try>
+                                <a:DownloadMonthlyReport AcmeBrowserTab="[AcmeBrowserTab]" sap:VirtualizedContainerService.HintSize="312,248" sap2010:WorkflowViewState.IdRef="DownloadMonthlyReport_1" IsDataExists="[ValidReport]" Month="[MonthsName]" PopUpButtonAction="OK" TaxID="[TaxID]" Year="[FlowConfig(&quot;Download File&quot;)(&quot;Year&quot;).ToString]" />
+                              </TryCatch.Try>
+                              <TryCatch.Catches>
+                                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ActivityAction x:TypeArguments="s:Exception">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                    </ActivityAction.Argument>
+                                    <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_4" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                                      <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_4" MessageCode="FAILED_TO_DOWNLOAD_MONTHLY_REPORT" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                                        <eue:Throw_Business_Exception.ExtraMessage>
+                                          <InArgument x:TypeArguments="x:String">
+                                            <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                                          </InArgument>
+                                        </eue:Throw_Business_Exception.ExtraMessage>
+                                      </eue:Throw_Business_Exception>
+                                    </Sequence>
+                                  </ActivityAction>
+                                </Catch>
+                                <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_6">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+                                    </ActivityAction.Argument>
+                                    <Rethrow sap:VirtualizedContainerService.HintSize="200,32" sap2010:WorkflowViewState.IdRef="Rethrow_2" />
+                                  </ActivityAction>
+                                </Catch>
+                              </TryCatch.Catches>
+                            </TryCatch>
+                            <If sap2010:Annotation.AnnotationText="Checking the reports exist or not&#xA;then-download the file and read the file&#xA;else-There is no reports" Condition="[Not(ValidReport)]" DisplayName="If-Checking Csv File" sap:VirtualizedContainerService.HintSize="875,630" sap2010:WorkflowViewState.IdRef="If_1">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If.Then>
+                                <TryCatch sap2010:Annotation.AnnotationText="Try _ downloading monthly reports&#xA;saytem.exception - failed to download file&#xA;business exception - rethrow" DisplayName="Try Catch -Download File" sap:VirtualizedContainerService.HintSize="438,405" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <TryCatch.Try>
+                                    <a:DownloadFile DownloadFilePath="[IO.Directory.GetCurrentDirectory+&quot;\&quot; + TaxID + FlowConfig(&quot;Download File&quot;)(&quot;Year&quot;).ToString +&quot;\&quot;+TaxID +MonthsName.ToString]" sap:VirtualizedContainerService.HintSize="334,89" sap2010:WorkflowViewState.IdRef="DownloadFile_2" />
+                                  </TryCatch.Try>
+                                  <TryCatch.Catches>
+                                    <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_7">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+                                        <ActivityAction.Argument>
+                                          <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+                                        </ActivityAction.Argument>
+                                        <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,283" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_5" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                                          <Rethrow sap:VirtualizedContainerService.HintSize="338,32" sap2010:WorkflowViewState.IdRef="Rethrow_3" />
+                                        </Sequence>
+                                      </ActivityAction>
+                                    </Catch>
+                                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_8">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ActivityAction x:TypeArguments="s:Exception">
+                                        <ActivityAction.Argument>
+                                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                        </ActivityAction.Argument>
+                                        <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_6" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                                          <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_5" MessageCode="FAILED_TO_DOWNLOAD_MONTHLY_REPORT" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                                            <eue:Throw_Business_Exception.ExtraMessage>
+                                              <InArgument x:TypeArguments="x:String">
+                                                <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                                              </InArgument>
+                                            </eue:Throw_Business_Exception.ExtraMessage>
+                                          </eue:Throw_Business_Exception>
+                                        </Sequence>
+                                      </ActivityAction>
+                                    </Catch>
+                                  </TryCatch.Catches>
+                                </TryCatch>
+                              </If.Then>
+                              <If.Else>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;There Is No Report In That Month&quot;]" />
+                              </If.Else>
+                            </If>
+                            <If sap2010:Annotation.AnnotationText="Then - read the csv  and append it&#xA;Else - there is no file" Condition="[File.Exists(IO.Directory.GetCurrentDirectory+&quot;\&quot; +TaxID + FlowConfig(&quot;Download File&quot;)(&quot;Year&quot;).ToString +&quot;\&quot;+TaxID +MonthsName+&quot;.csv&quot;)]" DisplayName="If - Checking The File" sap:VirtualizedContainerService.HintSize="875,893" sap2010:WorkflowViewState.IdRef="If_2">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If.Then>
+                                <Sequence sap2010:Annotation.AnnotationText="reading csv file and appending in single file" DisplayName="Reading Csv File " sap:VirtualizedContainerService.HintSize="496,683" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                  <Sequence.Variables>
+                                    <Variable x:TypeArguments="sd:DataTable" Name="MonthReport" />
+                                  </Sequence.Variables>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Reading Csv File&quot;]" />
+                                  <ui:ReadCsvFile sap2010:Annotation.AnnotationText="Reading the csv file" DataTable="[MonthReport]" Delimitator="Comma" DisplayName="Read The Csv " FilePath="[IO.Directory.GetCurrentDirectory+&quot;\&quot; +TaxID + FlowConfig(&quot;Download File&quot;)(&quot;Year&quot;).ToString +&quot;\&quot;+TaxID +MonthsName+&quot;.csv&quot;]" sap:VirtualizedContainerService.HintSize="434,193" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:ReadCsvFile>
+                                  <ui:AppendRange sap2010:Annotation.AnnotationText="Appending the data table in the excel sheet" DataTable="[MonthReport]" DisplayName="Appending The Sheet" sap:VirtualizedContainerService.HintSize="434,156" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="[FlowConfig(&quot;Excel&quot;)(&quot;Sheet Name&quot;).ToString]" WorkbookPath="[IO.Directory.GetCurrentDirectory+&quot;\&quot;+&quot;Yearly Report &quot;+TaxID+&quot;-&quot;+FlowConfig(&quot;Download File&quot;)(&quot;Year&quot;).ToString+&quot;.xlsx&quot;]">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:AppendRange>
+                                </Sequence>
+                              </If.Then>
+                              <If.Else>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;There Is No  File&quot;]" />
+                              </If.Else>
+                            </If>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:ForEach.Body>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:ForEach>
+                  </TryCatch.Try>
+                  <TryCatch.Catches>
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="977,21" sap2010:WorkflowViewState.IdRef="Catch`1_11">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <TryCatch.Try>
-                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,299" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-                          <ui:CommentOut.Body>
-                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,211" sap2010:WorkflowViewState.IdRef="Sequence_8">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <a:DownloadFile DownloadFilePath="[IO.Directory.GetCurrentDirectory+&quot;\&quot; + ClientDetail(&quot;TaxID&quot;) + FlowConfig(&quot;Download File&quot;)(&quot;Year&quot;).ToString +&quot;\&quot;+ClientDetail(&quot;TaxID&quot;) +Months.ToString]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="DownloadFile_1" />
-                            </Sequence>
-                          </ui:CommentOut.Body>
-                        </ui:CommentOut>
-                      </TryCatch.Try>
-                      <TryCatch.Catches>
-                        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="440,21" sap2010:WorkflowViewState.IdRef="Catch`1_7">
+                      <ActivityAction x:TypeArguments="s:Exception">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                        </ActivityAction.Argument>
+                        <TryCatch sap2010:Annotation.AnnotationText="Try - Navigating to yearly reports&#xA;sytem.exception - failed to navigate yearly report page&#xA;business.exveption - rethrow" DisplayName="Try Catch - Navigating To Yearly Reports " sap:VirtualizedContainerService.HintSize="531,1706" sap2010:WorkflowViewState.IdRef="TryCatch_6">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ActivityAction x:TypeArguments="ui:BusinessRuleException">
-                            <ActivityAction.Argument>
-                              <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
-                            </ActivityAction.Argument>
-                            <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,283" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                          <TryCatch.Try>
+                            <Sequence sap2010:Annotation.AnnotationText="navigating to work item page and continuing ext row" DisplayName="Navigating Work Item page" sap:VirtualizedContainerService.HintSize="493,1412" sap2010:WorkflowViewState.IdRef="Sequence_13">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_5" __Prefix="[IO.Directory.GetCurrentDirectory]" />
-                              <Rethrow sap:VirtualizedContainerService.HintSize="338,32" sap2010:WorkflowViewState.IdRef="Rethrow_3" />
-                            </Sequence>
-                          </ActivityAction>
-                        </Catch>
-                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="440,21" sap2010:WorkflowViewState.IdRef="Catch`1_8">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ActivityAction x:TypeArguments="s:Exception">
-                            <ActivityAction.Argument>
-                              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                            </ActivityAction.Argument>
-                            <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_10">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_6" __Prefix="[IO.Directory.GetCurrentDirectory]" />
-                              <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_5" MessageCode="FAILED_TO_DOWNLOAD_MONTHLY_REPORT" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                              <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="431,89" sap2010:WorkflowViewState.IdRef="Log_Exception_7" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                              <a:BreadCrumbNavigation AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Returning to home page" BreadCrumb="[FlowConfig(&quot;Breadcrumb&quot;)(&quot;Home Exit Page&quot;).ToString]" BreadCrumbMenu="[FlowConfig(&quot;Breadcrumb&quot;)(&quot;Home Page&quot;).ToString]" sap:VirtualizedContainerService.HintSize="431,226" sap2010:WorkflowViewState.IdRef="BreadCrumbNavigation_1">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </a:BreadCrumbNavigation>
+                              <a:DashBoardNavigation AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Navigating to yearly report page" DashboardMenuItem="[FlowConfig(&quot;Dashboard Navigation&quot;)(&quot;Main Menu Option&quot;).ToString]" DashboardSubMenuItem="[FlowConfig(&quot;Dashboard Navigation&quot;)(&quot;Yearly Report&quot;).ToString]" ExitPageTitle="[FlowConfig(&quot;Dashboard Navigation&quot;)(&quot;Exit Page Work Item&quot;).ToString]" sap:VirtualizedContainerService.HintSize="431,226" sap2010:WorkflowViewState.IdRef="DashBoardNavigation_2">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </a:DashBoardNavigation>
+                              <a:Pagination IsPageExist="{x:Null}" AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Navigating To Specific Page" sap:VirtualizedContainerService.HintSize="431,173" sap2010:WorkflowViewState.IdRef="Pagination_1" PageAction="[FlowConfig(&quot;Pagination&quot;)(&quot;specific Action&quot;).ToString]" PageNumber="[PageNumber]">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </a:Pagination>
+                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,203" sap2010:WorkflowViewState.IdRef="MultipleAssign_14">
+                                <ui:MultipleAssign.AssignOperations>
+                                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:String">[WorkItemDetails("UploadID")]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:String">-</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:String">[WorkItemDetails("UploadStatus")]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:String">-</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Status")]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:String">Failed</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Reason")]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:String">Failed to Download reports</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                  </scg:List>
+                                </ui:MultipleAssign.AssignOperations>
+                              </ui:MultipleAssign>
+                              <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="431,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_6" MessageCode="FAILED_TO_DOWNLOAD_MONTHLY_REPORTS" __Prefix="[IO.Directory.GetCurrentDirectory]">
                                 <eue:Throw_Business_Exception.ExtraMessage>
                                   <InArgument x:TypeArguments="x:String">
                                     <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
@@ -442,64 +761,898 @@
                                 </eue:Throw_Business_Exception.ExtraMessage>
                               </eue:Throw_Business_Exception>
                             </Sequence>
-                          </ActivityAction>
-                        </Catch>
-                      </TryCatch.Catches>
-                    </TryCatch>
-                  </If.Then>
-                  <If.Else>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;There Is No Report In That Month&quot;]" />
-                  </If.Else>
-                </If>
-                <If sap2010:Annotation.AnnotationText="Then - read the csv  and append it&#xA;Else - there is no file" Condition="[File.Exists(IO.Directory.GetCurrentDirectory+&quot;\&quot; + ClientDetail(&quot;TaxID&quot;) + FlowConfig(&quot;Download File&quot;)(&quot;Year&quot;).ToString +&quot;\&quot;+ClientDetail(&quot;TaxID&quot;) +Months.ToString+&quot;.csv&quot;)]" DisplayName="If - Checking The File" sap:VirtualizedContainerService.HintSize="875,893" sap2010:WorkflowViewState.IdRef="If_2">
+                          </TryCatch.Try>
+                          <TryCatch.Catches>
+                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="497,21" sap2010:WorkflowViewState.IdRef="Catch`1_9">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ActivityAction x:TypeArguments="s:Exception">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                </ActivityAction.Argument>
+                                <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="493,636" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="431,89" sap2010:WorkflowViewState.IdRef="Log_Exception_8" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,203" sap2010:WorkflowViewState.IdRef="MultipleAssign_15">
+                                    <ui:MultipleAssign.AssignOperations>
+                                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">[WorkItemDetails("UploadID")]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">-</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">[WorkItemDetails("UploadStatus")]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">-</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Status")]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">Failed</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Reason")]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">Failed to navigate work item</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                      </scg:List>
+                                    </ui:MultipleAssign.AssignOperations>
+                                  </ui:MultipleAssign>
+                                  <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="431,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_7" MessageCode="FAILED_TO_NAVIAGATE_YEARLY_REPORT_PAGE" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                                    <eue:Throw_Business_Exception.ExtraMessage>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                                      </InArgument>
+                                    </eue:Throw_Business_Exception.ExtraMessage>
+                                  </eue:Throw_Business_Exception>
+                                </Sequence>
+                              </ActivityAction>
+                            </Catch>
+                          </TryCatch.Catches>
+                        </TryCatch>
+                      </ActivityAction>
+                    </Catch>
+                  </TryCatch.Catches>
+                </TryCatch>
+                <TryCatch sap2010:Annotation.AnnotationText="Try - Navigating to yearly reports&#xA;sytem.exception - failed to navigate yearly report page&#xA;business.exveption - rethrow" DisplayName="Try Catch - Navigating To Yearly Reports " sap:VirtualizedContainerService.HintSize="1011,939" sap2010:WorkflowViewState.IdRef="TryCatch_8">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <If.Then>
-                    <Sequence sap2010:Annotation.AnnotationText="reading csv file and appending in single file" DisplayName="Reading Csv File " sap:VirtualizedContainerService.HintSize="496,683" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <TryCatch.Try>
+                    <Sequence sap2010:Annotation.AnnotationText="navigating to yearly report to upload yearly report" DisplayName="Navigating Yearly Report" sap:VirtualizedContainerService.HintSize="400,645" sap2010:WorkflowViewState.IdRef="Sequence_17">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Reading Csv File&quot;]" />
-                      <ui:ReadCsvFile sap2010:Annotation.AnnotationText="Reading the csv file" DataTable="[MonthReport]" Delimitator="Comma" DisplayName="Read The Csv " FilePath="[IO.Directory.GetCurrentDirectory+&quot;\&quot; + ClientDetail(&quot;TaxID&quot;) + FlowConfig(&quot;Download File&quot;)(&quot;Year&quot;).ToString +&quot;\&quot;+ClientDetail(&quot;TaxID&quot;) +Months.ToString+&quot;.csv&quot;]" sap:VirtualizedContainerService.HintSize="434,193" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1">
+                      <a:BreadCrumbNavigation AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Returning to home page" BreadCrumb="[FlowConfig(&quot;Breadcrumb&quot;)(&quot;Home Exit Page&quot;).ToString]" BreadCrumbMenu="[FlowConfig(&quot;Breadcrumb&quot;)(&quot;Home Page&quot;).ToString]" sap:VirtualizedContainerService.HintSize="338,226" sap2010:WorkflowViewState.IdRef="BreadCrumbNavigation_2">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                      </ui:ReadCsvFile>
-                      <ui:AppendRange sap2010:Annotation.AnnotationText="Appending the data table in the excel sheet" DataTable="[MonthReport]" DisplayName="Appending The Sheet" sap:VirtualizedContainerService.HintSize="434,156" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="[FlowConfig(&quot;Excel&quot;)(&quot;Sheet Name&quot;).ToString]" WorkbookPath="[IO.Directory.GetCurrentDirectory+&quot;\&quot;+&quot;Yearly Report &quot;+ClientDetail(&quot;TaxID&quot;)+&quot;-&quot;+FlowConfig(&quot;Download File&quot;)(&quot;Year&quot;).ToString+&quot;.xlsx&quot;]">
+                      </a:BreadCrumbNavigation>
+                      <a:DashBoardNavigation AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Navigating to yearly report page" DashboardMenuItem="[FlowConfig(&quot;Dashboard Navigation&quot;)(&quot;Reports Page&quot;).ToString]" DashboardSubMenuItem="[FlowConfig(&quot;Dashboard Navigation&quot;)(&quot;Yearly Report&quot;).ToString]" ExitPageTitle="[FlowConfig(&quot;Dashboard Navigation&quot;)(&quot;Yearly Exit Page&quot;).ToString]" sap:VirtualizedContainerService.HintSize="338,226" sap2010:WorkflowViewState.IdRef="DashBoardNavigation_3">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                      </ui:AppendRange>
+                      </a:DashBoardNavigation>
                     </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;There Is No  File&quot;]" />
-                  </If.Else>
-                </If>
+                  </TryCatch.Try>
+                  <TryCatch.Catches>
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_12">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="s:Exception">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="493,636" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="431,89" sap2010:WorkflowViewState.IdRef="Log_Exception_10" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,203" sap2010:WorkflowViewState.IdRef="MultipleAssign_16">
+                            <ui:MultipleAssign.AssignOperations>
+                              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_40">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[WorkItemDetails("UploadID")]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">-</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_41">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[WorkItemDetails("UploadStatus")]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">-</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_42">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Status")]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">Failed</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_43">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Reason")]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">Failed to navigate yearly report page</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                              </scg:List>
+                            </ui:MultipleAssign.AssignOperations>
+                          </ui:MultipleAssign>
+                          <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="431,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_8" MessageCode="FAILED_TO_NAVIGATE_YEARLY_REPORTS" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                            <eue:Throw_Business_Exception.ExtraMessage>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                              </InArgument>
+                            </eue:Throw_Business_Exception.ExtraMessage>
+                          </eue:Throw_Business_Exception>
+                        </Sequence>
+                      </ActivityAction>
+                    </Catch>
+                  </TryCatch.Catches>
+                </TryCatch>
+                <TryCatch sap2010:Annotation.AnnotationText="Try - Uploading the yeraly report&#xA;system.exception - Failed to upload the yearly report&#xA;business.exception- moving to next report" DisplayName="Try Catch - Upload Yearly Report" sap:VirtualizedContainerService.HintSize="1011,960" sap2010:WorkflowViewState.IdRef="TryCatch_9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <TryCatch.Try>
+                    <Sequence sap2010:Annotation.AnnotationText="uploading Yearly report for tax id" DisplayName="Uploading Report" sap:VirtualizedContainerService.HintSize="493,666" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <a:UploadYearlyReport AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Uploading the yerly excel report to get uique id" FilePath="[IO.Directory.GetCurrentDirectory+&quot;\&quot;+&quot;Yearly Report &quot;+TaxID+&quot;-&quot;+FlowConfig(&quot;Download File&quot;)(&quot;Year&quot;).ToString+&quot;.xlsx&quot;]" sap:VirtualizedContainerService.HintSize="431,332" sap2010:WorkflowViewState.IdRef="UploadYearlyReport_1" PopUpButtton="[FlowConfig(&quot;Download File&quot;)(&quot;Pop Up Action&quot;).ToString]" TaxId="[TaxID]" UploadId="[UniqueId]" Year="[FlowConfig(&quot;Download File&quot;)(&quot;Year&quot;).ToString]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </a:UploadYearlyReport>
+                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,141" sap2010:WorkflowViewState.IdRef="MultipleAssign_17">
+                        <ui:MultipleAssign.AssignOperations>
+                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">[WorkItemDetails("UploadID")]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">[UniqueId]</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">[WorkItemDetails("UploadStatus")]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">Completed</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                          </scg:List>
+                        </ui:MultipleAssign.AssignOperations>
+                      </ui:MultipleAssign>
+                    </Sequence>
+                  </TryCatch.Try>
+                  <TryCatch.Catches>
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="497,21" sap2010:WorkflowViewState.IdRef="Catch`1_13">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="s:Exception">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                        </ActivityAction.Argument>
+                        <Sequence sap2010:Annotation.AnnotationText="Adding status and reason for work item" DisplayName="Exception Handling" sap:VirtualizedContainerService.HintSize="493,667" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="431,89" sap2010:WorkflowViewState.IdRef="Log_Exception_11" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,203" sap2010:WorkflowViewState.IdRef="MultipleAssign_18">
+                            <ui:MultipleAssign.AssignOperations>
+                              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[WorkItemDetails("UpoadID")]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">-</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[WorkItemDetails("UploadStatus")]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">-</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Status")]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">Failed</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Reason")]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">Failed to upload yearly report</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                              </scg:List>
+                            </ui:MultipleAssign.AssignOperations>
+                          </ui:MultipleAssign>
+                          <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="431,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_9" MessageCode="UPLOAD_YEARLY_REPORT_FAILED" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                            <eue:Throw_Business_Exception.ExtraMessage>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                              </InArgument>
+                            </eue:Throw_Business_Exception.ExtraMessage>
+                          </eue:Throw_Business_Exception>
+                        </Sequence>
+                      </ActivityAction>
+                    </Catch>
+                  </TryCatch.Catches>
+                </TryCatch>
+                <TryCatch sap2010:Annotation.AnnotationText="Try - Navigating to yearly reports&#xA;sytem.exception - &quot;&quot;FAILED_TO_NAVIAGATE_YEARLY_REPORT_PAGE&quot;&quot;&#xA;business.exveption - rethrow" DisplayName="Try Catch - Navigating To Work Item " sap:VirtualizedContainerService.HintSize="1011,994" sap2010:WorkflowViewState.IdRef="TryCatch_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <TryCatch.Try>
+                    <Sequence sap2010:Annotation.AnnotationText="Navigating to work item page" DisplayName="Navigating To Work Item" sap:VirtualizedContainerService.HintSize="400,858" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <a:BreadCrumbNavigation AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Returning to home page" BreadCrumb="[FlowConfig(&quot;Breadcrumb&quot;)(&quot;Home Exit Page&quot;).ToString]" BreadCrumbMenu="[FlowConfig(&quot;Breadcrumb&quot;)(&quot;Home Page&quot;).ToString]" sap:VirtualizedContainerService.HintSize="338,226" sap2010:WorkflowViewState.IdRef="BreadCrumbNavigation_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </a:BreadCrumbNavigation>
+                      <a:DashBoardNavigation AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Navigating to yearly report page" DashboardMenuItem="[FlowConfig(&quot;Dashboard Navigation&quot;)(&quot;Main Menu Option&quot;).ToString]" DashboardSubMenuItem="[FlowConfig(&quot;Dashboard Navigation&quot;)(&quot;Yearly Report&quot;).ToString]" ExitPageTitle="[FlowConfig(&quot;Dashboard Navigation&quot;)(&quot;Exit Page Work Item&quot;).ToString]" sap:VirtualizedContainerService.HintSize="338,226" sap2010:WorkflowViewState.IdRef="DashBoardNavigation_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </a:DashBoardNavigation>
+                      <a:Pagination IsPageExist="{x:Null}" AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Navigating To Specific Page" sap:VirtualizedContainerService.HintSize="338,173" sap2010:WorkflowViewState.IdRef="Pagination_2" PageAction="[FlowConfig(&quot;Pagination&quot;)(&quot;specific Action&quot;).ToString]" PageNumber="[PageNumber]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </a:Pagination>
+                    </Sequence>
+                  </TryCatch.Try>
+                  <TryCatch.Catches>
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="597,21" sap2010:WorkflowViewState.IdRef="Catch`1_14">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="s:Exception">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="493,574" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="431,89" sap2010:WorkflowViewState.IdRef="Log_Exception_12" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,141" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
+                            <ui:MultipleAssign.AssignOperations>
+                              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Status")]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">Failed</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Reason")]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">Failed to navigate work item</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                              </scg:List>
+                            </ui:MultipleAssign.AssignOperations>
+                          </ui:MultipleAssign>
+                          <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="431,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_10" MessageCode="FAILED_TO_NAVIAGATE_YEARLY_REPORT_PAGE" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                            <eue:Throw_Business_Exception.ExtraMessage>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                              </InArgument>
+                            </eue:Throw_Business_Exception.ExtraMessage>
+                          </eue:Throw_Business_Exception>
+                        </Sequence>
+                      </ActivityAction>
+                    </Catch>
+                    <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="597,743" sap2010:WorkflowViewState.IdRef="Catch`1_15">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Rethrow Exception" sap:VirtualizedContainerService.HintSize="591,674" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="529,89" sap2010:WorkflowViewState.IdRef="Log_Exception_13" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="529,351" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                            <ui:CommentOut.Body>
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="493,263" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,141" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
+                                  <ui:MultipleAssign.AssignOperations>
+                                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Status")]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">Failed</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Reason")]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">Failed to navigate work item</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                    </scg:List>
+                                  </ui:MultipleAssign.AssignOperations>
+                                </ui:MultipleAssign>
+                              </Sequence>
+                            </ui:CommentOut.Body>
+                          </ui:CommentOut>
+                          <Rethrow sap:VirtualizedContainerService.HintSize="529,32" sap2010:WorkflowViewState.IdRef="Rethrow_5" />
+                        </Sequence>
+                      </ActivityAction>
+                    </Catch>
+                  </TryCatch.Catches>
+                </TryCatch>
+                <Sequence sap2010:Annotation.AnnotationText="Updating status of the work item" DisplayName="Updating Status " sap:VirtualizedContainerService.HintSize="1011,1166" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="Status" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="533,70" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[Status]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">Completed</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <TryCatch sap2010:Annotation.AnnotationText="Try - Updating the status of work item&#xA;system.exception - failed to update status&#xA;business.exception-status faules and reason" DisplayName="Try Catch - Updating The Status" sap:VirtualizedContainerService.HintSize="533,903" sap2010:WorkflowViewState.IdRef="TryCatch_11">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <TryCatch.Try>
+                      <Sequence DisplayName="Updating The Status" sap:VirtualizedContainerService.HintSize="493,901" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <a:TableAction GetData="{x:Null}" AcmeBrowserTab="[AcmeBrowserTab]" Action="[FlowConfig(&quot;Table Action&quot;)(&quot;Click Action&quot;).ToString]" sap2010:Annotation.AnnotationText="Opening the specific work item" ButtonName="[FlowConfig(&quot;Table Action&quot;)(&quot;Search Action&quot;).ToString]" sap:VirtualizedContainerService.HintSize="431,279" sap2010:WorkflowViewState.IdRef="TableAction_1" TableColumn="[FlowConfig(&quot;Table Action&quot;)(&quot;Action Column&quot;).ToString]" TableRow="[RowNumber]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </a:TableAction>
+                        <a:UpdateWorkItem AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Updating the status of work item" Comments="[UniqueId]" sap:VirtualizedContainerService.HintSize="431,279" sap2010:WorkflowViewState.IdRef="UpdateWorkItem_1" PopUpButton="[FlowConfig(&quot;Download File&quot;)(&quot;Pop Up Action&quot;).ToString]" Status="[Status]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </a:UpdateWorkItem>
+                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,141" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
+                          <ui:MultipleAssign.AssignOperations>
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Status")]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">Success</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Reason")]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">-</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                            </scg:List>
+                          </ui:MultipleAssign.AssignOperations>
+                        </ui:MultipleAssign>
+                      </Sequence>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="499,674" sap2010:WorkflowViewState.IdRef="Catch`1_16">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <Sequence sap2010:Annotation.AnnotationText="adiding the reason and status of the work item" DisplayName="Updating Status" sap:VirtualizedContainerService.HintSize="493,605" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="431,89" sap2010:WorkflowViewState.IdRef="Log_Exception_14" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,141" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
+                              <ui:MultipleAssign.AssignOperations>
+                                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
+                                    <ui:AssignOperation.To>
+                                      <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Status")]</OutArgument>
+                                    </ui:AssignOperation.To>
+                                    <ui:AssignOperation.Value>
+                                      <InArgument x:TypeArguments="x:String">Failed</InArgument>
+                                    </ui:AssignOperation.Value>
+                                  </ui:AssignOperation>
+                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_26">
+                                    <ui:AssignOperation.To>
+                                      <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Reason")]</OutArgument>
+                                    </ui:AssignOperation.To>
+                                    <ui:AssignOperation.Value>
+                                      <InArgument x:TypeArguments="x:String">Failed To Update Status Of Work Item</InArgument>
+                                    </ui:AssignOperation.Value>
+                                  </ui:AssignOperation>
+                                </scg:List>
+                              </ui:MultipleAssign.AssignOperations>
+                            </ui:MultipleAssign>
+                            <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="431,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_11" MessageCode="FAILED_TO_UPLOAD_STATUS" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                              <eue:Throw_Business_Exception.ExtraMessage>
+                                <InArgument x:TypeArguments="x:String">
+                                  <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                                </InArgument>
+                              </eue:Throw_Business_Exception.ExtraMessage>
+                            </eue:Throw_Business_Exception>
+                          </Sequence>
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                </Sequence>
+                <TryCatch sap2010:Annotation.AnnotationText="Try - Navigating to work item page&#xA;sytem.exception - failed to navigate work item page&#xA;business.exveption - rethrow" DisplayName="Try Catch - Navigating ToWork Item Page" sap:VirtualizedContainerService.HintSize="1011,784" sap2010:WorkflowViewState.IdRef="TryCatch_12">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <TryCatch.Try>
+                    <Sequence sap2010:Annotation.AnnotationText="Navigating to work item to the specific page " DisplayName="Navigating To Work Item" sap:VirtualizedContainerService.HintSize="400,379" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <a:BreadCrumbNavigation AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Returning to home page" BreadCrumb="[FlowConfig(&quot;Breadcrumb&quot;)(&quot;Home Exit Page&quot;).ToString]" BreadCrumbMenu="[FlowConfig(&quot;Breadcrumb&quot;)(&quot;Home Page&quot;).ToString]" sap:VirtualizedContainerService.HintSize="338,226" sap2010:WorkflowViewState.IdRef="BreadCrumbNavigation_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </a:BreadCrumbNavigation>
+                    </Sequence>
+                  </TryCatch.Try>
+                  <TryCatch.Catches>
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="499,21" sap2010:WorkflowViewState.IdRef="Catch`1_17">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="s:Exception">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="493,574" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="431,89" sap2010:WorkflowViewState.IdRef="Log_Exception_15" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,141" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
+                            <ui:MultipleAssign.AssignOperations>
+                              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_27">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Status")]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">Failed</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_28">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Reason")]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">Failed to work items page</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                              </scg:List>
+                            </ui:MultipleAssign.AssignOperations>
+                          </ui:MultipleAssign>
+                          <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="431,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_12" MessageCode="FAILED_TO_NAVIAGATE_YEARLY_REPORT_PAGE" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                            <eue:Throw_Business_Exception.ExtraMessage>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                              </InArgument>
+                            </eue:Throw_Business_Exception.ExtraMessage>
+                          </eue:Throw_Business_Exception>
+                        </Sequence>
+                      </ActivityAction>
+                    </Catch>
+                    <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="499,533" sap2010:WorkflowViewState.IdRef="Catch`1_18">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="493,464" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="431,89" sap2010:WorkflowViewState.IdRef="Log_Exception_16" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,141" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
+                            <ui:MultipleAssign.AssignOperations>
+                              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_29">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Status")]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">Failed</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_30">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Reason")]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">Failed to work items page</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                              </scg:List>
+                            </ui:MultipleAssign.AssignOperations>
+                          </ui:MultipleAssign>
+                          <Rethrow sap:VirtualizedContainerService.HintSize="431,32" sap2010:WorkflowViewState.IdRef="Rethrow_6" />
+                        </Sequence>
+                      </ActivityAction>
+                    </Catch>
+                  </TryCatch.Catches>
+                </TryCatch>
+                <Sequence sap2010:Annotation.AnnotationText="Updating the item in the SPA" DisplayName="Update Spa" sap:VirtualizedContainerService.HintSize="1011,1035" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,141" sap2010:WorkflowViewState.IdRef="MultipleAssign_19">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_44">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[Report]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[JsonConvert.SerializeObject(WorkItemDetails)]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_45">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Int32">[RowNumber]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Int32">[RowNumber + 1]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                  </ui:MultipleAssign>
+                  <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="431,69" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[ReportJson]" JsonString="[Report]" />
+                  <eus:Get_Generic_Value DisplayName="Get Generic Value" ErrorOnKeyMiss="True" sap:VirtualizedContainerService.HintSize="431,142" sap2010:WorkflowViewState.IdRef="Get_Generic_Value_2" Key="TaskRunID" Value="[TaskRunID]" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Update SPA workflow" sap:VirtualizedContainerService.HintSize="431,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Day 10\Update SPA.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="scg:List(x:String)" x:Key="SummaryFieldNames">[FieldName]</InArgument>
+                      <InArgument x:TypeArguments="njl:JObject" x:Key="SingleRecord">[ReportJson]</InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                  <euheo:Update_Task_Execution TaskId="{x:Null}" DisplayName="Update Task Execution" sap:VirtualizedContainerService.HintSize="431,248" sap2010:WorkflowViewState.IdRef="Update_Task_Execution_2" TaskRunID="[TaskRunID]" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                    <euheo:Update_Task_Execution.FailureReason>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                      </InArgument>
+                    </euheo:Update_Task_Execution.FailureReason>
+                    <euheo:Update_Task_Execution.SummaryResultObject>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                      </InArgument>
+                    </euheo:Update_Task_Execution.SummaryResultObject>
+                    <euheo:Update_Task_Execution.TaskResult>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                      </InArgument>
+                    </euheo:Update_Task_Execution.TaskResult>
+                    <euheo:Update_Task_Execution.TaskResultSummary>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                      </InArgument>
+                    </euheo:Update_Task_Execution.TaskResultSummary>
+                    <euheo:Update_Task_Execution.TaskRunStatus>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                      </InArgument>
+                    </euheo:Update_Task_Execution.TaskRunStatus>
+                  </euheo:Update_Task_Execution>
+                </Sequence>
               </Sequence>
-            </ActivityAction>
-          </ui:ForEach.Body>
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-        </ui:ForEach>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,21" sap2010:WorkflowViewState.IdRef="Catch`1_19">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Exception Handling" sap:VirtualizedContainerService.HintSize="400,211" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_17" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                  </Sequence>
+                </ActivityAction>
+              </Catch>
+              <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="406,280" sap2010:WorkflowViewState.IdRef="Catch`1_20">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Exception Handling" sap:VirtualizedContainerService.HintSize="400,211" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_18" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                  </Sequence>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+          <TryCatch sap2010:Annotation.AnnotationText="try-logout from page&#xA;system.exception-logout failed " DisplayName="Try Catch-Logout" sap:VirtualizedContainerService.HintSize="693,118" sap2010:WorkflowViewState.IdRef="TryCatch_15">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <TryCatch.Try>
+              <a:LogoutBrowser AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Logout from the acme  website" sap:VirtualizedContainerService.HintSize="284,120" sap2010:WorkflowViewState.IdRef="LogoutBrowser_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </a:LogoutBrowser>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_21">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_19" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+                    <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_13" MessageCode="LOGOUT_FAILED" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                      <eue:Throw_Business_Exception.ExtraMessage>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                        </InArgument>
+                      </eue:Throw_Business_Exception.ExtraMessage>
+                    </eue:Throw_Business_Exception>
+                  </Sequence>
+                </ActivityAction>
+              </Catch>
+              <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_22">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+                  </ActivityAction.Argument>
+                  <Rethrow sap:VirtualizedContainerService.HintSize="200,32" sap2010:WorkflowViewState.IdRef="Rethrow_7" />
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+        </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="977,21" sap2010:WorkflowViewState.IdRef="Catch`1_11">
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="759,21" sap2010:WorkflowViewState.IdRef="Catch`1_23">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+            </ActivityAction.Argument>
+            <Rethrow sap:VirtualizedContainerService.HintSize="200,32" sap2010:WorkflowViewState.IdRef="Rethrow_8" />
+          </ActivityAction>
+        </Catch>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="759,21" sap2010:WorkflowViewState.IdRef="Catch`1_24">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -510,227 +1663,25 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <TryCatch sap2010:Annotation.AnnotationText="Try - Navigating to yearly reports&#xA;sytem.exception - failed to navigate yearly report page&#xA;business.exveption - rethrow" DisplayName="Try Catch - Navigating To Yearly Reports " sap:VirtualizedContainerService.HintSize="533,2986" sap2010:WorkflowViewState.IdRef="TryCatch_6">
+            <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="400,393" sap2010:WorkflowViewState.IdRef="Sequence_40">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <TryCatch.Try>
-                <Sequence sap2010:Annotation.AnnotationText="navigating to work item page and continuing ext row" DisplayName="Navigating Work Item page" sap:VirtualizedContainerService.HintSize="493,1412" sap2010:WorkflowViewState.IdRef="Sequence_13">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="431,89" sap2010:WorkflowViewState.IdRef="Log_Exception_7" __Prefix="[IO.Directory.GetCurrentDirectory]" />
-                  <a:BreadCrumbNavigation AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Returning to home page" BreadCrumb="[FlowConfig(&quot;Breadcrumb&quot;)(&quot;Home Exit Page&quot;).ToString]" BreadCrumbMenu="[FlowConfig(&quot;Breadcrumb&quot;)(&quot;Home Page&quot;).ToString]" sap:VirtualizedContainerService.HintSize="431,226" sap2010:WorkflowViewState.IdRef="BreadCrumbNavigation_1">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </a:BreadCrumbNavigation>
-                  <a:DashBoardNavigation AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Navigating to yearly report page" DashboardMenuItem="[FlowConfig(&quot;Dashboard Navigation&quot;)(&quot;Main Menu Option&quot;).ToString]" DashboardSubMenuItem="[FlowConfig(&quot;Dashboard Navigation&quot;)(&quot;Yearly Report&quot;).ToString]" ExitPageTitle="[FlowConfig(&quot;Dashboard Navigation&quot;)(&quot;Exit Page Work Item&quot;).ToString]" sap:VirtualizedContainerService.HintSize="431,226" sap2010:WorkflowViewState.IdRef="DashBoardNavigation_2">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </a:DashBoardNavigation>
-                  <a:Pagination AcmeBrowserTab="[AcmeBrowserTab]" sap2010:Annotation.AnnotationText="Navigating To Specific Page" sap:VirtualizedContainerService.HintSize="431,173" sap2010:WorkflowViewState.IdRef="Pagination_1" IsPageExist="[IsValidPage]" PageAction="[FlowConfig(&quot;Pagination&quot;)(&quot;specific Action&quot;).ToString]" PageNumber="[Page]">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </a:Pagination>
-                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,203" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
-                    <ui:MultipleAssign.AssignOperations>
-                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:String">[WorkItemDetails("UploadID")]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">-</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:String">[WorkItemDetails("UploadStatus")]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">-</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Status")]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">Failed</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Reason")]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">Failed to Download reports</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                      </scg:List>
-                    </ui:MultipleAssign.AssignOperations>
-                  </ui:MultipleAssign>
-                  <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="431,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_6" MessageCode="FAILED_TO_DOWNLOAD_MONTHLY_REPORTS" __Prefix="[IO.Directory.GetCurrentDirectory]">
-                    <eue:Throw_Business_Exception.ExtraMessage>
-                      <InArgument x:TypeArguments="x:String">
-                        <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
-                      </InArgument>
-                    </eue:Throw_Business_Exception.ExtraMessage>
-                  </eue:Throw_Business_Exception>
-                </Sequence>
-              </TryCatch.Try>
-              <TryCatch.Catches>
-                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="499,705" sap2010:WorkflowViewState.IdRef="Catch`1_9">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ActivityAction x:TypeArguments="s:Exception">
-                    <ActivityAction.Argument>
-                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
-                    </ActivityAction.Argument>
-                    <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="493,636" sap2010:WorkflowViewState.IdRef="Sequence_14">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="431,89" sap2010:WorkflowViewState.IdRef="Log_Exception_8" __Prefix="[IO.Directory.GetCurrentDirectory]" />
-                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,203" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
-                        <ui:MultipleAssign.AssignOperations>
-                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
-                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
-                              <ui:AssignOperation.To>
-                                <OutArgument x:TypeArguments="x:String">[WorkItemDetails("UploadID")]</OutArgument>
-                              </ui:AssignOperation.To>
-                              <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:String">-</InArgument>
-                              </ui:AssignOperation.Value>
-                            </ui:AssignOperation>
-                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
-                              <ui:AssignOperation.To>
-                                <OutArgument x:TypeArguments="x:String">[WorkItemDetails("UploadStatus")]</OutArgument>
-                              </ui:AssignOperation.To>
-                              <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:String">-</InArgument>
-                              </ui:AssignOperation.Value>
-                            </ui:AssignOperation>
-                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
-                              <ui:AssignOperation.To>
-                                <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Status")]</OutArgument>
-                              </ui:AssignOperation.To>
-                              <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:String">Failed</InArgument>
-                              </ui:AssignOperation.Value>
-                            </ui:AssignOperation>
-                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
-                              <ui:AssignOperation.To>
-                                <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Reason")]</OutArgument>
-                              </ui:AssignOperation.To>
-                              <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:String">Failed to navigate work item</InArgument>
-                              </ui:AssignOperation.Value>
-                            </ui:AssignOperation>
-                          </scg:List>
-                        </ui:MultipleAssign.AssignOperations>
-                      </ui:MultipleAssign>
-                      <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="431,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_7" MessageCode="FAILED_TO_NAVIAGATE_YEARLY_REPORT_PAGE" __Prefix="[IO.Directory.GetCurrentDirectory]">
-                        <eue:Throw_Business_Exception.ExtraMessage>
-                          <InArgument x:TypeArguments="x:String">
-                            <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
-                          </InArgument>
-                        </eue:Throw_Business_Exception.ExtraMessage>
-                      </eue:Throw_Business_Exception>
-                    </Sequence>
-                  </ActivityAction>
-                </Catch>
-                <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="499,595" sap2010:WorkflowViewState.IdRef="Catch`1_10">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ActivityAction x:TypeArguments="ui:BusinessRuleException">
-                    <ActivityAction.Argument>
-                      <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
-                    </ActivityAction.Argument>
-                    <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="493,526" sap2010:WorkflowViewState.IdRef="Sequence_15">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="431,89" sap2010:WorkflowViewState.IdRef="Log_Exception_9" __Prefix="[IO.Directory.GetCurrentDirectory]" />
-                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,203" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
-                        <ui:MultipleAssign.AssignOperations>
-                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
-                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
-                              <ui:AssignOperation.To>
-                                <OutArgument x:TypeArguments="x:String">[WorkItemDetails("UploadID")]</OutArgument>
-                              </ui:AssignOperation.To>
-                              <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:String">-</InArgument>
-                              </ui:AssignOperation.Value>
-                            </ui:AssignOperation>
-                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
-                              <ui:AssignOperation.To>
-                                <OutArgument x:TypeArguments="x:String">[WorkItemDetails("UploadStatus")]</OutArgument>
-                              </ui:AssignOperation.To>
-                              <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:String">-</InArgument>
-                              </ui:AssignOperation.Value>
-                            </ui:AssignOperation>
-                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
-                              <ui:AssignOperation.To>
-                                <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Status")]</OutArgument>
-                              </ui:AssignOperation.To>
-                              <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:String">Failed</InArgument>
-                              </ui:AssignOperation.Value>
-                            </ui:AssignOperation>
-                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
-                              <ui:AssignOperation.To>
-                                <OutArgument x:TypeArguments="x:String">[WorkItemDetails("Reason")]</OutArgument>
-                              </ui:AssignOperation.To>
-                              <ui:AssignOperation.Value>
-                                <InArgument x:TypeArguments="x:String">Failed to navigate work item</InArgument>
-                              </ui:AssignOperation.Value>
-                            </ui:AssignOperation>
-                          </scg:List>
-                        </ui:MultipleAssign.AssignOperations>
-                      </ui:MultipleAssign>
-                      <Rethrow sap:VirtualizedContainerService.HintSize="431,32" sap2010:WorkflowViewState.IdRef="Rethrow_4" />
-                    </Sequence>
-                  </ActivityAction>
-                </Catch>
-              </TryCatch.Catches>
-            </TryCatch>
+              <eue:Log_Exception DisplayName="Log Exception" ExceptionObject="[exception]" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="Log_Exception_20" __Prefix="[IO.Directory.GetCurrentDirectory]" />
+              <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="338,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_14" MessageCode="PERFORMER_FAILED" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                <eue:Throw_Business_Exception.ExtraMessage>
+                  <InArgument x:TypeArguments="x:String">
+                    <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                  </InArgument>
+                </eue:Throw_Business_Exception.ExtraMessage>
+              </eue:Throw_Business_Exception>
+            </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="793,101" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Acme Performer Process Ended&quot;]" />
   </Sequence>
 </Activity>
