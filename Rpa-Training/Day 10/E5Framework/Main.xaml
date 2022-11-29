@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:ae="clr-namespace:Alphabet.Exception;assembly=GetXamlFileNameActivity" xmlns:eue="clr-namespace:Element5_Core.Utils.Exception;assembly=Element5.Core" xmlns:euhe="clr-namespace:Element5_Core.Utils.Hooks.Execution_Hooks;assembly=Element5.Core" xmlns:eung="clr-namespace:Element5_Core.Utils.Notifications_Channel.Gmail;assembly=Element5.Core" xmlns:eus="clr-namespace:Element5_Core.Utils.Store;assembly=Element5.Core" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:eue="clr-namespace:Element5_Core.Utils.Exception;assembly=Element5.Core" xmlns:euhe="clr-namespace:Element5_Core.Utils.Hooks.Execution_Hooks;assembly=Element5.Core" xmlns:eung="clr-namespace:Element5_Core.Utils.Notifications_Channel.Gmail;assembly=Element5.Core" xmlns:eus="clr-namespace:Element5_Core.Utils.Store;assembly=Element5.Core" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Email credential asset for notifying exception" Name="ExceptionGmailAccountCredentialAsset" Type="InArgument(x:String)">
       <x:Property.Attributes>
@@ -32,10 +32,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,7087</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,7128</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="35">
+    <scg:List x:TypeArguments="x:String" Capacity="70">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -71,6 +71,7 @@
       <x:String>Element5_Core.Utils.Hooks.Execution_Hooks</x:String>
       <x:String>System.Net</x:String>
       <x:String>System.Security</x:String>
+      <x:String>UiPath.Activities.System.Properties</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -106,7 +107,6 @@
       <AssemblyReference>Element5.Core</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -114,7 +114,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="Acme main execution invoking the invoking the initallsettings,initallapplication and process" DisplayName="Main" sap:VirtualizedContainerService.HintSize="1672,7022" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence sap2010:Annotation.AnnotationText="Acme main execution invoking the invoking the initallsettings,initallapplication and process" DisplayName="Main" sap:VirtualizedContainerService.HintSize="1672,7063" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Browser" Name="BrowserTab" />
       <Variable x:TypeArguments="x:String" Name="GlobalExceptionMessage" />
@@ -137,7 +137,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1610,101" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Acme Main Execution Started&quot;]" />
-    <TryCatch DisplayName="Try Catch-Main" sap:VirtualizedContainerService.HintSize="1610,6587" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch-Main" sap:VirtualizedContainerService.HintSize="1610,6628" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -145,7 +145,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="Validating input and invoking the initallsetting , initallapplication,process" DisplayName="Process Begins" sap:VirtualizedContainerService.HintSize="806,943" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence sap2010:Annotation.AnnotationText="Validating input and invoking the initallsetting , initallapplication,process" DisplayName="Process Begins" sap:VirtualizedContainerService.HintSize="725,984" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="ss:SecureString" Name="AcmeLoginPassword" />
             <Variable x:TypeArguments="ss:SecureString" Name="GmailLoginPassword" />
@@ -158,7 +158,7 @@
               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <If sap2010:Annotation.AnnotationText="Check whether the mandatory arguments are provided" Condition="[String.IsNullOrWhiteSpace(ExceptionGmailAccountCredentialAsset) Or&#xA;IsNothing(ExceptionEmailRecipients) Or&#xA;String.IsNullOrWhiteSpace(NotificationGmailAcccountCredentialAsset) Or&#xA;IsNothing(NotificationEmailRecipients) Or&#xA;String.IsNullOrWhiteSpace(StorageBucketName) Or&#xA;String.IsNullOrWhiteSpace(ConfigPath)]" DisplayName="Validate input arguments" sap:VirtualizedContainerService.HintSize="744,304" sap2010:WorkflowViewState.IdRef="If_1">
+          <If sap2010:Annotation.AnnotationText="Check whether the mandatory arguments are provided" Condition="[String.IsNullOrWhiteSpace(ExceptionGmailAccountCredentialAsset) Or&#xA;String.IsNullOrWhiteSpace(ExceptionEmailRecipients) Or&#xA;String.IsNullOrWhiteSpace(NotificationGmailAcccountCredentialAsset) Or&#xA;String.IsNullOrWhiteSpace(NotificationEmailRecipients) Or&#xA;String.IsNullOrWhiteSpace(StorageBucketName) Or&#xA;String.IsNullOrWhiteSpace(ConfigPath)]" DisplayName="Validate input arguments" sap:VirtualizedContainerService.HintSize="663,345" sap2010:WorkflowViewState.IdRef="If_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -167,50 +167,38 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <ae:ThrowBusinessRuleException DisplayName="Throw business rule exception" sap:VirtualizedContainerService.HintSize="365,80" sap2010:WorkflowViewState.IdRef="ThrowBusinessRuleException_1" message="INVALID_INPUT_ARGUMENTS" />
+              <eue:Throw_Business_Exception DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="284,142" sap2010:WorkflowViewState.IdRef="Throw_Business_Exception_1" MessageCode="INVALID_INPUT_ARGUMENTS" __Prefix="[IO.Directory.GetCurrentDirectory]">
+                <eue:Throw_Business_Exception.ExtraMessage>
+                  <InArgument x:TypeArguments="x:String">
+                    <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
+                  </InArgument>
+                </eue:Throw_Business_Exception.ExtraMessage>
+              </eue:Throw_Business_Exception>
             </If.Then>
             <If.Else>
               <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Mandatory arguments are provided&quot;]" />
             </If.Else>
           </If>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitAllSettings workflow" sap:VirtualizedContainerService.HintSize="744,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Day 10\E5Framework\Framework\InitAllSettings.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitAllSettings workflow" sap:VirtualizedContainerService.HintSize="663,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Day 10\E5Framework\Framework\InitAllSettings.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="ExceptionGmailAccountCredentialAsset">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ExceptionGmailAccountCredentialAsset" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="NotificationGmailAcccountCredentialAsset">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="NotificationGmailAcccountCredentialAsset" />
-              </InArgument>
-              <InArgument x:TypeArguments="s:String[]" x:Key="NotificationEmailRecipients">
-                <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="NotificationEmailRecipients.Split(&quot;,&quot;c)" />
-              </InArgument>
-              <InArgument x:TypeArguments="s:String[]" x:Key="ExceptionEmailRecipients">
-                <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="ExceptionEmailRecipients.Split(&quot;,&quot;c)" />
-              </InArgument>
-              <OutArgument x:TypeArguments="njl:JObject" x:Key="FlowConfig">
-                <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="FlowConfig" />
-              </OutArgument>
-              <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="SummaryFieldNames">
-                <mva:VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="SummaryFieldNames" />
-              </OutArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="StorageBucketName">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="StorageBucketName" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="ConfigPath">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ConfigPath" />
-              </InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="ProcessName">
-                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="ProcessName" />
-              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="ExceptionGmailAccountCredentialAsset">[ExceptionGmailAccountCredentialAsset]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="NotificationGmailAcccountCredentialAsset">[NotificationGmailAcccountCredentialAsset]</InArgument>
+              <InArgument x:TypeArguments="s:String[]" x:Key="NotificationEmailRecipients">[NotificationEmailRecipients.Split(","c)]</InArgument>
+              <InArgument x:TypeArguments="s:String[]" x:Key="ExceptionEmailRecipients">[ExceptionEmailRecipients.Split(","c)]</InArgument>
+              <OutArgument x:TypeArguments="njl:JObject" x:Key="FlowConfig">[FlowConfig]</OutArgument>
+              <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="SummaryFieldNames">[SummaryFieldNames]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="StorageBucketName">[StorageBucketName]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="ConfigPath">[ConfigPath]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="ProcessName">[ProcessName]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitAllApplications workflow" sap:VirtualizedContainerService.HintSize="744,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Day 10\E5Framework\Framework\InitAllApplications.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitAllApplications workflow" sap:VirtualizedContainerService.HintSize="663,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Day 10\E5Framework\Framework\InitAllApplications.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="LaunchUrl">[FlowConfig("Acme Launch")("Browser Url").ToString]</InArgument>
               <OutArgument x:TypeArguments="ui:Browser" x:Key="AcmeBrowserTab">[BrowserTab]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Process workflow" sap:VirtualizedContainerService.HintSize="744,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Day 10\E5Framework\Process.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Process workflow" sap:VirtualizedContainerService.HintSize="663,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Day 10\E5Framework\Process.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="njl:JObject" x:Key="FlowConfig">[FlowConfig]</InArgument>
               <InArgument x:TypeArguments="ui:Browser" x:Key="BrowserTab">[BrowserTab]</InArgument>
