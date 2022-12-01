@@ -35,7 +35,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,9493</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,9594</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="52">
@@ -141,7 +141,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap2010:Annotation.AnnotationText="This module initialize the Errorconfig, Workflow config, Email channels,E5Hook" DisplayName="Initialize Workflow" sap:VirtualizedContainerService.HintSize="903,9388" sap2010:WorkflowViewState.IdRef="Sequence_5">
+  <Sequence sap2010:Annotation.AnnotationText="This module initialize the Errorconfig, Workflow config, Email channels,E5Hook" DisplayName="Initialize Workflow" sap:VirtualizedContainerService.HintSize="903,9529" sap2010:WorkflowViewState.IdRef="Sequence_5">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ConfigText" />
     </Sequence.Variables>
@@ -153,7 +153,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <euc:Load_Config_File ConfigNamespace="E5.ACME-Intergration" ConfigYamlPath="[IO.Directory.GetCurrentDirectory +&quot;\Day 10\data\Config.yml&quot;]" DisplayName="Load Config File" sap:VirtualizedContainerService.HintSize="841,195" sap2010:WorkflowViewState.IdRef="Load_Config_File_1" ___Prefix="[IO.Directory.GetCurrentDirectory]" />
-    <TryCatch sap2010:Annotation.AnnotationText="Try - reading the storage bucket&#xA;System.exception - throw exception" DisplayName="Try Catch - Reading The Storage" sap:VirtualizedContainerService.HintSize="841,1431" sap2010:WorkflowViewState.IdRef="TryCatch_6">
+    <TryCatch sap2010:Annotation.AnnotationText="Try - reading the storage bucket&#xA;System.exception - throw exception" DisplayName="Try Catch - Reading The Storage" sap:VirtualizedContainerService.HintSize="841,1572" sap2010:WorkflowViewState.IdRef="TryCatch_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -162,7 +162,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="reading the flow config from the storage bucket" DisplayName="Reading The FlowConfig" sap:VirtualizedContainerService.HintSize="400,607" sap2010:WorkflowViewState.IdRef="Sequence_32">
+        <Sequence sap2010:Annotation.AnnotationText="reading the flow config from the storage bucket" DisplayName="Reading The FlowConfig" sap:VirtualizedContainerService.HintSize="400,748" sap2010:WorkflowViewState.IdRef="Sequence_32">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -177,6 +177,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ucas:ReadStorageText>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Deseralize The String To Json&quot;]" />
           <ui:DeserializeJson x:TypeArguments="njl:JObject" sap2010:Annotation.AnnotationText="converting string to json " DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="338,100" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[FlowConfig]" JsonString="[ConfigText]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
