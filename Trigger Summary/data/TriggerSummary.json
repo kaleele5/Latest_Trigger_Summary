@@ -1,0 +1,14 @@
+{
+    "OrchestratorUrl": "https://orchestrator-green.services.e5.ai",
+    "OrchestratorLoginAsset": "TestAPIAsset",
+    "TriggerStatus" : "false",
+    "DisabledTriggerFilter" : "/odata/ProcessSchedules?$filter=((Enabled%20eq%20false))&$orderby=Name%20asc",
+    "TriggerType" : "",
+    "PostSlackMessage" : "true",
+    "ErrorMessage" : 
+    {
+        "E001" : "Unable to login",
+        "E002" : "There is no trigger available",
+        "E003" : "Trigger Summary Failed Due To Technical Reason"
+    }
+}
