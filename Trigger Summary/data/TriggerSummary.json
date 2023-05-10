@@ -5,6 +5,9 @@
     "DisabledTriggerFilter" : "/odata/ProcessSchedules?$filter=((Enabled%20eq%20false))&$orderby=Name%20asc",
     "TriggerType" : "",
     "PostSlackMessage" : "true",
+    "PipedreamURL" : "https://hooks.slack.com/services/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",
+    "Client" : "Trigger Summary",
+    "SlackChannelId" : "C051ZV7CTB7",
     "ErrorMessage" : 
     {
         "E001" : "Unable to login",
