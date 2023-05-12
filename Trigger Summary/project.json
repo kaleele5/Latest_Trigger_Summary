@@ -3,11 +3,11 @@
   "description": "Process to get trigger summary from the orchestrator",
   "main": "Main.xaml",
   "dependencies": {
-    "BalaReva.EasyImage.Activities": "[2.1.0]",
     "Element5.Core": "[1.2.25]",
     "ExcelRangeToImage.Activities": "[1.0.0]",
     "UiPath.Excel.Activities": "[2.20.1]",
     "UiPath.Mail.Activities": "[1.18.2]",
+    "UiPath.Slack.Activities": "[1.0.3]",
     "UiPath.System.Activities": "[23.4.2]",
     "UiPath.Testing.Activities": "[23.4.0]",
     "UiPath.WebAPI.Activities": "[1.16.2]"

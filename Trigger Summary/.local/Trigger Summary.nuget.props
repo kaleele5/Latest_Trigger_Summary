@@ -5,17 +5,18 @@
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)AllDependencies.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">D:\Users\mohammed.kale\.nuget\packages\;C:\ProgramData\UiPath\NugetFallbackFolder</NuGetPackageFolders>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">D:\Users\mohammed.kale\.nuget\packages\</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">Unknown</NuGetProjectStyle>
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.3.1</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <SourceRoot Include="D:\Users\mohammed.kale\.nuget\packages\" />
-    <SourceRoot Include="C:\ProgramData\UiPath\NugetFallbackFolder\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\ProgramData\UiPath\NugetFallbackFolder\microsoft.codeanalysis.analyzers\3.3.2</PkgMicrosoft_CodeAnalysis_Analyzers>
+    <PkgExtended_Wpf_Toolkit Condition=" '$(PkgExtended_Wpf_Toolkit)' == '' ">D:\Users\mohammed.kale\.nuget\packages\extended.wpf.toolkit\2.8.0</PkgExtended_Wpf_Toolkit>
+    <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">D:\Users\mohammed.kale\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2</PkgMicrosoft_CodeAnalysis_Analyzers>
     <PkgMicrosoft_Web_WebView2 Condition=" '$(PkgMicrosoft_Web_WebView2)' == '' ">D:\Users\mohammed.kale\.nuget\packages\microsoft.web.webview2\1.0.864.35</PkgMicrosoft_Web_WebView2>
-    <PkgUiPath_Mail_Activities Condition=" '$(PkgUiPath_Mail_Activities)' == '' ">C:\ProgramData\UiPath\NugetFallbackFolder\uipath.mail.activities\1.18.2</PkgUiPath_Mail_Activities>
+    <PkgUiPath_Mail_Activities Condition=" '$(PkgUiPath_Mail_Activities)' == '' ">D:\Users\mohammed.kale\.nuget\packages\uipath.mail.activities\1.18.2</PkgUiPath_Mail_Activities>
+    <PkgEasyEncryption Condition=" '$(PkgEasyEncryption)' == '' ">D:\Users\mohammed.kale\.nuget\packages\easyencryption\1.0.2</PkgEasyEncryption>
   </PropertyGroup>
 </Project>
