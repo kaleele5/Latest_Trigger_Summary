@@ -1,0 +1,196 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Trigger Summary.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "IsTextMatch&Sequence_1",
+        "TriggerTime&Sequence_1",
+        "Trigger_Name&Sequence_1",
+        "trigger&Sequence_28",
+        "TriggerSummaryDT&Sequence_1",
+        "ActionText&Sequence_1",
+        "TriggerType&Sequence_7",
+        "Tr&Sequence_28",
+        "EnititiesLogs&Sequence_1",
+        "Entities&Sequence_1",
+        "EntitiesValue&Sequence_23",
+        "TriggerListDT&Sequence_1",
+        "Count&Sequence_1",
+        "TriggerParameter&Sequence_1",
+        "ResponseContentObject&Sequence_1",
+        "TriggerID&Sequence_1",
+        "TriggerName&Sequence_1",
+        "ResponseContent&Sequence_1",
+        "TriggerDt&Sequence_9",
+        "OrchestratorUrl&Sequence_1",
+        "TriggerDetailsDT&Sequence_1",
+        "TriggerNameRow&Sequence_8",
+        "ResponseCode&Sequence_1",
+        "ResponseBody&Sequence_1",
+        "ResponseBodyObject&Sequence_1",
+        "UipathToken&Sequence_1",
+        "OrchestratorLoginUrl&Sequence_2",
+        "APIUsername&Sequence_2",
+        "APIPassword&Sequence_2",
+        "LoginEndpoint&Sequence_2",
+        "Payload&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "FlowConfig"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Disabled Trigger.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "OrchestratorLoginUrl&Sequence_3",
+        "ResponseBody&Sequence_3",
+        "ResponseCode&Sequence_3",
+        "UipathToken&Sequence_3",
+        "TriggerDetailsDT&Sequence_3",
+        "ResponseBodyObject&Sequence_3",
+        "TriggerCount&Sequence_3",
+        "TriggerStatusName&Sequence_3",
+        "TriggerDt&Sequence_3",
+        "APIUsername&Sequence_2",
+        "APIPassword&Sequence_2",
+        "LoginEndpoint&Sequence_2",
+        "Payload&Sequence_2",
+        "OrchestratorUrl&Sequence_6",
+        "TriggerNameRow&Sequence_8"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "FlowConfig"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "FilePath&Sequence_10",
+        "ImageFilePath&Sequence_10",
+        "IsSendImage&Sequence_10",
+        "IsTriggerCountZero&Sequence_1",
+        "TriggerSummaryList&Sequence_1",
+        "MessageImage&Sequence_1",
+        "TriggerList&Sequence_1",
+        "FlowConfigSTR&Sequence_1",
+        "FlowConfigText&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "TemplateFileName",
+        "StorageBucketName",
+        "ConfigName"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Disbled trigger test.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "variable1&Sequence_1",
+        "FinalDT&Sequence_1",
+        "DT2&Sequence_1",
+        "DT1&Sequence_1",
+        "APIUsername&Sequence_1",
+        "APIPassword&Sequence_1",
+        "ResponseCode&Sequence_1",
+        "ResponseBody&Sequence_1",
+        "Payload&Sequence_1",
+        "UipathToken&Sequence_1",
+        "ResponseBodyObject&Sequence_1",
+        "TriggerName&Sequence_1",
+        "TriggerDetailsDT&Sequence_1",
+        "TriggerNameRow&Sequence_1",
+        "TriggerDt&Sequence_1",
+        "TriggerDT1&Sequence_1",
+        "triggerparameters&Sequence_1",
+        "Triggerparams&Sequence_1",
+        "rigger1&Sequence_1",
+        "Vart&Sequence_1",
+        "Gh&Sequence_1",
+        "Cy&Sequence_1",
+        "MailBody&Sequence_1",
+        "ResponseContent&Sequence_1",
+        "Ent&Sequence_1",
+        "TriggerNameCheck&Sequence_16",
+        "SId&Sequence_16",
+        "Tname&Sequence_16",
+        "response&Sequence_16",
+        "ResObj&Sequence_16",
+        "TriggerStatusCheck&Sequence_17",
+        "OpText&Sequence_17",
+        "variable1&Sequence_17",
+        "StatusCheck&Sequence_18",
+        "ScId&Sequence_18",
+        "JobjTr&Sequence_40",
+        "TriggerArray&Sequence_40",
+        "LT&Sequence_41"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "EndPoint"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SlackIntegration.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "TextMessage&Sequence_1",
+        "FilePath&Sequence_1",
+        "ResponseCode&Sequence_1",
+        "SlackToken&Sequence_1",
+        "Summary_image&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "SummaryImgPath",
+        "SendImage",
+        "FlowConfig"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "exceltoimage.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "TableRange&Sequence_13",
+        "DtColumnCount&Sequence_13",
+        "DtRowCount&Sequence_13",
+        "TriggerSummaryDT&Sequence_13",
+        "FilePath&Sequence_13",
+        "image&Sequence_1",
+        "Str&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "FilePath",
+        "SummaryImg"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "test.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    }
+  ]
+}
