@@ -54,7 +54,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="test" sap:VirtualizedContainerService.HintSize="450,224" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="test" sap:VirtualizedContainerService.HintSize="450,356" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -62,16 +62,11 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Main.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Main.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="ConfigName">
-          <Literal x:TypeArguments="x:String">TriggerSummary.json</Literal>
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="StorageBucketName">
-          <Literal x:TypeArguments="x:String">DisabledTrigger</Literal>
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="TemplateFileName">
-          <Literal x:TypeArguments="x:String">summary-template.xlsx</Literal>
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="ConfigName">TriggerSummary.json</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="StorageBucketName">DisabledTrigger</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="TemplateFileName">summary-template.xlsx</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;&quot;]" />
   </Sequence>
 </Activity>

@@ -19,7 +19,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1732,3067</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1732,3200</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -99,7 +99,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1216,3002" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1216,3135" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="FlowConfigText" />
       <Variable x:TypeArguments="njl:JObject" Name="FlowConfigSTR" />
@@ -148,7 +148,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="450,376" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <Sequence DisplayName="Throw Exception" sap:VirtualizedContainerService.HintSize="450,366" sap2010:WorkflowViewState.IdRef="Sequence_9">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -167,7 +167,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <Assign sap2010:Annotation.AnnotationText="Setting whether Trigger count is zero as false" sap:VirtualizedContainerService.HintSize="1154,112" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap2010:Annotation.AnnotationText="Setting whether Trigger count is zero as &quot;false&quot;" sap:VirtualizedContainerService.HintSize="1154,113" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[IsTriggerCountZero]</OutArgument>
       </Assign.To>
@@ -180,6 +180,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1154,92" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Trace" Message="[&quot;&quot;]" />
     <TryCatch DisplayName="Try Catch - Trigger Summary" sap:VirtualizedContainerService.HintSize="1154,363" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -235,7 +236,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
             </ActivityAction.Argument>
-            <If Condition="[exception.Message.Equals(FlowConfigSTR(&quot;ErrorMessage&quot;)(&quot;E002&quot;).ToString)]" DisplayName="If - Checking the Exception" sap:VirtualizedContainerService.HintSize="679,271" sap2010:WorkflowViewState.IdRef="If_2">
+            <If Condition="[exception.Message.Equals(FlowConfigSTR(&quot;ErrorMessage&quot;)(&quot;E002&quot;).ToString)]" DisplayName="If - Checking the Exception" sap:VirtualizedContainerService.HintSize="679,272" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
                 <Assign sap2010:Annotation.AnnotationText="Setting whether Trigger count is zero as true" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="Assign_4">
                   <Assign.To>
@@ -277,7 +278,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <If sap2010:Annotation.AnnotationText="Checking whether trigger count is zero to send slack message as &quot;There Are No Triggers Avaialble&quot;&#xD;&#xA;true - Logging as &quot;There Are No Triggers Avaialble&quot;&#xD;&#xA;false - invoking the exceltoimage module to save the summary image" Condition="[IsTriggerCountZero.ToString.ToLower.Equals(&quot;true&quot;)]" DisplayName="If - Checking whether Trigger count is zero" sap:VirtualizedContainerService.HintSize="713,329" sap2010:WorkflowViewState.IdRef="If_4">
+          <If sap2010:Annotation.AnnotationText="Checking whether trigger count is zero to send slack message as &quot;There Are No Triggers Avaialble&quot;&#xA;true - Logging as &quot;There Are No Triggers Avaialble&quot;&#xA;false - invoking the exceltoimage module to save the summary image" Condition="[IsTriggerCountZero.ToString.ToLower.Equals(&quot;true&quot;)]" DisplayName="If - Checking whether Trigger count is zero" sap:VirtualizedContainerService.HintSize="713,329" sap2010:WorkflowViewState.IdRef="If_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -289,12 +290,8 @@
             <If.Else>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="exceltoimage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="exceltoimage.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <OutArgument x:TypeArguments="ui:Image" x:Key="SummaryImg">
-                    <mva:VisualBasicReference x:TypeArguments="ui:Image" ExpressionText="MessageImage" />
-                  </OutArgument>
-                  <OutArgument x:TypeArguments="x:String" x:Key="ExcelFilePath">
-                    <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="ImageFilePath" />
-                  </OutArgument>
+                  <OutArgument x:TypeArguments="ui:Image" x:Key="SummaryImg">[MessageImage]</OutArgument>
+                  <OutArgument x:TypeArguments="x:String" x:Key="ExcelFilePath">[ImageFilePath]</OutArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
             </If.Else>

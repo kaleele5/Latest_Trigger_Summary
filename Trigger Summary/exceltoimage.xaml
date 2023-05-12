@@ -138,7 +138,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;Excel To Image Conversion Process Started&quot;]" />
-    <TryCatch sap2010:Annotation.AnnotationText="Converting the Excel to Image to post as message in slack&#xA;System exception - Rethrow the error&#xA;Business Exception - Rethrow the error" DisplayName="Try Catch - Excel To Image Conversion" sap:VirtualizedContainerService.HintSize="388,124" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <TryCatch sap2010:Annotation.AnnotationText="Converting the Excel to Image to post as message in slack&#xA;System exception - Rethrow the error&#xA;Business Exception - Rethrow the error" DisplayName="Try Catch - Excel To Image Conversion" sap:VirtualizedContainerService.HintSize="929,2977" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -147,7 +147,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="Excel To Image Conversion" sap:VirtualizedContainerService.HintSize="891,2538" sap2010:WorkflowViewState.IdRef="Sequence_13">
+        <Sequence DisplayName="Excel To Image Conversion" sap:VirtualizedContainerService.HintSize="891,2670" sap2010:WorkflowViewState.IdRef="Sequence_13">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="FilePath" />
             <Variable x:TypeArguments="sd:DataTable" Name="TriggerSummaryDT" />
@@ -197,6 +197,7 @@
               </Sequence>
             </If.Else>
           </If>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="829,92" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Trace" Message="[&quot;Sending The Excel Sheet&quot;]" />
           <TryCatch sap2010:Annotation.AnnotationText="Try - reading the excel sheet&#xA;System exception - Throw Error as &quot;Unable to read excel sheet&quot;" DisplayName="Try Catch - Reading The Excel Sheet" sap:VirtualizedContainerService.HintSize="829,358" sap2010:WorkflowViewState.IdRef="TryCatch_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">

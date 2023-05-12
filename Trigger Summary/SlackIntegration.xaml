@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1732,1096</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1732,1549</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SlackIntegration_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="76">
@@ -123,7 +123,7 @@
       <AssemblyReference>Element5.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SlackIntegration" sap:VirtualizedContainerService.HintSize="450,1031" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SlackIntegration" sap:VirtualizedContainerService.HintSize="1015,1484" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:Image" Name="Summary_image" />
       <Variable x:TypeArguments="x:String" Name="SlackToken" />
@@ -136,8 +136,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;Post Slack Message Process Started&quot;]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Trace" Message="[&quot;Getting the slack token from orchrestartor&quot;]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="953,92" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;Post Slack Message Process Started&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="953,52" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Trace" Message="[&quot;Getting the slack token from orchrestartor&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -145,7 +145,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[FlowConfig(&quot;SlackSecretKey&quot;).ToString]" CacheStrategy="None" DisplayName="Get Asset" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[FlowConfig(&quot;SlackSecretKey&quot;).ToString]" CacheStrategy="None" DisplayName="Get Asset" sap:VirtualizedContainerService.HintSize="953,52" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
       <ui:GetRobotAsset.Value>
         <OutArgument x:TypeArguments="x:String">[SlackToken]</OutArgument>
       </ui:GetRobotAsset.Value>
@@ -156,11 +156,11 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetRobotAsset>
-    <If sap2010:Annotation.AnnotationText="True - Save Image value as Image file in the directory&#xA;False - adding text message as &quot;There is no trigger available&quot;" Condition="[SendImage]" DisplayName="If - Checking Whether Need Send Image" sap:VirtualizedContainerService.HintSize="388,124" sap2010:WorkflowViewState.IdRef="If_3">
+    <If sap2010:Annotation.AnnotationText="True - Save Image value as Image file in the directory&#xA;False - adding text message as &quot;There is no trigger available&quot;" Condition="[SendImage]" DisplayName="If - Checking Whether Need Send Image" sap:VirtualizedContainerService.HintSize="953,577" sap2010:WorkflowViewState.IdRef="If_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -215,7 +215,7 @@
                   <OutArgument x:TypeArguments="x:String">[TextMessage]</OutArgument>
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:String" xml:space="preserve">Trigger Summary  ----&gt;   There Are No Triggers Available</InArgument>
+                  <InArgument x:TypeArguments="x:String" xml:space="preserve">Trigger Summary  ----&gt;   Triggers Not Available</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
             </scg:List>
@@ -223,7 +223,7 @@
         </ui:MultipleAssign>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Trace" Message="[&quot;Sending Slack Message&quot;]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="953,52" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Trace" Message="[&quot;Sending Slack Message&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -231,7 +231,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <usa:SlackScopeActivity Connection="{x:Null}" DesignConnectionRequest="{x:Null}" ExistingConnection="{x:Null}" SelectedDesignAuthType="{x:Null}" SwaggerClient="{x:Null}" DesignConnectionEnabled="True" DisplayName="Slack Scope" ExistingConnectionType="usm:SlackConnection" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="SlackScopeActivity_1" RefreshCacheEnabled="False" Scopes="PublicChannels, PrivateChannels, DirectMessage, GroupMessage, Files, Users, Chat, UserGroups, Calls, DND, Emoji, Identity, Pins, Reminders, Reactions, Stars" SelectedAuthType="API Token" TelemetryEnabled="False" ThrowExceptionOnError="False">
+    <usa:SlackScopeActivity Connection="{x:Null}" DesignConnectionRequest="{x:Null}" ExistingConnection="{x:Null}" SelectedDesignAuthType="{x:Null}" SwaggerClient="{x:Null}" DesignConnectionEnabled="True" DisplayName="Slack Scope" ExistingConnectionType="usm:SlackConnection" sap:VirtualizedContainerService.HintSize="953,52" sap2010:WorkflowViewState.IdRef="SlackScopeActivity_1" RefreshCacheEnabled="False" Scopes="PublicChannels, PrivateChannels, DirectMessage, GroupMessage, Files, Users, Chat, UserGroups, Calls, DND, Emoji, Identity, Pins, Reminders, Reactions, Stars" SelectedAuthType="API Token" TelemetryEnabled="False" ThrowExceptionOnError="False">
       <usa:SlackScopeActivity.Body>
         <ActivityAction x:TypeArguments="ubac:ScopeActivityContext">
           <ActivityAction.Argument>
@@ -245,17 +245,16 @@
             </sap:WorkflowViewStateService.ViewState>
             <usam:SendMessage BusinessEntityName="{x:Null}" ScopeActivityType="{x:Null}" ConfiguredBusinessEntity="SendMessage" CrudOperation="Function" DesignConnectionEnabled="True" DisplayName="Send Message" sap:VirtualizedContainerService.HintSize="388,237" sap2010:WorkflowViewState.IdRef="SendMessage_1" Status="[ResponseCode]">
               <usam:SendMessage.BusinessEntity>
-                <ubme:BusinessEntity AuthFields="{x:Null}" Connection="{x:Null}" Id="{x:Null}" Metadata="{x:Reference __ReferenceID0}" Name="SendMessage">
+                <ubme:BusinessEntity AuthFields="{x:Null}" Connection="{x:Null}" Id="{x:Null}" Name="SendMessage">
                   <ubme:BusinessEntity.AllFields>
                     <scg:List x:TypeArguments="ubme:EntityField" Capacity="0" />
                   </ubme:BusinessEntity.AllFields>
                   <ubme:BusinessEntity.EntityMetadata>
-                    <ubme:EntityMetadata Description="{x:Null}" EligibleOperations="-1" IsCustomEntity="False" Name="SendMessage">
-                      <ubme:EntityMetadata.Metadata>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object" x:Name="__ReferenceID0" />
-                      </ubme:EntityMetadata.Metadata>
-                    </ubme:EntityMetadata>
+                    <ubme:EntityMetadata Description="{x:Null}" Metadata="{x:Reference __ReferenceID0}" EligibleOperations="-1" IsCustomEntity="False" Name="SendMessage" />
                   </ubme:BusinessEntity.EntityMetadata>
+                  <ubme:BusinessEntity.Metadata>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object" x:Name="__ReferenceID0" />
+                  </ubme:BusinessEntity.Metadata>
                   <ubme:BusinessEntity.SelectedFields>
                     <scg:List x:TypeArguments="ubme:EntityField" Capacity="0" />
                   </ubme:BusinessEntity.SelectedFields>
@@ -364,7 +363,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </usa:SlackScopeActivity>
-    <If sap2010:Annotation.AnnotationText="True - Loggin as &quot;Successfully Posted Message In Slack&quot;&#xA;False - Throw exception as &quot;Failed To Send Slack Message&quot;" Condition="[ResponseCode.Success]" DisplayName="If - Checking The Response Code" sap:VirtualizedContainerService.HintSize="388,124" sap2010:WorkflowViewState.IdRef="If_4">
+    <If sap2010:Annotation.AnnotationText="True - Loggin as &quot;Successfully Posted Message In Slack&quot;&#xA;False - Throw exception as &quot;Failed To Send Slack Message&quot;" Condition="[ResponseCode.Success]" DisplayName="If - Checking The Response Code" sap:VirtualizedContainerService.HintSize="953,124" sap2010:WorkflowViewState.IdRef="If_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>

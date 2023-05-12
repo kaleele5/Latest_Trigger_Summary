@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1378,1196</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1732,2493</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Trigger_Summary_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -95,9 +95,10 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Process to get trigger details from the orchestrator" DisplayName="Trigger_Summary" sap:VirtualizedContainerService.HintSize="450,1131" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Process to get trigger details from the orchestrator" DisplayName="Trigger_Summary" sap:VirtualizedContainerService.HintSize="681,2428" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="UipathToken" />
       <Variable x:TypeArguments="njl:JObject" Name="ResponseBodyObject" />
@@ -126,8 +127,8 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Gettinng trigger summary from orchrestrator process started&quot;]" />
-    <TryCatch sap2010:Annotation.AnnotationText="Try  - Login  into orchestrator using API&#xA;&#xA;Exception - Rethrow" DisplayName="Try Catch - Login" sap:VirtualizedContainerService.HintSize="388,124" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="619,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Gettinng trigger summary from orchrestrator process started&quot;]" />
+    <TryCatch sap2010:Annotation.AnnotationText="Try  - Login  into orchestrator using API&#xA;&#xA;Exception - Rethrow" DisplayName="Try Catch - Login" sap:VirtualizedContainerService.HintSize="619,124" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -267,7 +268,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <TryCatch sap2010:Annotation.AnnotationText="Try - getting the trigger summary through API&#xA;&#xA;Exception  - Rethrow" DisplayName="Try Catch - Getting the Trigger Summary" sap:VirtualizedContainerService.HintSize="388,109" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <TryCatch sap2010:Annotation.AnnotationText="Try - getting the trigger summary through API&#xA;&#xA;Exception  - Rethrow" DisplayName="Try Catch - Getting the Trigger Summary" sap:VirtualizedContainerService.HintSize="619,109" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -478,19 +479,19 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <TryCatch sap2010:Annotation.AnnotationText="Try Catch - Getting Trigger Details Through Audit Logs&#xA;&#xA;Business -Logs the error&#xA;System - Logs the error" DisplayName="Try Catch - Getting Trigger Details Through Audit Logs" sap:VirtualizedContainerService.HintSize="388,124" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+    <TryCatch sap2010:Annotation.AnnotationText="Try Catch - Getting Trigger Details Through Audit Logs&#xA;&#xA;Business -Logs the error&#xA;System - Logs the error" DisplayName="Try Catch - Getting Trigger Details Through Audit Logs" sap:VirtualizedContainerService.HintSize="619,1421" sap2010:WorkflowViewState.IdRef="TryCatch_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap2010:Annotation.AnnotationText="Getting The Trigger Details From orchestrator" DisplayName="Getting The Trigger Details From orchestrator" sap:VirtualizedContainerService.HintSize="1212,3288" sap2010:WorkflowViewState.IdRef="Sequence_13">
+        <Sequence sap2010:Annotation.AnnotationText="Getting The Trigger Details From orchestrator" DisplayName="Getting The Trigger Details From orchestrator" sap:VirtualizedContainerService.HintSize="450,112" sap2010:WorkflowViewState.IdRef="Sequence_13">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
@@ -498,7 +499,7 @@
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1150,92" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="Trace" Message="[&quot;Creating Datatable For Trigger Details&quot;]" />
           <ui:BuildDataTable DataTable="[TriggerListDT]" DisplayName="Build Data Table - Trigger Summary" sap:VirtualizedContainerService.HintSize="1150,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Trigger_x0020_Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Action&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Time&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;      &lt;xs:unique name=&quot;Constraint1&quot;&gt;&#xA;        &lt;xs:selector xpath=&quot;.//TableName&quot; /&gt;&#xA;        &lt;xs:field xpath=&quot;Trigger_x0020_Name&quot; /&gt;&#xA;      &lt;/xs:unique&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1150,92" sap2010:WorkflowViewState.IdRef="LogMessage_43" Level="Trace" Message="[&quot;Updating Each Trigger through Audit&quot;]" />
-          <ui:ForEachRow ColumnNames="{x:Null}" sap2010:Annotation.AnnotationText="For Each Row in Data Table - Looping trigger name and trigger id and updates the trigger details in the excel sheet" CurrentIndex="[Count]" DataTable="[TriggerDetailsDT]" DisplayName="For Each Row in Data Table - Looping trigger name and trigger id" sap:VirtualizedContainerService.HintSize="1150,2650" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+          <ui:ForEachRow ColumnNames="{x:Null}" sap2010:Annotation.AnnotationText="For Each Row in Data Table - Looping trigger name and trigger id and updates the trigger details in the excel sheet" CurrentIndex="[Count]" DataTable="[TriggerDetailsDT]" DisplayName="For Each Row in Data Table - Looping trigger name and trigger id" sap:VirtualizedContainerService.HintSize="1150,2651" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
             <ui:ForEachRow.Body>
               <ActivityAction x:TypeArguments="sd:DataRow">
                 <ActivityAction.Argument>
@@ -889,7 +890,7 @@
         </Catch>
       </TryCatch.Catches>
       <TryCatch.Finally>
-        <Sequence DisplayName="Updating the missed trigger details" sap:VirtualizedContainerService.HintSize="581,1218" sap2010:WorkflowViewState.IdRef="Sequence_28">
+        <Sequence DisplayName="Updating the missed trigger details" sap:VirtualizedContainerService.HintSize="581,1099" sap2010:WorkflowViewState.IdRef="Sequence_28">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="Tr" />
             <Variable x:TypeArguments="x:String" Name="trigger" />
@@ -930,7 +931,7 @@
               </scg:List>
             </ui:MultipleAssign.AssignOperations>
           </ui:MultipleAssign>
-          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[TriggerSummaryDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="519,359" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[TriggerSummaryDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="519,360" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
             <ui:ForEachRow.Body>
               <ActivityAction x:TypeArguments="sd:DataRow">
                 <ActivityAction.Argument>
@@ -968,15 +969,14 @@
               </ActivityAction>
             </ui:ForEachRow.Body>
           </ui:ForEachRow>
-          <ui:OutputDataTable DataTable="[TriggerSummaryDT]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="519,80" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[trigger]" />
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="519,92" sap2010:WorkflowViewState.IdRef="LogMessage_47" Level="Trace" Message="[trigger]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="519,92" sap2010:WorkflowViewState.IdRef="LogMessage_51" Level="Trace" Message="[&quot;Merging And Sorting The Table&quot;]" />
           <ui:MergeDataTable Destination="[TriggerSummaryDT]" DisplayName="Merge Data Table" sap:VirtualizedContainerService.HintSize="519,133" sap2010:WorkflowViewState.IdRef="MergeDataTable_2" MissingSchemaAction="Add" Source="[TriggerListDT]" />
           <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="Time" DataTable="[TriggerSummaryDT]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="519,80" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[TriggerSummaryDT]" SortOrder="Ascending" />
         </Sequence>
       </TryCatch.Finally>
     </TryCatch>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_50" Level="Trace" Message="[&quot;Writing the trigger details in the excel sheet&quot;]" />
-    <ui:WriteRange AddHeaders="True" DataTable="[TriggerSummaryDT]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="[IO.Directory.GetCurrentDirectory+&quot;\TriggerSummary.xlsx&quot;]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="619,92" sap2010:WorkflowViewState.IdRef="LogMessage_50" Level="Trace" Message="[&quot;Writing the trigger details in the excel sheet&quot;]" />
+    <ui:WriteRange AddHeaders="True" DataTable="[TriggerSummaryDT]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="619,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="[IO.Directory.GetCurrentDirectory+&quot;\TriggerSummary.xlsx&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -984,6 +984,6 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:WriteRange>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_45" Level="Trace" Message="[&quot;Gettinng trigger summary from orchrestrator process Finished&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="619,92" sap2010:WorkflowViewState.IdRef="LogMessage_45" Level="Trace" Message="[&quot;Gettinng trigger summary from orchrestrator process Finished&quot;]" />
   </Sequence>
 </Activity>
